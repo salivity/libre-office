@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Fillable PDF Forms in LibreOffice Writer - libre-office</title>
+    <meta name="description" content="Creating interactive, fillable PDF documents allows users to enter information digitally without altering the underlying layout. This guide provides a straightforward walkthrough on how to use the built-in form controls in LibreOffice Writer to design cu">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/create-fillable-pdf-forms-in-libreoffice-writer">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Fillable PDF Forms in LibreOffice Writer - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/create-fillable-pdf-forms-in-libreoffice-writer" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Creating interactive, fillable PDF documents allows users to enter information digitally without altering the underlying layout. This guide provides a straightforward walkthrough on how to use the built-in form controls in LibreOffice Writer to design cu" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-fillable-pdf-forms-in-libreoffice-writer">Create Fillable
+PDF Forms in LibreOffice Writer</h1>
+<p>Creating interactive, fillable PDF documents allows users to enter
+information digitally without altering the underlying layout. This guide
+provides a straightforward walkthrough on how to use the built-in form
+controls in LibreOffice Writer to design custom forms, configure field
+properties, and export the final document as a fully functional PDF
+form.</p>
+<h3 id="step-1-enable-the-form-controls-toolbar">Step 1: Enable the Form
+Controls Toolbar</h3>
+<p>To access the form design tools:</p>
+<ol type="1">
+<li>Open a new or existing document in LibreOffice Writer.</li>
+<li>Go to the top menu and select <strong>View</strong> &gt;
+<strong>Toolbars</strong> &gt; <strong>Form Controls</strong>.</li>
+<li>A toolbar containing various input elements will appear on your
+screen.</li>
+</ol>
+<h3 id="step-2-set-up-document-layout">Step 2: Set Up Document
+Layout</h3>
+<p>Before placing form fields, create the visual structure of your
+document. Use standard text, headings, and tables to position labels
+where user input is required (e.g., "Full Name:", "Email Address:",
+"Date:").</p>
+<h3 id="step-3-insert-form-controls">Step 3: Insert Form Controls</h3>
+<p>Ensure that <strong>Design Mode</strong> is toggled on (the icon
+looks like a drafting triangle and pencil on the Form Controls toolbar).
+Click on the desired control and draw it onto your document page:</p>
+<ul>
+<li><strong>Text Box:</strong> For single-line or multi-line text input
+(e.g., names, comments).</li>
+<li><strong>Check Box:</strong> For non-exclusive, independent options
+(e.g., "Agree to terms").</li>
+<li><strong>Option Button (Radio Button):</strong> For mutually
+exclusive choices where the user can pick only one option from a
+group.</li>
+<li><strong>List Box / Combo Box:</strong> For dropdown menus containing
+predefined options.</li>
+<li><strong>Date Field:</strong> For standardized date entries with an
+optional dropdown calendar.</li>
+</ul>
+<h3 id="step-4-configure-control-properties">Step 4: Configure Control
+Properties</h3>
+<p>Every form control has customizable attributes:</p>
+<ol type="1">
+<li>Select the control you want to edit.</li>
+<li>Click the <strong>Control Properties</strong> icon on the toolbar
+(or right-click the field and select <strong>Control
+Properties</strong>).</li>
+<li>In the properties window, configure the key settings:
+<ul>
+<li><strong>Name:</strong> Assign a unique, descriptive identifier for
+data tracking.</li>
+<li><strong>Title / Label:</strong> Provide a description or tooltip for
+accessibility.</li>
+<li><strong>Max. text length:</strong> Restrict character count if
+necessary (for text boxes).</li>
+<li><strong>Text type:</strong> Switch between "Single-line" and
+"Multi-line" (for text boxes).</li>
+<li><strong>List entries:</strong> Add items line-by-line (Shift + Enter
+for new lines) for list and combo boxes.</li>
+<li><strong>Group Name:</strong> Assign the exact same group name to
+related Option Buttons so that selecting one deselects the others.</li>
+</ul></li>
+</ol>
+<h3 id="step-5-test-the-form">Step 5: Test the Form</h3>
+<p>To test the interactivity directly within LibreOffice Writer:</p>
+<ol type="1">
+<li>Click the <strong>Design Mode</strong> icon on the Form Controls
+toolbar to turn it off.</li>
+<li>Click into the fields to verify typing, dropdown selections, and
+checkbox toggling.</li>
+<li>Turn <strong>Design Mode</strong> back on if you need to adjust
+sizing, positioning, or properties.</li>
+</ol>
+<h3 id="step-6-export-as-a-fillable-pdf">Step 6: Export as a Fillable
+PDF</h3>
+<p>To generate the final fillable PDF:</p>
+<ol type="1">
+<li>Go to <strong>File</strong> &gt; <strong>Export As</strong> &gt;
+<strong>Export as PDF...</strong></li>
+<li>In the <strong>PDF Options</strong> dialog, go to the
+<strong>General</strong> tab.</li>
+<li>Check the box labeled <strong>Create PDF form</strong>.</li>
+<li>Set the <strong>Submit format</strong> (FDF, PDF, HTML, or XML)
+based on your requirements.</li>
+<li>Click <strong>Export</strong>, choose your destination folder, and
+save the file.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

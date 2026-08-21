@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Writer Master Document Linking Protocols - libre-office</title>
+    <meta name="description" content="LibreOffice Writer uses a master document system (.odm) to combine multiple sub-documents (.odt) into a single cohesive work. This article explains the underlying linking protocols, URI schemes, and file management mechanisms LibreOffice Writer employs t">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-writer-master-document-linking-protocols">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Writer Master Document Linking Protocols - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-writer-master-document-linking-protocols" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Writer uses a master document system (.odm) to combine multiple sub-documents (.odt) into a single cohesive work. This article explains the underlying linking protocols, URI schemes, and file management mechanisms LibreOffice Writer employs t" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1
+id="libreoffice-writer-master-document-linking-protocols">LibreOffice
+Writer Master Document Linking Protocols</h1>
+<p>LibreOffice Writer uses a master document system (<code>.odm</code>)
+to combine multiple sub-documents (<code>.odt</code>) into a single
+cohesive work. This article explains the underlying linking protocols,
+URI schemes, and file management mechanisms LibreOffice Writer employs
+to reference, synchronize, and display sub-documents within a master
+document framework.</p>
+<h3 id="opendocument-format-odf-xml-linking">OpenDocument Format (ODF)
+XML Linking</h3>
+<p>At the core format level, LibreOffice Writer adheres to the OASIS
+OpenDocument Format (ODF) standard. When a sub-document is inserted into
+a master document via the Navigator, Writer creates a specialized linked
+section within the document's XML structure
+(<code>content.xml</code>).</p>
+<p>This connection relies on the <code>text:section-source</code>
+element using the W3C XLink standard:</p>
+<ul>
+<li><strong><code>xlink:href</code></strong>: Specifies the target URI
+or file path of the sub-document.</li>
+<li><strong><code>xlink:type="simple"</code></strong>: Designates a
+direct, one-way link to the external source file.</li>
+<li><strong><code>text:filter-name</code></strong>: Defines the import
+filter used to parse the sub-document contents upon loading.</li>
+</ul>
+<h3 id="uri-schemes-and-file-system-path-resolution">URI Schemes and
+File-System Path Resolution</h3>
+<p>LibreOffice Writer resolves linked sub-documents using standard
+Uniform Resource Identifier (URI) formats and native operating system
+paths:</p>
+<ul>
+<li><strong>Relative File Paths</strong>: Writer defaults to relative
+pathing if the master document and sub-documents reside on the same
+drive or directory tree. This allows entire document directories to be
+moved or shared without breaking links.</li>
+<li><strong>Absolute File Paths (<code>file://</code>)</strong>: When
+documents are located on different drives or separate directory roots,
+Writer stores absolute paths using standard <code>file://</code> URI
+protocol schemes (e.g., <code>file:///C:/Documents/Chapter1.odt</code>
+or <code>file:///home/user/docs/Chapter1.odt</code>).</li>
+<li><strong>UNC Paths</strong>: In Windows environments, Writer supports
+Universal Naming Convention paths
+(<code>\\server\share\path\to\file.odt</code>) for network-based
+sub-documents.</li>
+</ul>
+<h3 id="remote-and-virtual-file-system-protocols-ucp">Remote and Virtual
+File System Protocols (UCP)</h3>
+<p>LibreOffice includes an abstraction layer called the Universal
+Content Provider (UCP), which enables master documents to link to
+sub-documents hosted across various network and cloud protocols:</p>
+<ul>
+<li><strong>WebDAV / HTTP(S)</strong>: Sub-documents hosted on
+WebDAV-enabled web servers can be referenced directly using HTTP or
+HTTPS URIs (<code>http://</code>, <code>https://</code>, or internal
+<code>vnd.sun.star.webdav://</code> schemes).</li>
+<li><strong>CMIS (Content Management Interoperability
+Services)</strong>: Writer can link to sub-documents stored in
+enterprise content management systems (such as Alfresco, Nextcloud, or
+Microsoft SharePoint) using the CMIS protocol bindings.</li>
+<li><strong>FTP / SFTP</strong>: Remote sub-documents can be linked over
+File Transfer Protocol (<code>ftp://</code>) or Secure Shell File
+Transfer Protocol (<code>sftp://</code>).</li>
+<li><strong>SMB / CIFS</strong>: Network shares accessed natively or via
+the GNOME Virtual File System (GVFS) / KIO layers are supported through
+<code>smb://</code> protocols on Linux or UNC paths on Windows.</li>
+</ul>
+<h3 id="dde-and-ole-section-linking">DDE and OLE Section Linking</h3>
+<p>In addition to native master document Navigator links, LibreOffice
+Writer supports alternative linking protocols for bringing external
+content into master document workflows:</p>
+<ul>
+<li><strong>Dynamic Data Exchange (DDE)</strong>: Allows a master
+document to establish a live IPC (Inter-Process Communication) link to
+specific data fields or sections within another application or
+document.</li>
+<li><strong>Object Linking and Embedding (OLE)</strong>: Enables linking
+sub-components as embedded objects, storing an external pointer rather
+than embedding raw text sections directly into the document tree.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

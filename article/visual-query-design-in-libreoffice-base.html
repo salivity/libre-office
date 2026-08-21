@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Query Design in LibreOffice Base - libre-office</title>
+    <meta name="description" content="The Graphical Query Interface in LibreOffice Base provides a visual way to build SQL database queries without writing code manually. This guide covers how to launch the Query Design View, select data sources, establish table joins, apply filters and sort">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/visual-query-design-in-libreoffice-base">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Visual Query Design in LibreOffice Base - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/visual-query-design-in-libreoffice-base" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="The Graphical Query Interface in LibreOffice Base provides a visual way to build SQL database queries without writing code manually. This guide covers how to launch the Query Design View, select data sources, establish table joins, apply filters and sort" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="visual-query-design-in-libreoffice-base">Visual Query Design in
+LibreOffice Base</h1>
+<p>The Graphical Query Interface in LibreOffice Base provides a visual
+way to build SQL database queries without writing code manually. This
+guide covers how to launch the Query Design View, select data sources,
+establish table joins, apply filters and sorting criteria, and run your
+query to retrieve specific records efficiently.</p>
+<h3 id="1-opening-query-design-view">1. Opening Query Design View</h3>
+<ol type="1">
+<li>Open your database file (<code>.odb</code>) in LibreOffice
+Base.</li>
+<li>In the left-hand <strong>Database</strong> pane, click on the
+<strong>Queries</strong> icon.</li>
+<li>In the <strong>Tasks</strong> area, select <strong>Create Query in
+Design View...</strong>.</li>
+</ol>
+<p>The Query Design window will open alongside the <strong>Add Table or
+Query</strong> dialog box.</p>
+<h3 id="2-adding-tables-and-views">2. Adding Tables and Views</h3>
+<ol type="1">
+<li>In the <strong>Add Table or Query</strong> dialog, select the tables
+or existing queries that contain the data you need.</li>
+<li>Click <strong>Add</strong> for each required item.</li>
+<li>Click <strong>Close</strong> once all necessary tables are displayed
+in the upper workspace.</li>
+</ol>
+<h3 id="3-defining-table-relationships-joins">3. Defining Table
+Relationships (Joins)</h3>
+<p>If you add multiple tables that share common keys:</p>
+<ol type="1">
+<li>Click and hold a field from one table (such as a Primary Key).</li>
+<li>Drag and drop it onto the corresponding field (Foreign Key) in the
+other table. A line connecting the two fields will appear.</li>
+<li>Double-click the join line if you need to modify the join type
+(e.g., Inner Join, Left Join, or Right Join).</li>
+</ol>
+<h3 id="4-selecting-fields-for-the-output">4. Selecting Fields for the
+Output</h3>
+<p>The lower half of the interface contains the query design grid. To
+add fields to your query:</p>
+<ul>
+<li><strong>Method 1:</strong> Double-click a field name in the table
+box in the upper area.</li>
+<li><strong>Method 2:</strong> Click an empty cell in the
+<strong>Field</strong> row of the grid and choose a field from the
+dropdown list. The corresponding table will automatically populate in
+the <strong>Table</strong> row.</li>
+<li><strong>Visible Checkbox:</strong> Check the
+<strong>Visible</strong> box to display the column in the results, or
+uncheck it if the field is only used for filtering.</li>
+<li><strong>Alias:</strong> Enter a custom header name in the
+<strong>Alias</strong> row if you want to rename the column in the query
+results.</li>
+</ul>
+<h3 id="5-applying-sorting-and-criteria">5. Applying Sorting and
+Criteria</h3>
+<p>Use the bottom grid to refine your results:</p>
+<ul>
+<li><strong>Sort:</strong> Click the <strong>Sort</strong> row under any
+field to specify <strong>Ascending</strong> or
+<strong>Descending</strong> order.</li>
+<li><strong>Criterion:</strong> Enter filter conditions in the
+<strong>Criterion</strong> row. For example:
+<ul>
+<li>Numbers: <code>&gt; 100</code>, <code>&lt;= 50</code></li>
+<li>Text: <code>'Active'</code>, <code>LIKE 'Smith*'</code></li>
+<li>Dates: <code>#2023-01-01#</code></li>
+</ul></li>
+<li><strong>Or:</strong> Use the <strong>Or</strong> rows beneath
+<strong>Criterion</strong> to specify alternative conditions.</li>
+</ul>
+<h3 id="6-using-functions-and-aggregations">6. Using Functions and
+Aggregations</h3>
+<p>To group data or calculate summary values:</p>
+<ol type="1">
+<li>Click the <strong>Functions</strong> button on the Query Design
+toolbar to display the <strong>Function</strong> row in the grid.</li>
+<li>Select options like <strong>Count</strong>, <strong>Sum</strong>,
+<strong>Average</strong>, <strong>Min</strong>, <strong>Max</strong>, or
+<strong>Group</strong> for individual columns.</li>
+</ol>
+<h3 id="7-running-and-saving-the-query">7. Running and Saving the
+Query</h3>
+<ol type="1">
+<li>Click the <strong>Run Query</strong> button (or press
+<strong>F5</strong>) on the toolbar to test the query. The retrieved
+records will display in a preview pane above the design grid.</li>
+<li>If adjustments are needed, modify the grid criteria and press
+<strong>F5</strong> again.</li>
+<li>Click the <strong>Save</strong> icon (or press <strong>Ctrl +
+S</strong>), enter a descriptive name for your query, and click
+<strong>OK</strong>.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

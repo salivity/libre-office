@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy LibreOffice on macOS Fleets via MDM Profiles - libre-office</title>
+    <meta name="description" content="Deploying LibreOffice across a fleet of macOS devices requires combining Mobile Device Management (MDM) deployment commands with custom Apple configuration profiles (.mobileconfig). This guide explains how to package LibreOffice for silent installation,">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/deploy-libreoffice-on-macos-fleets-via-mdm-profiles">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Deploy LibreOffice on macOS Fleets via MDM Profiles - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/deploy-libreoffice-on-macos-fleets-via-mdm-profiles" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Deploying LibreOffice across a fleet of macOS devices requires combining Mobile Device Management (MDM) deployment commands with custom Apple configuration profiles (.mobileconfig). This guide explains how to package LibreOffice for silent installation," />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="deploy-libreoffice-on-macos-fleets-via-mdm-profiles">Deploy
+LibreOffice on macOS Fleets via MDM Profiles</h1>
+<p>Deploying LibreOffice across a fleet of macOS devices requires
+combining Mobile Device Management (MDM) deployment commands with custom
+Apple configuration profiles (<code>.mobileconfig</code>). This guide
+explains how to package LibreOffice for silent installation, configure
+privacy and security permissions via Privacy Preferences Policy Control
+(PPPC) profiles, and manage enterprise settings to ensure a seamless,
+non-disruptive deployment across all managed Mac endpoints.</p>
+<hr />
+<h3 id="step-1-prepare-the-libreoffice-installer">Step 1: Prepare the
+LibreOffice Installer</h3>
+<p>LibreOffice provides standard disk images (<code>.dmg</code>)
+directly from its official site, but automated MDM distribution requires
+an Apple installer package (<code>.pkg</code>).</p>
+<ol type="1">
+<li>Download the latest stable LibreOffice release architecture for your
+fleet (Apple Silicon/ARM64 or Intel/x86_64).</li>
+<li>Convert the <code>.dmg</code> into a standard <code>.pkg</code>
+using packaging tools such as <code>pkgbuild</code>, Jamf Composer, or
+AutoPkg.</li>
+<li>Sign the <code>.pkg</code> with a recognized Apple Developer ID
+Installer certificate to ensure Gatekeeper accepts the payload without
+manual user intervention.</li>
+</ol>
+<hr />
+<h3 id="step-2-configure-pppc-tcc-configuration-profile">Step 2:
+Configure PPPC (TCC) Configuration Profile</h3>
+<p>Modern versions of macOS require user permission for applications to
+access sensitive folders such as Documents, Downloads, and Desktop. To
+prevent prompt fatigue and ensure background operations succeed, deploy
+a Privacy Preferences Policy Control (PPPC) configuration profile.</p>
+<p>Create a <code>.mobileconfig</code> file containing a
+<code>com.apple.TCC.configuration-profile-policy</code> payload with the
+following values:</p>
+<ul>
+<li><strong>Identifier:</strong>
+<code>org.libreoffice.script</code></li>
+<li><strong>Identifier Type:</strong> <code>bundleID</code></li>
+<li><strong>Code Requirement:</strong> Run
+<code>codesign -dr - /Applications/LibreOffice.app</code> in Terminal to
+extract the designated requirement string.</li>
+<li><strong>Services Allowed:</strong>
+<ul>
+<li><code>SystemPolicyDocumentsFolder</code> (Allow)</li>
+<li><code>SystemPolicyDesktopFolder</code> (Allow)</li>
+<li><code>SystemPolicyDownloadsFolder</code> (Allow)</li>
+</ul></li>
+</ul>
+<p>Deploy this configuration profile to your target device groups before
+or alongside the software installation.</p>
+<hr />
+<h3 id="step-3-manage-enterprise-preferences-with-custom-settings">Step
+3: Manage Enterprise Preferences with Custom Settings</h3>
+<p>To standardize settings across your fleet—such as disabling automatic
+update checks, setting default file formats (e.g., OOXML vs. ODF), and
+opting out of telemetry—create a custom plist configuration profile
+under the domain <code>org.libreoffice.script</code>.</p>
+<p>An example configuration payload structure:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">&quot;1.0&quot;</span> <span class="ot">encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> <span class="dt">plist</span> PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;<span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">plist</span> <span class="ot">version=</span><span class="st">&quot;1.0&quot;</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">dict</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">key</span>&gt;PayloadContent&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">array</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dict</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">key</span>&gt;PayloadType&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">string</span>&gt;org.libreoffice.script&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">key</span>&gt;PayloadVersion&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">integer</span>&gt;1&lt;/<span class="kw">integer</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">key</span>&gt;PayloadIdentifier&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">string</span>&gt;com.company.libreoffice.settings&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">key</span>&gt;PayloadUUID&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">string</span>&gt;YOUR-GENERATED-UUID-HERE&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">key</span>&gt;PayloadEnabled&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">true</span>/&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="co">&lt;!-- Custom enterprise settings --&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">key</span>&gt;ooSetupShowIntro&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">false</span>/&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dict</span>&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">array</span>&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">key</span>&gt;PayloadDisplayName&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">string</span>&gt;LibreOffice Fleet Settings&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">key</span>&gt;PayloadIdentifier&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">string</span>&gt;com.company.libreoffice&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">key</span>&gt;PayloadType&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">string</span>&gt;Configuration&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">key</span>&gt;PayloadUUID&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">string</span>&gt;YOUR-MAIN-PROFILE-UUID&lt;/<span class="kw">string</span>&gt;</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">key</span>&gt;PayloadVersion&lt;/<span class="kw">key</span>&gt;</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">integer</span>&gt;1&lt;/<span class="kw">integer</span>&gt;</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">dict</span>&gt;</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">plist</span>&gt;</span></code></pre></div>
+<hr />
+<h3 id="step-4-deploy-via-your-mdm-solution">Step 4: Deploy via Your MDM
+Solution</h3>
+<ol type="1">
+<li><strong>Upload the PKG:</strong> Add the signed LibreOffice
+<code>.pkg</code> to your MDM server (such as Jamf Pro, Microsoft
+Intune, Kandji, or SimpleMDM).</li>
+<li><strong>Upload Configuration Profiles:</strong> Add the PPPC profile
+and the custom settings profile to your MDM repository.</li>
+<li><strong>Scope and Assign:</strong> Assign both the installer package
+and configuration profiles to target device groups or dynamic smart
+groups.</li>
+<li><strong>Trigger Installation:</strong> Deploy using the MDM vendor's
+standard install command (<code>InstallEnterpriseApplication</code> via
+the Apple MDM protocol).</li>
+</ol>
+<hr />
+<h3 id="step-5-verification-and-fleet-testing">Step 5: Verification and
+Fleet Testing</h3>
+<p>Verify the deployment on a test Mac by performing the following
+checks:</p>
+<ol type="1">
+<li>Confirm profile installation under <strong>System Settings &gt;
+Privacy &amp; Security &gt; Profiles</strong>.</li>
+<li>Verify that <code>/Applications/LibreOffice.app</code> is present
+and functional.</li>
+<li>Open LibreOffice to ensure no Gatekeeper warnings or permission
+prompts appear for managed directories.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

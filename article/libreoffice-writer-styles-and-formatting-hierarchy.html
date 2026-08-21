@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Writer Styles and Formatting Hierarchy - libre-office</title>
+    <meta name="description" content="Mastering styles and formatting hierarchy in LibreOffice Writer is essential for creating structured, professional, and easily maintainable documents. This guide outlines the six core style categories, explains the strict hierarchy of formatting preceden">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-writer-styles-and-formatting-hierarchy">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Writer Styles and Formatting Hierarchy - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-writer-styles-and-formatting-hierarchy" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Mastering styles and formatting hierarchy in LibreOffice Writer is essential for creating structured, professional, and easily maintainable documents. This guide outlines the six core style categories, explains the strict hierarchy of formatting preceden" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-writer-styles-and-formatting-hierarchy">LibreOffice
+Writer Styles and Formatting Hierarchy</h1>
+<p>Mastering styles and formatting hierarchy in LibreOffice Writer is
+essential for creating structured, professional, and easily maintainable
+documents. This guide outlines the six core style categories, explains
+the strict hierarchy of formatting precedence from direct formatting
+down to default templates, and details how style inheritance works to
+keep your document design consistent.</p>
+<h2 id="the-six-style-categories-in-libreoffice-writer">The Six Style
+Categories in LibreOffice Writer</h2>
+<p>LibreOffice Writer organizes styling into six distinct categories,
+accessible via the <strong>Styles</strong> deck in the sidebar
+(<code>F11</code>):</p>
+<ol type="1">
+<li><strong>Paragraph Styles:</strong> Apply formatting to entire text
+blocks, controlling font family, size, line spacing, text alignment, tab
+stops, and borders.</li>
+<li><strong>Character Styles:</strong> Apply formatting to specific
+words, phrases, or individual characters within a paragraph (e.g.,
+bolding, italics, highlighting) without altering the rest of the
+paragraph.</li>
+<li><strong>Frame Styles:</strong> Control the layout, positioning,
+border, background, and text wrap of text boxes, images, and other
+objects.</li>
+<li><strong>Page Styles:</strong> Define structural layout parameters
+including page margins, orientation (portrait/landscape), paper size,
+headers, footers, and column layouts.</li>
+<li><strong>List Styles:</strong> Manage bullet types, numbering
+sequences, indentation levels, and prefix/suffix formatting for ordered
+and unordered lists.</li>
+<li><strong>Table Styles:</strong> Control cell padding, borders,
+alignment, and background striping for tables.</li>
+</ol>
+<h2 id="the-formatting-hierarchy-and-order-of-precedence">The Formatting
+Hierarchy and Order of Precedence</h2>
+<p>When multiple formatting rules target the same text, LibreOffice
+Writer resolves conflicts using a strict top-to-bottom hierarchy.
+Higher-level formatting always overrides lower-level formatting:</p>
+<ol type="1">
+<li><strong>Direct Formatting (Highest Precedence):</strong> Manual
+changes applied via the toolbar or keyboard shortcuts (e.g.,
+highlighting text and pressing <code>Ctrl + B</code>). Direct formatting
+overrides all underlying styles.</li>
+<li><strong>Character Styles:</strong> Dedicated styles applied to a
+text selection. These override font attributes defined by the paragraph
+style.</li>
+<li><strong>Paragraph Styles:</strong> The baseline formatting applied
+to an entire paragraph block.</li>
+<li><strong>Default / Template Styles (Lowest Precedence):</strong> The
+default system settings defined in the active document template.</li>
+</ol>
+<p>To restore styling integrity when direct formatting causes unintended
+conflicts, select the affected text and clear direct formatting using
+<code>Ctrl + M</code> or navigate to <strong>Format &gt; Clear Direct
+Formatting</strong>.</p>
+<h2 id="style-inheritance-parent-child-hierarchy">Style Inheritance
+(Parent-Child Hierarchy)</h2>
+<p>LibreOffice Writer utilizes a hierarchical tree structure based on
+inheritance:</p>
+<ul>
+<li><strong>Parent Styles (Base Styles):</strong> The foundational style
+(e.g., <em>Default Paragraph Style</em>). Attributes set here
+automatically propagate down to all child styles.</li>
+<li><strong>Child Styles (Derived Styles):</strong> Styles linked to a
+parent style (e.g., <em>Body Text</em>, <em>Heading 1</em>,
+<em>Header</em>).</li>
+</ul>
+<p>When you modify an attribute in a parent style—such as changing the
+font to <em>Libertinus Serif</em>—every child style inherits that change
+automatically, unless that specific attribute has been explicitly
+overridden within the child style itself.</p>
+<h2 id="rules-for-effective-hierarchy-management">Rules for Effective
+Hierarchy Management</h2>
+<ul>
+<li><strong>Avoid Direct Formatting:</strong> Rely on Character and
+Paragraph styles for consistent document updates.</li>
+<li><strong>Use Page Breaks with Page Styles:</strong> Assign distinct
+page styles (e.g., <em>First Page</em>, <em>Landscape</em>,
+<em>Index</em>) by inserting a manual page break via <strong>Insert &gt;
+More Breaks &gt; Manual Break</strong>.</li>
+<li><strong>Structure Headings Sequentially:</strong> Always use the
+built-in <em>Heading 1</em> through <em>Heading 10</em> hierarchy to
+ensure automatic table of contents generation and document navigation
+work correctly.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

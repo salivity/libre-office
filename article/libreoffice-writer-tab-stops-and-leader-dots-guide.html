@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Writer Tab Stops and Leader Dots Guide - libre-office</title>
+    <meta name="description" content="Tab stops and leader dots in LibreOffice Writer offer a precise way to align text horizontally without creating complex tables. By setting custom tab stops—such as left, right, centered, or decimal—and pairing them with leader dots (fill characters),">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-writer-tab-stops-and-leader-dots-guide">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Writer Tab Stops and Leader Dots Guide - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-writer-tab-stops-and-leader-dots-guide" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Tab stops and leader dots in LibreOffice Writer offer a precise way to align text horizontally without creating complex tables. By setting custom tab stops—such as left, right, centered, or decimal—and pairing them with leader dots (fill characters)," />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-writer-tab-stops-and-leader-dots-guide">LibreOffice
+Writer Tab Stops and Leader Dots Guide</h1>
+<p>Tab stops and leader dots in LibreOffice Writer offer a precise way
+to align text horizontally without creating complex tables. By setting
+custom tab stops—such as left, right, centered, or decimal—and pairing
+them with leader dots (fill characters), you can effortlessly create
+clean layouts for documents like tables of contents, menus, resumes, and
+price lists.</p>
+<h2 id="understanding-tab-stops-in-libreoffice-writer">Understanding Tab
+Stops in LibreOffice Writer</h2>
+<p>A tab stop is a predetermined horizontal position on a page where the
+cursor stops after pressing the <strong>Tab</strong> key. By default,
+LibreOffice Writer places standard tab stops every 0.5 inches (or 1.27
+cm), but you can create custom tab stops to control alignment
+precisely:</p>
+<ul>
+<li><strong>Left:</strong> Aligns the beginning of the text to the tab
+stop.</li>
+<li><strong>Right:</strong> Aligns the end of the text to the tab stop,
+making it ideal for right-aligned dates or numbers.</li>
+<li><strong>Centered:</strong> Centers the text directly over the tab
+stop position.</li>
+<li><strong>Decimal:</strong> Aligns numbers at a decimal point (period
+or comma), ensuring numerical columns align correctly regardless of the
+number of digits.</li>
+</ul>
+<h2 id="understanding-leader-dots-fill-characters">Understanding Leader
+Dots (Fill Characters)</h2>
+<p>Leader dots are repeating characters—usually dots, dashes, or solid
+lines—that bridge the empty horizontal space created by a tab jump. They
+guide the reader's eye across the page from the text on the left to the
+corresponding information on the right.</p>
+<p>Common uses include:</p>
+<ul>
+<li>Connecting chapter titles to page numbers.</li>
+<li>Linking menu items to prices.</li>
+<li>Connecting form labels to signature lines (using underscore fill
+characters).</li>
+</ul>
+<h2 id="how-to-configure-tab-stops-and-leader-dots">How to Configure Tab
+Stops and Leader Dots</h2>
+<p>To set precise tab stops with leader dots, use the <strong>Paragraph
+Properties</strong> dialog:</p>
+<ol type="1">
+<li><strong>Select the Text:</strong> Highlight the paragraphs where you
+want to apply the alignment, or place your cursor on a new line to start
+fresh.</li>
+<li><strong>Open the Paragraph Settings:</strong> Go to the menu and
+select <strong>Format &gt; Paragraph</strong>, or right-click the
+selected text and choose <strong>Paragraph &gt; Paragraph</strong>.</li>
+<li><strong>Navigate to the Tabs Tab:</strong> Click on the
+<strong>Tabs</strong> tab at the top of the dialog box.</li>
+<li><strong>Define Position and Type:</strong>
+<ul>
+<li>In the <strong>Position</strong> field, enter the desired
+measurement (e.g., <code>6.00"</code> or <code>15.00 cm</code>).</li>
+<li>Under <strong>Type</strong>, select the alignment type (e.g.,
+<strong>Right</strong> or <strong>Decimal</strong>).</li>
+</ul></li>
+<li><strong>Add Fill Character (Leader Dots):</strong>
+<ul>
+<li>Under the <strong>Fill Character</strong> section, choose the dot
+leader option (<code>. . . .</code>), dashes (<code>- - - -</code>), a
+solid line (<code>_____</code>), or specify a custom character.</li>
+</ul></li>
+<li><strong>Apply the Setting:</strong> Click the <strong>New</strong>
+button to add the configured tab stop to the list, then click
+<strong>OK</strong>.</li>
+</ol>
+<h2 id="using-the-ruler-for-quick-adjustments">Using the Ruler for Quick
+Adjustments</h2>
+<p>You can also interact directly with the horizontal ruler at the top
+of the document:</p>
+<ul>
+<li><strong>Switch Tab Types:</strong> Click the tab selector button
+located at the far left of the horizontal ruler to cycle through Left,
+Center, Right, and Decimal stops.</li>
+<li><strong>Place on Ruler:</strong> Click directly onto the horizontal
+ruler at the desired measurement to place the selected tab stop
+type.</li>
+<li><strong>Adjust or Remove:</strong> Click and drag an existing tab
+stop marker along the ruler to adjust its position, or drag it downward
+off the ruler to delete it.</li>
+<li><em>Note:</em> Fill characters (leader dots) cannot be enabled
+directly via the ruler; you must double-click the tab marker on the
+ruler to open the Paragraph dialog and select the fill character.</li>
+</ul>
+<h2 id="example-creating-a-price-list-entry">Example: Creating a Price
+List Entry</h2>
+<ol type="1">
+<li>Set a standard left-aligned margin for the item name.</li>
+<li>Open <strong>Format &gt; Paragraph &gt; Tabs</strong>, enter
+<code>6.5"</code> as the position, choose <strong>Right</strong> type,
+and select the dotted fill character.</li>
+<li>In the document, type the item name: <code>Espresso</code>.</li>
+<li>Press the <strong>Tab</strong> key (the leader dots will
+automatically fill the gap).</li>
+<li>Type the price: <code>$3.50</code>.</li>
+<li>Press <strong>Enter</strong> to continue the format on the next
+line.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Std Dev, Variance, & Median in LibreOffice Calc - libre-office</title>
+    <meta name="description" content="LibreOffice Calc provides powerful built-in statistical functions that allow you to analyze datasets quickly and accurately. This guide explains how to calculate standard deviation, variance, and median in LibreOffice Calc using straightforward formulas">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/calculate-std-dev-variance-median-in-libreoffice-calc">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculate Std Dev, Variance, & Median in LibreOffice Calc - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/calculate-std-dev-variance-median-in-libreoffice-calc" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Calc provides powerful built-in statistical functions that allow you to analyze datasets quickly and accurately. This guide explains how to calculate standard deviation, variance, and median in LibreOffice Calc using straightforward formulas" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1
+id="calculate-std-dev-variance--median-in-libreoffice-calc">Calculate
+Std Dev, Variance, &amp; Median in LibreOffice Calc</h1>
+<p>LibreOffice Calc provides powerful built-in statistical functions
+that allow you to analyze datasets quickly and accurately. This guide
+explains how to calculate standard deviation, variance, and median in
+LibreOffice Calc using straightforward formulas and step-by-step
+instructions.</p>
+<hr />
+<h2 id="1-calculating-the-median">1. Calculating the Median</h2>
+<p>The median represents the middle value in a sorted dataset,
+separating the higher half from the lower half.</p>
+<ul>
+<li><strong>Function:</strong> <code>=MEDIAN(range)</code></li>
+<li><strong>Example:</strong> <code>=MEDIAN(A1:A20)</code></li>
+</ul>
+<h3 id="steps">Steps:</h3>
+<ol type="1">
+<li>Click the cell where you want the median to appear.</li>
+<li>Type <code>=MEDIAN(</code> followed by the range of cells containing
+your numbers (e.g., <code>A1:A20</code>).</li>
+<li>Close the parenthesis <code>)</code> and press
+<strong>Enter</strong>.</li>
+</ol>
+<hr />
+<h2 id="2-calculating-the-variance">2. Calculating the Variance</h2>
+<p>Variance measures the degree of spread in your data points relative
+to the mean. Depending on your dataset, you can calculate sample
+variance or population variance.</p>
+<h3 id="sample-variance-most-common">Sample Variance (Most Common)</h3>
+<p>Use this if your data represents a sample drawn from a larger
+population.</p>
+<ul>
+<li><strong>Function:</strong> <code>=VAR(range)</code> or
+<code>=VAR.S(range)</code></li>
+<li><strong>Example:</strong> <code>=VAR(A1:A20)</code></li>
+</ul>
+<h3 id="population-variance">Population Variance</h3>
+<p>Use this if your data represents the entire population.</p>
+<ul>
+<li><strong>Function:</strong> <code>=VARP(range)</code> or
+<code>=VAR.P(range)</code></li>
+<li><strong>Example:</strong> <code>=VARP(A1:A20)</code></li>
+</ul>
+<h3 id="steps-1">Steps:</h3>
+<ol type="1">
+<li>Select the destination cell.</li>
+<li>Enter <code>=VAR(A1:A20)</code> for a sample or
+<code>=VARP(A1:A20)</code> for a full population.</li>
+<li>Press <strong>Enter</strong>.</li>
+</ol>
+<hr />
+<h2 id="3-calculating-the-standard-deviation">3. Calculating the
+Standard Deviation</h2>
+<p>Standard deviation is the square root of the variance, expressing
+data dispersion in the same units as the original values.</p>
+<h3 id="sample-standard-deviation-most-common">Sample Standard Deviation
+(Most Common)</h3>
+<p>Use this when working with a sample of a population.</p>
+<ul>
+<li><strong>Function:</strong> <code>=STDEV(range)</code> or
+<code>=STDEV.S(range)</code></li>
+<li><strong>Example:</strong> <code>=STDEV(A1:A20)</code></li>
+</ul>
+<h3 id="population-standard-deviation">Population Standard
+Deviation</h3>
+<p>Use this when working with the complete dataset representing an
+entire population.</p>
+<ul>
+<li><strong>Function:</strong> <code>=STDEVP(range)</code> or
+<code>=STDEV.P(range)</code></li>
+<li><strong>Example:</strong> <code>=STDEVP(A1:A20)</code></li>
+</ul>
+<h3 id="steps-2">Steps:</h3>
+<ol type="1">
+<li>Select the destination cell.</li>
+<li>Type <code>=STDEV(A1:A20)</code> for sample data or
+<code>=STDEVP(A1:A20)</code> for population data.</li>
+<li>Press <strong>Enter</strong>.</li>
+</ol>
+<hr />
+<h2 id="alternative-using-the-function-wizard">Alternative: Using the
+Function Wizard</h2>
+<p>If you prefer a graphical interface instead of typing formulas
+manually:</p>
+<ol type="1">
+<li>Select the target cell.</li>
+<li>Click the <strong>Function Wizard</strong> icon (<span
+class="math inline">\(f(x)\)</span>) on the formula bar or press
+<strong>Ctrl + F2</strong>.</li>
+<li>Set the <strong>Category</strong> dropdown to
+<strong>Statistical</strong>.</li>
+<li>Double-click <strong>MEDIAN</strong>, <strong>VAR</strong>, or
+<strong>STDEV</strong>.</li>
+<li>Select or type your cell range in the parameter field.</li>
+<li>Click <strong>OK</strong> to apply the formula.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

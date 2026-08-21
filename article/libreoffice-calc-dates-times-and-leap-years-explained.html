@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Calc Dates, Times, and Leap Years Explained - libre-office</title>
+    <meta name="description" content="LibreOffice Calc manages dates, times, and leap years through an underlying numeric serialization system combined with dynamic, locale-specific formatting rules. This guide explains how Calc internally stores temporal data as serial numbers, how it compu">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-calc-dates-times-and-leap-years-explained">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Calc Dates, Times, and Leap Years Explained - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-calc-dates-times-and-leap-years-explained" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Calc manages dates, times, and leap years through an underlying numeric serialization system combined with dynamic, locale-specific formatting rules. This guide explains how Calc internally stores temporal data as serial numbers, how it compu" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1
+id="libreoffice-calc-dates-times-and-leap-years-explained">LibreOffice
+Calc Dates, Times, and Leap Years Explained</h1>
+<p>LibreOffice Calc manages dates, times, and leap years through an
+underlying numeric serialization system combined with dynamic,
+locale-specific formatting rules. This guide explains how Calc
+internally stores temporal data as serial numbers, how it computes leap
+years accurately without legacy spreadsheet bugs, and how locale
+settings dictate input parsing, time representation, and visual output
+across international environments.</p>
+<h2 id="how-dates-and-times-are-stored-internally">How Dates and Times
+Are Stored Internally</h2>
+<p>LibreOffice Calc does not store dates and times as plain text
+strings. Instead, it uses a numeric serial system:</p>
+<ul>
+<li><strong>Dates as Integers:</strong> Whole numbers represent full
+days relative to a base epoch date. By default, the base date in
+LibreOffice Calc is <strong>December 30, 1899</strong> (Day 0). For
+example, Day 1 is December 31, 1899, and Day 2 is January 1, 1900.</li>
+<li><strong>Times as Fractions:</strong> Times are stored as decimal
+fractions of a 24-hour day.
+<ul>
+<li><code>0.25</code> represents 06:00:00 (6 hours / 24 hours).</li>
+<li><code>0.5</code> represents 12:00:00 (12 hours / 24 hours).</li>
+<li><code>0.75</code> represents 18:00:00 (18 hours / 24 hours).</li>
+</ul></li>
+<li><strong>Combined Date-Time Values:</strong> A timestamp is
+represented by a floating-point number where the integer portion is the
+date and the fractional portion is the time (e.g., <code>45000.5</code>
+corresponds to midday on a specific date).</li>
+</ul>
+<p>The epoch date can be adjusted globally via <strong>Tools &gt;
+Options &gt; LibreOffice Calc &gt; Calculate</strong>, with alternative
+options including January 1, 1900, or January 1, 1904 (legacy Apple
+standard).</p>
+<h2 id="leap-year-calculation-and-accuracy">Leap Year Calculation and
+Accuracy</h2>
+<p>Calc applies the standard Gregorian calendar rules for all leap year
+calculations:</p>
+<ol type="1">
+<li>A year is a leap year if it is evenly divisible by 4.</li>
+<li>If the year is also divisible by 100, it is <strong>not</strong> a
+leap year, unless:</li>
+<li>The year is also divisible by 400, in which case it
+<strong>is</strong> a leap year.</li>
+</ol>
+<h3 id="handling-of-the-1900-leap-year-bug">Handling of the 1900 Leap
+Year Bug</h3>
+<p>Unlike early versions of Microsoft Excel and Lotus 1-2-3, LibreOffice
+Calc natively handles the year 1900 correctly. The year 1900 is not a
+leap year under the Gregorian calendar. Calc does not include February
+29, 1900, in its native date engine, ensuring mathematical accuracy for
+historical date calculations between 1900 and the present day. When
+importing legacy <code>.xls</code> or <code>.xlsx</code> files, Calc
+automatically normalizes serial offsets to preserve cross-platform date
+integrity.</p>
+<h2 id="the-role-of-locales-in-parsing-and-display">The Role of Locales
+in Parsing and Display</h2>
+<p>While dates are stored uniformly as serial numbers, how you enter and
+view them depends entirely on locale settings.</p>
+<h3 id="1-date-acceptance-patterns">1. Date Acceptance Patterns</h3>
+<p>Calc uses locale-defined "Date Acceptance Patterns" to determine
+whether user text input should be converted into a date serial.</p>
+<ul>
+<li><strong>US Locale (<code>en-US</code>):</strong> Inputs formatted as
+<code>M/D/Y</code> (e.g., <code>12/31/2024</code>) are parsed as
+dates.</li>
+<li><strong>UK / European Locales (<code>en-GB</code>,
+<code>de-DE</code>):</strong> Inputs formatted as <code>D/M/Y</code>
+(e.g., <code>31/12/2024</code>) or <code>D.M.Y</code> are parsed as
+dates.</li>
+<li><strong>ISO Standard (<code>YYYY-MM-DD</code>):</strong> Accepted
+globally across almost all locales to prevent regional ambiguity.</li>
+</ul>
+<p>Custom acceptance patterns can be configured under <strong>Tools &gt;
+Options &gt; Language Settings &gt; Languages</strong>.</p>
+<h3 id="2-number-and-date-formatting-by-locale">2. Number and Date
+Formatting by Locale</h3>
+<p>Formatting alters only the visual presentation of a date or time, not
+the underlying serial number. Users can format an individual cell,
+column, or entire sheet with a specific locale independently of the
+system language:</p>
+<ul>
+<li><strong>Default Locale:</strong> Formats match the operating system
+or Calc's global interface setting.</li>
+<li><strong>Per-Cell Locale:</strong> Right-click a cell, select
+<strong>Format Cells &gt; Numbers</strong>, and change the
+<strong>Language</strong> dropdown. This allows a document to display
+dates in Japanese (<code>YYYY年M月D日</code>), French
+(<code>DD/MM/YYYY</code>), or American English (<code>MM/DD/YYYY</code>)
+within the exact same sheet.</li>
+</ul>
+<h3 id="3-time-zones-and-utc">3. Time Zones and UTC</h3>
+<p>LibreOffice Calc is timezone-agnostic. It treats all time values as
+relative local time and does not automatically adjust for daylight
+saving time (DST) shifts or time zone offsets. To calculate duration
+across time zones, time differences must be applied manually through
+arithmetic operations (e.g., adding or subtracting
+<code>Hours / 24</code>).</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

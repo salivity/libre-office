@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Boundaries and Formatting Marks in LibreOffice Writer - libre-office</title>
+    <meta name="description" content="LibreOffice Writer provides various visual layout aids, including text boundaries and formatting marks, to help users structure documents precisely and troubleshoot spacing or alignment issues. These visual indicators appear on the screen during editing">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/text-boundaries-and-formatting-marks-in-libreoffice-writer">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Text Boundaries and Formatting Marks in LibreOffice Writer - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/text-boundaries-and-formatting-marks-in-libreoffice-writer" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Writer provides various visual layout aids, including text boundaries and formatting marks, to help users structure documents precisely and troubleshoot spacing or alignment issues. These visual indicators appear on the screen during editing" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="text-boundaries-and-formatting-marks-in-libreoffice-writer">Text
+Boundaries and Formatting Marks in LibreOffice Writer</h1>
+<p>LibreOffice Writer provides various visual layout aids, including
+text boundaries and formatting marks, to help users structure documents
+precisely and troubleshoot spacing or alignment issues. These visual
+indicators appear on the screen during editing to reveal document
+structure, layout limits, and hidden characters, but they do not appear
+in the final printed document or exported PDF files.</p>
+<h2 id="text-boundary-guidelines">Text Boundary Guidelines</h2>
+<p>Text boundaries provide visual frames that outline the printable
+content areas, margins, and embedded objects within a page. You can
+toggle text boundaries on or off by navigating to <strong>View &gt; Text
+Boundaries</strong> in the top menu.</p>
+<p>The primary boundary guidelines include:</p>
+<ul>
+<li><strong>Page Margins and Text Area:</strong> Thin, light-gray lines
+that outline the perimeter of the active text area, indicating where
+text will flow relative to page margins.</li>
+<li><strong>Header and Footer Boundaries:</strong> Dashed or solid thin
+lines that separate the main body text from header and footer
+regions.</li>
+<li><strong>Table Boundaries:</strong> Grid guidelines outlining table
+cells, rows, and columns even when table borders are set to none.</li>
+<li><strong>Frames and Sections:</strong> Outlines indicating the edges
+of inserted text frames, sections, and floating drawing objects.</li>
+<li><strong>Footnote and Endnote Areas:</strong> Separator lines and
+boundaries demarcating the designated space for footnotes at the bottom
+of pages.</li>
+</ul>
+<p>To customize the color or visibility of these lines, go to
+<strong>Tools &gt; Options &gt; LibreOffice &gt; Application
+Colors</strong> and adjust the settings under the <strong>Text
+Document</strong> section.</p>
+<h2 id="formatting-mark-indicators-non-printing-characters">Formatting
+Mark Indicators (Non-Printing Characters)</h2>
+<p>Formatting marks reveal non-printing characters and structural breaks
+that dictate text flow and whitespace. You can toggle these marks on or
+off by pressing <strong>Ctrl + F10</strong> or selecting <strong>View
+&gt; Formatting Marks</strong>.</p>
+<p>The following indicators can be displayed in LibreOffice Writer:</p>
+<ul>
+<li><strong>Paragraph Breaks (¶):</strong> Represented by a pilcrow
+symbol at the end of each paragraph created by pressing
+<strong>Enter</strong>.</li>
+<li><strong>Line Breaks (↵):</strong> Represented by a left-pointing
+hooked arrow, indicating a soft line break created by pressing
+<strong>Shift + Enter</strong>.</li>
+<li><strong>Spaces (·):</strong> Represented by a small, raised middle
+dot between words.</li>
+<li><strong>Non-Breaking Spaces ( ° or shaded space):</strong> Indicated
+by a distinct symbol or gray background shading to signify spaces
+created by <strong>Ctrl + Shift + Space</strong> that prevent line
+wrapping.</li>
+<li><strong>Tab Characters (→):</strong> Represented by a right-pointing
+arrow indicating a tab stop jump.</li>
+<li><strong>Soft/Optional Hyphens:</strong> Represented by a hyphen mark
+with a colored background or distinctive glyph, indicating a hyphen that
+only appears if the word breaks at the end of a line.</li>
+<li><strong>Non-Breaking Hyphens:</strong> Marked with a special gray
+background or highlight to show hyphens that prevent word splitting
+across lines.</li>
+<li><strong>Page Breaks and Column Breaks:</strong> Indicated by a
+colored, dashed horizontal line spanning the width of the page or column
+with an optional break marker icon.</li>
+<li><strong>Hidden Text:</strong> Displayed with a dotted underline
+beneath text formatted as hidden.</li>
+<li><strong>Bookmarks and Index Marks:</strong> Highlighted with subtle
+bracket markers or shaded backgrounds surrounding the designated
+text.</li>
+</ul>
+<h2 id="configuring-formatting-mark-display">Configuring Formatting Mark
+Display</h2>
+<p>You can fine-tune which non-printing characters are visible without
+disabling all of them. Navigate to <strong>Tools &gt; Options &gt;
+LibreOffice Writer &gt; Formatting Aids</strong> to check or uncheck
+individual marks, such as custom hyphens, spaces, non-breaking spaces,
+tabs, breaks, and hidden text.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

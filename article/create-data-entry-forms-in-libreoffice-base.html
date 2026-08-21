@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Data Entry Forms in LibreOffice Base - libre-office</title>
+    <meta name="description" content="LibreOffice Base provides robust tools for creating interactive data entry forms that simplify how users input, view, and modify database records. This guide covers the essential steps required to build and customize a functional data entry form, from us">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/create-data-entry-forms-in-libreoffice-base">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Data Entry Forms in LibreOffice Base - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/create-data-entry-forms-in-libreoffice-base" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Base provides robust tools for creating interactive data entry forms that simplify how users input, view, and modify database records. This guide covers the essential steps required to build and customize a functional data entry form, from us" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-data-entry-forms-in-libreoffice-base">Create Data Entry
+Forms in LibreOffice Base</h1>
+<p>LibreOffice Base provides robust tools for creating interactive data
+entry forms that simplify how users input, view, and modify database
+records. This guide covers the essential steps required to build and
+customize a functional data entry form, from using the Form Wizard for
+rapid layout generation to modifying control properties in Design View
+for enhanced interactivity.</p>
+<h3 id="step-1-open-the-form-wizard">Step 1: Open the Form Wizard</h3>
+<ol type="1">
+<li>Launch LibreOffice Base and open your database file
+(<code>.odb</code>).</li>
+<li>In the left-hand <strong>Database</strong> pane, click on the
+<strong>Forms</strong> icon.</li>
+<li>In the <strong>Tasks</strong> pane, select <strong>Use Wizard to
+Create Form...</strong>.</li>
+</ol>
+<h3 id="step-2-select-tables-and-fields">Step 2: Select Tables and
+Fields</h3>
+<ol type="1">
+<li>In the <strong>Field selection</strong> step, choose the table or
+query that will supply data to the form from the <strong>Tables or
+queries</strong> dropdown menu.</li>
+<li>Move the desired fields from the <strong>Available fields</strong>
+box to the <strong>Fields in the form</strong> box using the arrow
+buttons. Click <strong>Next</strong>.</li>
+</ol>
+<h3 id="step-3-add-a-subform-optional">Step 3: Add a Subform
+(Optional)</h3>
+<ol type="1">
+<li>If your data structure relies on a one-to-many relationship (such as
+customers and their orders), check the <strong>Add Subform</strong>
+box.</li>
+<li>Choose whether to base the subform on an existing relation or
+manually link fields between the main form and subform. Click
+<strong>Next</strong>.</li>
+</ol>
+<h3 id="step-4-arrange-controls-and-layout">Step 4: Arrange Controls and
+Layout</h3>
+<ol type="1">
+<li>Select a visual arrangement for your main form controls (e.g.,
+Columnar - Labels Left, Columnar - Labels Above, As Data Sheet, or In
+Blocks).</li>
+<li>If you added a subform, choose an arrangement for the subform
+controls as well. Click <strong>Next</strong>.</li>
+</ol>
+<h3 id="step-5-configure-data-entry-mode">Step 5: Configure Data Entry
+Mode</h3>
+<ol type="1">
+<li>Choose how the form will handle data:
+<ul>
+<li><strong>The form is to be used for entering new data only:</strong>
+Existing records will not be displayed.</li>
+<li><strong>The form is to display all data:</strong> Allows viewing,
+modifying, and deleting existing records, as well as adding new
+ones.</li>
+</ul></li>
+<li>Optionally, check boxes to disallow deleting, modifying, or adding
+data depending on your workflow requirements. Click
+<strong>Next</strong>.</li>
+</ol>
+<h3 id="step-6-apply-styles-and-name-the-form">Step 6: Apply Styles and
+Name the Form</h3>
+<ol type="1">
+<li>Choose a color scheme and border style for the input fields.</li>
+<li>In the final step, enter a name for the form.</li>
+<li>Select <strong>Modify the form</strong> to enter Design View
+directly, or choose <strong>Work with the form</strong> to test it
+immediately. Click <strong>Finish</strong>.</li>
+</ol>
+<h3 id="step-7-enhance-interactivity-in-design-view">Step 7: Enhance
+Interactivity in Design View</h3>
+<p>To make the form truly interactive, switch to <strong>Design
+View</strong> (right-click the form name and select
+<strong>Edit</strong>):</p>
+<ul>
+<li><strong>Add Push Buttons:</strong> Use the <strong>Form
+Controls</strong> toolbar to draw a button on the canvas. Right-click
+the button, select <strong>Control Properties</strong>, and set the
+<strong>Action</strong> property to actions like <em>Next Record</em>,
+<em>Save Record</em>, or <em>New Record</em>.</li>
+<li><strong>Create Dropdown Lists (List Boxes):</strong> Replace plain
+text boxes with List Boxes to provide predefined selections linked to
+foreign key tables.</li>
+<li><strong>Adjust Tab Order:</strong> Go to <strong>Form Design &gt;
+Activation Order</strong> to ensure the cursor moves logically from one
+field to the next when pressing the <code>Tab</code> key.</li>
+</ul>
+<h3 id="step-8-save-and-test">Step 8: Save and Test</h3>
+<ol type="1">
+<li>Click the <strong>Save</strong> icon in the toolbar to save changes
+to the form design.</li>
+<li>Toggle off the <strong>Design Mode</strong> button (or close the
+editor and double-click the form from the main Base window) to test data
+entry, record navigation, and interactive controls.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

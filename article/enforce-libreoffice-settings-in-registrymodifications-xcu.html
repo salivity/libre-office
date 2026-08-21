@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enforce LibreOffice Settings in registrymodifications.xcu - libre-office</title>
+    <meta name="description" content="Managing LibreOffice configurations across an enterprise environment requires standardizing preferences such as default file formats, macro security levels, update notifications, and path locations. While user-level changes are stored dynamically in regi">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/enforce-libreoffice-settings-in-registrymodifications-xcu">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Enforce LibreOffice Settings in registrymodifications.xcu - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/enforce-libreoffice-settings-in-registrymodifications-xcu" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Managing LibreOffice configurations across an enterprise environment requires standardizing preferences such as default file formats, macro security levels, update notifications, and path locations. While user-level changes are stored dynamically in regi" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1
+id="enforce-libreoffice-settings-in-registrymodificationsxcu">Enforce
+LibreOffice Settings in registrymodifications.xcu</h1>
+<p>Managing LibreOffice configurations across an enterprise environment
+requires standardizing preferences such as default file formats, macro
+security levels, update notifications, and path locations. While
+user-level changes are stored dynamically in
+<code>registrymodifications.xcu</code>, administrators can deploy
+pre-configured keys and enforce them across all workstations by applying
+the <code>oor:finalized="true"</code> attribute within configuration
+layers. This article covers the essential configuration keys inside
+<code>registrymodifications.xcu</code> used to enforce corporate
+policies and secure the enterprise workspace.</p>
+<h3 id="enforcing-and-locking-configuration-keys">Enforcing and Locking
+Configuration Keys</h3>
+<p>To prevent users from overriding corporate policies, settings defined
+in LibreOffice configuration files must use the
+<code>oor:finalized="true"</code> attribute. When deploying globally,
+these settings are typically placed in the enterprise configuration
+directory (such as <code>/program/configuration/</code> or via a global
+extension) rather than the volatile user profile.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">item</span> <span class="ot">oor:path=</span><span class="st">&quot;/org.openoffice.Office.Common/Security/Scripting&quot;</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">prop</span> <span class="ot">oor:name=</span><span class="st">&quot;MacroSecurityLevel&quot;</span> <span class="ot">oor:op=</span><span class="st">&quot;fuse&quot;</span> <span class="ot">oor:finalized=</span><span class="st">&quot;true&quot;</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;3&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">prop</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">item</span>&gt;</span></code></pre></div>
+<h3 id="1-macro-and-scripting-security">1. Macro and Scripting
+Security</h3>
+<p>Securing macro execution is critical in corporate environments to
+mitigate malware risks.</p>
+<ul>
+<li><strong>Macro Security Level</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Common/Security/Scripting</code></li>
+<li><strong>Property:</strong> <code>MacroSecurityLevel</code></li>
+<li><strong>Values:</strong> <code>0</code> (Low), <code>1</code>
+(Medium), <code>2</code> (High - default), <code>3</code> (Very High -
+only execute from trusted paths).</li>
+</ul></li>
+<li><strong>Disable Basic IDE / Scripting Execution</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Common/Security/Scripting</code></li>
+<li><strong>Property:</strong> <code>DisableMacrosExecution</code></li>
+<li><strong>Values:</strong> <code>true</code> or
+<code>false</code></li>
+</ul></li>
+</ul>
+<h3 id="2-default-file-formats-interoperability-standards">2. Default
+File Formats (Interoperability Standards)</h3>
+<p>To ensure consistency with legacy or external systems, default save
+formats can be enforced for Writer, Calc, and Impress.</p>
+<ul>
+<li><strong>Default File Format for Writer (e.g., DOCX or ODT)</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.text.TextDocument']</code></li>
+<li><strong>Property:</strong>
+<code>ooSetupFactoryDefaultFilter</code></li>
+<li><strong>Common Values:</strong> <code>writer8</code> (ODT),
+<code>MS Word 2007 XML</code> (DOCX).</li>
+</ul></li>
+<li><strong>Default File Format for Calc (e.g., XLSX or ODS)</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']</code></li>
+<li><strong>Property:</strong>
+<code>ooSetupFactoryDefaultFilter</code></li>
+<li><strong>Common Values:</strong> <code>calc8</code> (ODS),
+<code>Calc MS Excel 2007 XML</code> (XLSX).</li>
+</ul></li>
+<li><strong>Default File Format for Impress (e.g., PPTX or ODP)</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.presentation.PresentationDocument']</code></li>
+<li><strong>Property:</strong>
+<code>ooSetupFactoryDefaultFilter</code></li>
+<li><strong>Common Values:</strong> <code>impress8</code> (ODP),
+<code>Impress MS PowerPoint 2007 XML</code> (PPTX).</li>
+</ul></li>
+</ul>
+<h3 id="3-update-checks-telemetry-and-online-services">3. Update Checks,
+Telemetry, and Online Services</h3>
+<p>Corporate networks often restrict client-initiated update checks and
+data reporting.</p>
+<ul>
+<li><strong>Disable Automatic Update Checks</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Jobs/Jobs/org.openoffice.Office.Jobs:Job['UpdateCheck']</code></li>
+<li><strong>Property:</strong> <code>Enabled</code></li>
+<li><strong>Values:</strong> <code>false</code></li>
+</ul></li>
+<li><strong>Disable Telemetry / Usage Data Collection</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Common/Misc</code></li>
+<li><strong>Property:</strong> <code>CollectUsageInformation</code></li>
+<li><strong>Values:</strong> <code>false</code></li>
+</ul></li>
+<li><strong>Disable Tip of the Day and First-Start Wizards</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Common/Misc</code></li>
+<li><strong>Property:</strong> <code>ShowTipOfTheDay</code></li>
+<li><strong>Values:</strong> <code>false</code></li>
+</ul></li>
+</ul>
+<h3 id="4-paths-and-centralized-template-directories">4. Paths and
+Centralized Template Directories</h3>
+<p>Standardizing company document templates requires pointing clients to
+shared network shares or central locations.</p>
+<ul>
+<li><strong>Shared Template Path</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Paths/Paths/org.openoffice.Office.Paths:NamedPath['Template']</code></li>
+<li><strong>Property:</strong> <code>WritePath</code> (user path) /
+<code>InternalPaths</code> (central shared path)</li>
+<li><strong>Values:</strong> URI format, such as
+<code>file:///network/share/libreoffice/templates</code>.</li>
+</ul></li>
+<li><strong>Default Work Directory</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Paths/Paths/org.openoffice.Office.Paths:NamedPath['Work']</code></li>
+<li><strong>Property:</strong> <code>WritePath</code></li>
+<li><strong>Values:</strong> Target document directory path (e.g.,
+<code>file:///C:/Users/username/Documents</code>).</li>
+</ul></li>
+</ul>
+<h3 id="5-document-backup-and-auto-recovery-intervals">5. Document
+Backup and Auto-Recovery Intervals</h3>
+<p>To reduce data loss risks without overburdening local storage,
+configure recovery intervals uniformly.</p>
+<ul>
+<li><strong>Auto-Save / Auto-Recovery Frequency</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Recovery/AutoSave</code></li>
+<li><strong>Property:</strong> <code>TimeIntervall</code></li>
+<li><strong>Values:</strong> Integer representing minutes (e.g.,
+<code>5</code> or <code>10</code>).</li>
+</ul></li>
+<li><strong>Always Create Backup Copy</strong>
+<ul>
+<li><strong>Path:</strong>
+<code>/org.openoffice.Office.Common/Save/Document</code></li>
+<li><strong>Property:</strong> <code>CreateBackup</code></li>
+<li><strong>Values:</strong> <code>true</code> or
+<code>false</code></li>
+</ul></li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

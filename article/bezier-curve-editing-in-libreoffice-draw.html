@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezier Curve Editing in LibreOffice Draw - libre-office</title>
+    <meta name="description" content="LibreOffice Draw provides a comprehensive vector editing environment that enables users to create and modify custom shapes using Bezier curves and point manipulation. By utilizing the dedicated Points toolbar, users can alter existing paths, convert stan">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/bezier-curve-editing-in-libreoffice-draw">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bezier Curve Editing in LibreOffice Draw - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/bezier-curve-editing-in-libreoffice-draw" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Draw provides a comprehensive vector editing environment that enables users to create and modify custom shapes using Bezier curves and point manipulation. By utilizing the dedicated Points toolbar, users can alter existing paths, convert stan" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="bezier-curve-editing-in-libreoffice-draw">Bezier Curve Editing
+in LibreOffice Draw</h1>
+<p>LibreOffice Draw provides a comprehensive vector editing environment
+that enables users to create and modify custom shapes using Bezier
+curves and point manipulation. By utilizing the dedicated Points
+toolbar, users can alter existing paths, convert standard geometric
+shapes into editable curves, manage node types, and adjust tangent
+control handles for precise curvature control. This article details the
+mechanics of node editing, handle behaviors, and path transformation
+tools available in the software.</p>
+<h3 id="activating-the-point-editing-mode">Activating the Point Editing
+Mode</h3>
+<p>To edit curves and vector points in LibreOffice Draw, an object must
+first be recognized as a path or curve.</p>
+<ol type="1">
+<li>Select an existing curve, polygon, or freeform line. If you are
+using a basic shape (such as a rectangle or ellipse), right-click the
+object and select <strong>Convert &gt; To Curve</strong> or <strong>To
+Polygon</strong>.</li>
+<li>Enable point editing by pressing <strong>F8</strong> on your
+keyboard, clicking the <strong>Points</strong> icon on the Standard
+toolbar, or selecting <strong>Edit &gt; Points</strong>.</li>
+<li>When active, the object displays its constituent nodes (points), and
+the <strong>Edit Points</strong> toolbar appears.</li>
+</ol>
+<h3 id="understanding-node-types">Understanding Node Types</h3>
+<p>LibreOffice Draw categorizes curve nodes into three distinct types to
+control how segments connect:</p>
+<ul>
+<li><strong>Corner Point:</strong> Both control handles move
+independently. This allows you to create sharp angles, abrupt
+directional changes, and cusps along the path.</li>
+<li><strong>Smooth Transition:</strong> The control handles are locked
+in a straight line relative to each other (180 degrees apart), ensuring
+a continuous, unbroken curve through the point. However, each handle can
+have a different length, allowing for asymmetrical curve tension on
+either side.</li>
+<li><strong>Symmetric Transition:</strong> The control handles are
+locked in both angle and length. Moving or resizing one handle
+automatically mirrors the transformation on the opposite handle,
+producing an evenly balanced curve.</li>
+</ul>
+<p>You can switch a selected node between these behaviors using the
+corresponding buttons on the Edit Points toolbar.</p>
+<h3 id="manipulating-control-handles">Manipulating Control Handles</h3>
+<p>When you click on a node along a Bezier curve, one or two control
+handles (tangents) appear, terminated by small circular or square
+grips:</p>
+<ul>
+<li><strong>Direction:</strong> Dragging the control grip alters the
+angle of the curve as it enters or exits the node.</li>
+<li><strong>Tension and Depth:</strong> Extending the handle farther
+from the node increases the curve's arc and weight, while shortening the
+handle flattens the curve toward a straight line.</li>
+<li><strong>Independent Adjustment:</strong> Holding the
+<code>Shift</code> key while dragging a handle temporarily breaks the
+symmetry or angle lock, allowing for rapid corner adjustments without
+permanently switching the node mode manually.</li>
+</ul>
+<h3 id="modifying-paths-and-points">Modifying Paths and Points</h3>
+<p>The Edit Points toolbar provides several direct manipulation
+functions:</p>
+<ul>
+<li><strong>Insert Points:</strong> Activates a mode where clicking
+anywhere along an existing path segment adds a new node without altering
+the shape of the curve.</li>
+<li><strong>Delete Points:</strong> Removes the selected node(s). The
+path automatically recalculates to bridge the gap between the remaining
+adjacent points.</li>
+<li><strong>Move Points:</strong> Clicking and dragging any node
+relocates its position in the 2D workspace while preserving the relative
+orientation of its control handles.</li>
+<li><strong>Split Curve:</strong> Separates a path at the selected node,
+turning a single continuous line into two disconnected sub-paths.</li>
+<li><strong>Close Path:</strong> Connects the start and end nodes of an
+open line with a new segment, turning it into a closed shape that can
+accept color and pattern fills.</li>
+<li><strong>Convert to Curve / Line:</strong> Changes the segment
+between two points from a curved Bezier line to a straight vector
+segment, or vice versa.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

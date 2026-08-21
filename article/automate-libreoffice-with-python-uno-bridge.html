@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automate LibreOffice with Python UNO Bridge - libre-office</title>
+    <meta name="description" content="Automating LibreOffice as a headless background service allows developers to convert, generate, and manipulate office documents programmatically without a graphical interface. By utilizing the Python Universal Network Objects (UNO) bridge, external appli">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/automate-libreoffice-with-python-uno-bridge">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Automate LibreOffice with Python UNO Bridge - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/automate-libreoffice-with-python-uno-bridge" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Automating LibreOffice as a headless background service allows developers to convert, generate, and manipulate office documents programmatically without a graphical interface. By utilizing the Python Universal Network Objects (UNO) bridge, external appli" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="automate-libreoffice-with-python-uno-bridge">Automate
+LibreOffice with Python UNO Bridge</h1>
+<p>Automating LibreOffice as a headless background service allows
+developers to convert, generate, and manipulate office documents
+programmatically without a graphical interface. By utilizing the Python
+Universal Network Objects (UNO) bridge, external applications can
+communicate with a background LibreOffice process via sockets or named
+pipes. This article outlines the core architectural concepts and UNO
+components that enable remote execution, process management, and
+document manipulation in a headless environment.</p>
+<h3 id="headless-execution-and-the-listening-parameter">Headless
+Execution and the Listening Parameter</h3>
+<p>To run LibreOffice as a background service, it must be launched with
+the <code>--headless</code> flag alongside network listening parameters.
+The <code>--accept</code> argument instructs the LibreOffice process to
+bind to an Inter-Process Communication (IPC) endpoint using either a
+TCP/IP socket or a local named pipe. A standard execution string is:</p>
+<p><code>soffice --headless --invisible --nologo --nodefault --nofirststartwizard --accept="socket,host=localhost,port=2008;urp;"</code></p>
+<p>Here, <code>urp</code> (Universal Remote Protocol) defines the
+protocol LibreOffice uses to serialize and exchange UNO objects over the
+wire.</p>
+<h3 id="the-python-uno-module-uno">The Python UNO Module
+(<code>uno</code>)</h3>
+<p>The native Python <code>uno</code> module provides the bindings
+required to translate Python object calls into UNO interface
+invocations. It transparently handles type marshalling, allowing Python
+primitives, tuples, and dictionaries to interact with UNO structs,
+interfaces, and enum types.</p>
+<h3 id="the-unourlresolver">The UnoUrlResolver</h3>
+<p>External Python processes do not directly instantiate remote
+LibreOffice objects. Instead, they use the
+<code>com.sun.star.bridge.UnoUrlResolver</code> service.</p>
+<ol type="1">
+<li><strong>Local Context Initialization:</strong> The script accesses
+its local environment using <code>uno.getComponentContext()</code>.</li>
+<li><strong>Resolver Creation:</strong> A local service manager creates
+an instance of <code>com.sun.star.bridge.UnoUrlResolver</code>.</li>
+<li><strong>Connection Resolution:</strong> The resolver parses a UNO
+connection URL (e.g.,
+<code>uno:socket,host=localhost,port=2008;urp;StarOffice.ComponentContext</code>)
+to establish the bridge to the running daemon.</li>
+</ol>
+<h3 id="remote-component-context-and-service-manager">Remote Component
+Context and Service Manager</h3>
+<p>Resolving the connection returns the remote
+<code>XComponentContext</code>. This context represents the execution
+environment of the background LibreOffice instance.</p>
+<p>From the remote context, applications retrieve the
+<code>ServiceManager</code> (an implementation of
+<code>com.sun.star.lang.XMultiComponentFactory</code>). The
+ServiceManager acts as the primary factory for instantiating UNO
+services inside the LibreOffice process, such as document loaders,
+converters, and configuration providers.</p>
+<h3 id="the-desktop-component-comsunstarframedesktop">The Desktop
+Component (<code>com.sun.star.frame.Desktop</code>)</h3>
+<p>The entry point for document-level automation is the
+<code>Desktop</code> service. Instantiated via the remote
+<code>ServiceManager</code>, this object exposes the
+<code>com.sun.star.frame.XComponentLoader</code> interface.</p>
+<p>External scripts call <code>loadComponentFromURL</code> on the
+desktop instance, passing file paths formatted as file URLs (e.g.,
+<code>file:///path/to/doc.docx</code>) alongside property value
+arguments (such as <code>Hidden=True</code>). This loads the target
+document directly into the background process memory without opening any
+system windows.</p>
+<h3 id="document-interfaces-and-value-mapping">Document Interfaces and
+Value Mapping</h3>
+<p>Once a document is loaded, it exposes specific interfaces based on
+its document type (such as <code>XTextDocument</code> for Writer or
+<code>XSpreadsheetDocument</code> for Calc):</p>
+<ul>
+<li><strong><code>com.sun.star.beans.PropertyValue</code>:</strong> A
+key-value struct used to pass configuration options, such as filter
+names during document export (e.g., exporting to PDF via the
+<code>writer_pdf_Export</code> filter).</li>
+<li><strong>Property Inspection:</strong> Python wraps remote UNO
+objects dynamically, exposing methods like <code>getPropertyValue</code>
+and <code>setPropertyValue</code> directly as Python attributes or
+standard interface calls.</li>
+</ul>
+<h3 id="lifecycle-and-process-termination">Lifecycle and Process
+Termination</h3>
+<p>Because LibreOffice runs as a separate daemon, scripts must manage
+the application lifecycle to prevent orphan processes and memory leaks.
+The <code>Desktop</code> service exposes the <code>terminate()</code>
+method, allowing external Python scripts to cleanly shut down the
+background LibreOffice instance once tasks are complete. Alternatively,
+in microservice architectures, the background process is often kept
+running persistently inside a container to handle incoming processing
+queues asynchronously.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

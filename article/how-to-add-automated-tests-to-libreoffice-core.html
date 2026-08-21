@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add Automated Tests to LibreOffice Core - libre-office</title>
+    <meta name="description" content="Contributing new automated test cases to the LibreOffice core repository ensures software stability, prevents regressions, and helps verify bug fixes. This guide provides a direct, step-by-step walkthrough on how to set up your environment, choose the ap">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-add-automated-tests-to-libreoffice-core">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Add Automated Tests to LibreOffice Core - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-add-automated-tests-to-libreoffice-core" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Contributing new automated test cases to the LibreOffice core repository ensures software stability, prevents regressions, and helps verify bug fixes. This guide provides a direct, step-by-step walkthrough on how to set up your environment, choose the ap" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-add-automated-tests-to-libreoffice-core">How to Add
+Automated Tests to LibreOffice Core</h1>
+<p>Contributing new automated test cases to the LibreOffice core
+repository ensures software stability, prevents regressions, and helps
+verify bug fixes. This guide provides a direct, step-by-step walkthrough
+on how to set up your environment, choose the appropriate test
+framework, implement CppUnit and UI tests, run them locally, and submit
+your changes through the LibreOffice Gerrit code review system.</p>
+<h2 id="1-set-up-the-development-environment">1. Set Up the Development
+Environment</h2>
+<p>Before writing tests, ensure you have cloned the LibreOffice
+<code>core</code> repository and can build it successfully.</p>
+<ol type="1">
+<li>Clone the repository:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://gerrit.libreoffice.org/core libreoffice</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> libreoffice</span></code></pre></div></li>
+<li>Configure and build LibreOffice with tests enabled:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./autogen.sh</span> <span class="at">--enable-dbgutil</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span></code></pre></div></li>
+<li>Set up the Gerrit submission helper script:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./logerrit</span> setup</span></code></pre></div></li>
+</ol>
+<h2 id="2-choose-the-test-framework">2. Choose the Test Framework</h2>
+<p>LibreOffice uses different test frameworks depending on what you want
+to verify:</p>
+<ul>
+<li><strong>CppUnit Tests (C++):</strong> Best for non-GUI logic, file
+filters (DOCX, ODF, XLSX, etc.), core rendering, and module-specific
+internal logic.</li>
+<li><strong>UI Tests (Python / UITest):</strong> Best for interacting
+with dialogs, toolbars, menus, and verifying user interface
+behaviors.</li>
+<li><strong>Complex/Integration Tests (Java/Python):</strong> Used for
+broader integration checks across subsystems.</li>
+</ul>
+<h2 id="3-writing-a-cppunit-test-c">3. Writing a CppUnit Test (C++)</h2>
+<p>CppUnit tests are located inside the <code>qa/unit/</code> directory
+of each respective module (e.g., <code>sw/qa/core/</code>,
+<code>sc/qa/unit/</code>, <code>sd/qa/unit/</code>).</p>
+<h3 id="create-or-modify-a-test-file">Create or Modify a Test File</h3>
+<p>Navigate to the module directory. If you are adding a test case to an
+existing suite, open the relevant <code>.cxx</code> file (e.g.,
+<code>sw/qa/core/text/text.cxx</code>) and add a new test function:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CPPUNIT_TEST_FIXTURE<span class="op">(</span>SwCoreTest<span class="op">,</span> testBugDescription<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Load a sample file from the test data folder</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    createSwDoc<span class="op">(</span><span class="st">&quot;sample.docx&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Perform an operation or query the document model</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    SwDoc<span class="op">*</span> pDoc <span class="op">=</span> getSwDoc<span class="op">();</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    CPPUNIT_ASSERT<span class="op">(</span>pDoc<span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Verify expected behavior</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    CPPUNIT_ASSERT_EQUAL<span class="op">(</span><span class="dv">1</span><span class="op">,</span> getPages<span class="op">());</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="add-test-sample-files">Add Test Sample Files</h3>
+<p>If your test requires an input document, place it in the module's
+test data directory (e.g., <code>sw/qa/core/data/</code>). Ensure the
+file is minimal and stripped of personal metadata.</p>
+<h3 id="update-the-makefile">Update the Makefile</h3>
+<p>If creating a completely new test suite file, register the new file
+in the corresponding
+<code>CppunitTest_&lt;module&gt;_&lt;name&gt;.mk</code> file located in
+the module root.</p>
+<h2 id="4-writing-a-ui-test-python">4. Writing a UI Test (Python)</h2>
+<p>UI tests are located inside
+<code>&lt;module&gt;/qa/uitest/</code>.</p>
+<h3 id="create-the-test-script">Create the Test Script</h3>
+<p>Create a new Python file or edit an existing one in the relevant
+module directory:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> uitest.framework <span class="im">import</span> UITestCase</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> uitest.uihelper.common <span class="im">import</span> get_state_as_dict</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BugVerificationTest(UITestCase):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_dialog_interaction(<span class="va">self</span>):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="va">self</span>.ui_test.create_doc_in_start_center(<span class="st">&quot;writer&quot;</span>):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Open a dialog via UNO command</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.xUITest.executeCommand(<span class="st">&quot;.uno:FontDialog&quot;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            xDialog <span class="op">=</span> <span class="va">self</span>.xUITest.getTopFocusWindow()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Interact with UI elements</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            xOkBtn <span class="op">=</span> xDialog.getChild(<span class="st">&quot;ok&quot;</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.ui_test.close_dialog_through_button(xOkBtn)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Assert state</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.assertEqual(<span class="dv">1</span>, <span class="bu">len</span>(<span class="va">self</span>.ui_test.get_component().Text.String))</span></code></pre></div>
+<h3 id="register-the-ui-test">Register the UI Test</h3>
+<p>Register new Python UI test files in
+<code>&lt;module&gt;/qa/uitest/Makefile.mk</code> or the appropriate
+<code>UITest_&lt;name&gt;.mk</code> file.</p>
+<h2 id="5-run-and-debug-tests-locally">5. Run and Debug Tests
+Locally</h2>
+<p>Run your specific test directly using <code>make</code> to ensure it
+passes before submitting:</p>
+<ul>
+<li><strong>For CppUnit:</strong>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> CppunitTest_sw_core_test</span></code></pre></div></li>
+<li><strong>For UITest:</strong>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> UITest_writer_tests</span></code></pre></div></li>
+</ul>
+<p>To run a single test function inside a CppUnit suite, use the
+<code>CPPUNIT_TEST_NAME</code> environment variable:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">CPPUNIT_TEST_NAME</span><span class="op">=</span><span class="st">&quot;SwCoreTest::testBugDescription&quot;</span> <span class="fu">make</span> CppunitTest_sw_core_test</span></code></pre></div>
+<h2 id="6-submit-your-changes-to-gerrit">6. Submit Your Changes to
+Gerrit</h2>
+<ol type="1">
+<li><p>Create a local branch and commit your test:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-new-test</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add sw/qa/core/text/text.cxx</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;tdf#123456: Add automated test for Writer text wrap regression&quot;</span></span></code></pre></div>
+<p><em>Note: If the test covers a Bugzilla issue, include the bug ID
+formatted as <code>tdf#XXXXXX</code> in the commit title.</em></p></li>
+<li><p>Push the commit to Gerrit for code review:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./logerrit</span> submitMaster</span></code></pre></div></li>
+<li><p>Monitor the Gerrit review URL provided in the terminal output.
+Automated continuous integration (Jenkins) bots will run your test
+across multiple operating systems, and reviewers will provide
+feedback.</p></li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

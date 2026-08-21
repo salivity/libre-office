@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Convert Documents Using LibreOffice CLI - libre-office</title>
+    <meta name="description" content="Converting document formats in bulk is a common requirement for automated workflows, digital archiving, and administrative management. LibreOffice offers a headless command-line interface (CLI) that enables batch conversions of various document formats">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/bulk-convert-documents-using-libreoffice-cli">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bulk Convert Documents Using LibreOffice CLI - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/bulk-convert-documents-using-libreoffice-cli" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Converting document formats in bulk is a common requirement for automated workflows, digital archiving, and administrative management. LibreOffice offers a headless command-line interface (CLI) that enables batch conversions of various document formats" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="bulk-convert-documents-using-libreoffice-cli">Bulk Convert
+Documents Using LibreOffice CLI</h1>
+<p>Converting document formats in bulk is a common requirement for
+automated workflows, digital archiving, and administrative management.
+LibreOffice offers a headless command-line interface (CLI) that enables
+batch conversions of various document formats—including DOCX, XLSX,
+PPTX, ODT, and HTML—into formats such as PDF, TXT, or EPUB without
+opening a graphical user interface. This guide details the essential
+command syntax, explains how to execute bulk conversions across
+different operating systems, and provides practical automation
+scripts.</p>
+<h2 id="the-basic-libreoffice-conversion-command">The Basic LibreOffice
+Conversion Command</h2>
+<p>The core command relies on the LibreOffice binary
+(<code>soffice</code> or <code>libreoffice</code>) combined with the
+<code>--headless</code> and <code>--convert-to</code> flags.</p>
+<p>The standard syntax is:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">soffice</span> <span class="at">--headless</span> <span class="at">--convert-to</span> <span class="op">&lt;</span>target_format<span class="op">&gt;</span> <span class="op">&lt;</span>input_file<span class="op">&gt;</span> --outdir <span class="op">&lt;</span>output_directory<span class="op">&gt;</span></span></code></pre></div>
+<ul>
+<li><code>--headless</code>: Runs LibreOffice in the background without
+launching the graphical user interface.</li>
+<li><code>--convert-to &lt;target_format&gt;</code>: Specifies the
+desired output extension (e.g., <code>pdf</code>, <code>txt</code>,
+<code>docx</code>, <code>html</code>, <code>odt</code>).</li>
+<li><code>--outdir &lt;output_directory&gt;</code>: (Optional) Defines
+the destination folder for the converted files. If omitted, files are
+saved in the current working directory.</li>
+</ul>
+<h2 id="bulk-conversion-on-linux-and-macos">Bulk Conversion on Linux and
+macOS</h2>
+<h3 id="1-converting-files-in-the-same-directory">1. Converting Files in
+the Same Directory</h3>
+<p>To convert all files of a specific type in your current directory,
+use standard shell wildcards:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">libreoffice</span> <span class="at">--headless</span> <span class="at">--convert-to</span> pdf <span class="pp">*</span>.docx <span class="at">--outdir</span> ./converted_pdfs</span></code></pre></div>
+<p>This command processes every <code>.docx</code> file in the folder
+and saves the resulting PDFs in the <code>converted_pdfs</code>
+directory.</p>
+<h3 id="2-recursive-batch-conversion">2. Recursive Batch Conversion</h3>
+<p>To convert files across nested subdirectories, use the
+<code>find</code> command:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> /path/to/source <span class="at">-type</span> f <span class="at">-name</span> <span class="st">&quot;*.docx&quot;</span> <span class="at">-exec</span> libreoffice <span class="at">--headless</span> <span class="at">--convert-to</span> pdf {} <span class="at">--outdir</span> /path/to/destination <span class="dt">\;</span></span></code></pre></div>
+<p>This searches <code>/path/to/source</code> recursively for all
+<code>.docx</code> files and runs the conversion command on each file
+found.</p>
+<h2 id="bulk-conversion-on-windows">Bulk Conversion on Windows</h2>
+<p>On Windows, the executable is typically located at
+<code>C:\Program Files\LibreOffice\program\soffice.exe</code>.</p>
+<h3 id="1-using-command-prompt">1. Using Command Prompt</h3>
+<p>To process multiple files in a folder using the standard Command
+Prompt:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="er">%f</span> <span class="er">in</span> <span class="er">(*.docx)</span> <span class="er">do</span> <span class="er">&quot;C:\Program</span> <span class="er">Files\LibreOffice\program\soffice.exe&quot;</span> <span class="er">--headless</span> <span class="er">--convert-to</span> <span class="er">pdf</span> <span class="er">&quot;%f&quot;</span> <span class="er">--outdir</span> <span class="er">&quot;C:\ConvertedFiles&quot;</span></span></code></pre></div>
+<p><em>Note: If writing this command inside a <code>.bat</code> batch
+file, use <code>%%f</code> instead of <code>%f</code>.</em></p>
+<h3 id="2-using-powershell">2. Using PowerShell</h3>
+<p>PowerShell allows for clean scripting and robust pipeline
+processing:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ChildItem</span> <span class="op">-</span>Path <span class="st">&quot;C:\SourceFiles&quot;</span> <span class="op">-</span>Filter <span class="op">*.</span><span class="fu">docx</span> <span class="op">|</span> <span class="fu">ForEach-Object</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> <span class="st">&quot;C:\Program Files\LibreOffice\program\soffice.exe&quot;</span> <span class="op">--</span>headless <span class="op">--</span>convert-to pdf <span class="va">$_</span><span class="op">.</span><span class="fu">FullName</span> <span class="op">--</span>outdir <span class="st">&quot;C:\ConvertedFiles&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>To search subdirectories recursively in PowerShell, add the
+<code>-Recurse</code> flag to <code>Get-ChildItem</code>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ChildItem</span> <span class="op">-</span>Path <span class="st">&quot;C:\SourceFiles&quot;</span> <span class="op">-</span>Filter <span class="op">*.</span><span class="fu">docx</span> <span class="op">-</span>Recurse <span class="op">|</span> <span class="fu">ForEach-Object</span> <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> <span class="st">&quot;C:\Program Files\LibreOffice\program\soffice.exe&quot;</span> <span class="op">--</span>headless <span class="op">--</span>convert-to pdf <span class="va">$_</span><span class="op">.</span><span class="fu">FullName</span> <span class="op">--</span>outdir <span class="st">&quot;C:\ConvertedFiles&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="specifying-conversion-filters">Specifying Conversion
+Filters</h2>
+<p>LibreOffice automatically selects an appropriate filter for common
+extensions, but specific filters can be enforced when necessary. Filter
+names follow the format:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--convert-to</span> <span class="op">&lt;</span>extension<span class="op">&gt;</span>:<span class="st">&quot;&lt;filter_name&gt;&quot;</span></span></code></pre></div>
+<h3 id="examples-of-filtered-conversions">Examples of Filtered
+Conversions</h3>
+<ul>
+<li><strong>Spreadsheets to CSV:</strong>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">soffice</span> <span class="at">--headless</span> <span class="at">--convert-to</span> csv:<span class="st">&quot;Text - txt - csv (StarCalc)&quot;</span>:59,34,33,1 input.xlsx</span></code></pre></div></li>
+<li><strong>HTML to PDF using specific layout filters:</strong>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">soffice</span> <span class="at">--headless</span> <span class="at">--convert-to</span> pdf:writer_pdf_Export input.html</span></code></pre></div></li>
+</ul>
+<h2 id="common-supported-formats">Common Supported Formats</h2>
+<p>LibreOffice CLI supports conversions between a wide array of
+formats:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Input Formats</th>
+<th style="text-align: left;">Common Output Formats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Word Processing</strong></td>
+<td style="text-align: left;">DOCX, DOC, ODT, RTF, TXT, HTML</td>
+<td style="text-align: left;">PDF, DOCX, ODT, TXT, EPUB</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spreadsheets</strong></td>
+<td style="text-align: left;">XLSX, XLS, ODS, CSV</td>
+<td style="text-align: left;">PDF, CSV, XLSX, ODS, HTML</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Presentations</strong></td>
+<td style="text-align: left;">PPTX, PPT, ODP</td>
+<td style="text-align: left;">PDF, PPTX, ODP, SWF</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drawings/Vector</strong></td>
+<td style="text-align: left;">VSD, VSDX, ODG, SVG</td>
+<td style="text-align: left;">PDF, PNG, SVG</td>
+</tr>
+</tbody>
+</table></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

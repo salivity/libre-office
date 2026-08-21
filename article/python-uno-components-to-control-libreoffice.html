@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python UNO Components to Control LibreOffice - libre-office</title>
+    <meta name="description" content="Controlling LibreOffice externally using standalone Python scripts relies on the Python-UNO (PyUNO) bridge, a specialized interface enabling direct communication with the LibreOffice Universal Network Objects (UNO) API. To establish this control, standal">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/python-uno-components-to-control-libreoffice">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python UNO Components to Control LibreOffice - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/python-uno-components-to-control-libreoffice" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Controlling LibreOffice externally using standalone Python scripts relies on the Python-UNO (PyUNO) bridge, a specialized interface enabling direct communication with the LibreOffice Universal Network Objects (UNO) API. To establish this control, standal" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="python-uno-components-to-control-libreoffice">Python UNO
+Components to Control LibreOffice</h1>
+<p>Controlling LibreOffice externally using standalone Python scripts
+relies on the Python-UNO (PyUNO) bridge, a specialized interface
+enabling direct communication with the LibreOffice Universal Network
+Objects (UNO) API. To establish this control, standalone scripts combine
+LibreOffice's IPC connection parameters with core Python modules such as
+<code>uno</code> and <code>unohelper</code>, alongside essential UNO
+services like the <code>UnoUrlResolver</code>,
+<code>ServiceManager</code>, and the <code>Desktop</code> component.
+Together, these components initialize inter-process communication,
+resolve remote contexts, and allow scripts to programmatically create,
+modify, and convert documents.</p>
+<h3 id="inter-process-communication-setup">Inter-Process Communication
+Setup</h3>
+<p>Before Python can interact with LibreOffice, the LibreOffice process
+must run in listening mode (often headlessly) to accept incoming
+connections over a socket or named pipe. This is typically initialized
+via the command line:</p>
+<p><code>soffice --headless --accept="socket,host=localhost,port=2002;urp;StarOffice.ServiceManager"</code></p>
+<h3 id="the-uno-module">The <code>uno</code> Module</h3>
+<p>The <code>uno</code> module is the primary Python interface for the
+PyUNO runtime. In a standalone script, it provides:</p>
+<ul>
+<li><strong><code>uno.getComponentContext()</code></strong>: Retrieves
+the initial local component context required to bootstrap
+communications.</li>
+<li><strong><code>uno.createUnoStruct()</code></strong>: Instantiates
+UNO-specific data structures (such as
+<code>com.sun.star.beans.PropertyValue</code>), which are necessary for
+passing parameters like file filters, passwords, or hidden window states
+to LibreOffice methods.</li>
+<li><strong><code>uno.ByteSequence()</code></strong>: Handles raw binary
+data streams between Python and UNO.</li>
+</ul>
+<h3 id="the-unohelper-module">The <code>unohelper</code> Module</h3>
+<p>The <code>unohelper</code> module provides utility functions and base
+classes to bridge Python and UNO architecture seamlessly:</p>
+<ul>
+<li><strong>Path Conversion</strong>: Functions like
+<code>unohelper.systemPathToFileUrl()</code> convert standard local file
+paths into the <code>file://</code> URL format required by UNO
+components.</li>
+<li><strong>Interface Inheritance</strong>: The
+<code>unohelper.Base</code> class allows custom Python classes to
+implement UNO interfaces, enabling event listening and callbacks within
+standalone scripts.</li>
+</ul>
+<h3 id="the-uno-url-resolver-comsunstarbridgeunourlresolver">The UNO URL
+Resolver (<code>com.sun.star.bridge.UnoUrlResolver</code>)</h3>
+<p>To connect to an active LibreOffice instance, the standalone script
+uses the <code>UnoUrlResolver</code> service. Created via the local
+context, its <code>resolve()</code> method parses the UNO connection
+string:</p>
+<p><code>uno:socket,host=localhost,port=2002;urp;StarOffice.ServiceManager</code></p>
+<p>This call returns the remote <code>XComponentContext</code>,
+providing the script with access to the running LibreOffice
+environment.</p>
+<h3 id="the-service-manager-comsunstarlangservicemanager">The Service
+Manager (<code>com.sun.star.lang.ServiceManager</code>)</h3>
+<p>The remote <code>ServiceManager</code> (accessed via
+<code>remoteContext.getServiceManager()</code>) acts as the factory for
+creating any UNO service available inside LibreOffice. It translates
+high-level service requests from the standalone script into live remote
+objects.</p>
+<h3 id="the-desktop-component-comsunstarframedesktop">The Desktop
+Component (<code>com.sun.star.frame.Desktop</code>)</h3>
+<p>Instantiated via the remote <code>ServiceManager</code>, the
+<code>Desktop</code> service (<code>com.sun.star.frame.Desktop</code>)
+is the central engine for document manipulation:</p>
+<ul>
+<li><strong><code>loadComponentFromURL()</code></strong>: Opens existing
+files, creates blank documents (using templates like
+<code>private:factory/swriter</code> or
+<code>private:factory/scalc</code>), and applies configuration
+properties.</li>
+<li><strong><code>getCurrentComponent()</code></strong>: Accesses the
+active document model.</li>
+<li><strong><code>terminate()</code></strong>: Closes the LibreOffice
+process cleanly when batch operations complete.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

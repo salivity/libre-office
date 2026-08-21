@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Wrapping Modes in LibreOffice Writer - libre-office</title>
+    <meta name="description" content="Text wrapping in LibreOffice Writer controls how text flows around embedded objects such as images, shapes, frames, and charts. Understanding these settings allows you to design professional layouts, eliminate awkward gaps, and place graphics precisely w">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/text-wrapping-modes-in-libreoffice-writer">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Text Wrapping Modes in LibreOffice Writer - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/text-wrapping-modes-in-libreoffice-writer" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Text wrapping in LibreOffice Writer controls how text flows around embedded objects such as images, shapes, frames, and charts. Understanding these settings allows you to design professional layouts, eliminate awkward gaps, and place graphics precisely w" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="text-wrapping-modes-in-libreoffice-writer">Text Wrapping Modes
+in LibreOffice Writer</h1>
+<p>Text wrapping in LibreOffice Writer controls how text flows around
+embedded objects such as images, shapes, frames, and charts.
+Understanding these settings allows you to design professional layouts,
+eliminate awkward gaps, and place graphics precisely where you want
+them. This guide explains how text wrapping operates in LibreOffice
+Writer, with a specific focus on the mechanics, behavior, and ideal use
+cases for <strong>Optimal Wrap</strong> and <strong>Wrap
+Through</strong>.</p>
+<hr />
+<h3 id="how-text-wrapping-works-in-libreoffice-writer">How Text Wrapping
+Works in LibreOffice Writer</h3>
+<p>When you insert an image or object into a document, it is assigned an
+anchor point (e.g., <em>To paragraph</em>, <em>To character</em>, or
+<em>To page</em>) and a text wrap mode. The wrap mode dictates whether
+text flows around the object's bounding box, follows its contour, avoids
+the object entirely, or flows directly over or behind it.</p>
+<p>You can access these settings by right-clicking any object,
+navigating to the <strong>Wrap</strong> submenu, or by opening the
+<strong>Properties</strong> dialog and selecting the
+<strong>Wrap</strong> tab.</p>
+<hr />
+<h3 id="optimal-wrap-optimal-page-wrap">Optimal Wrap (Optimal Page
+Wrap)</h3>
+<p><strong>Optimal Wrap</strong> (often labeled as <em>Optimal Page
+Wrap</em>) is an intelligent dynamic wrapping mode. Instead of forcing
+text to both sides of an object regardless of available space,
+LibreOffice evaluates the spacing around the object to determine the
+best readability.</p>
+<ul>
+<li><strong>Behavior:</strong>
+<ul>
+<li>If the distance between the object and the page margin is less than
+2 centimeters (approximately 0.79 inches), LibreOffice automatically
+prevents text from wrapping into that narrow space.</li>
+<li>If the object is positioned in the center with sufficient space on
+both sides, text wraps on both the left and right.</li>
+<li>If the object is placed close to the left margin, text wraps only on
+the right side.</li>
+<li>If placed close to the right margin, text wraps only on the left
+side.</li>
+</ul></li>
+<li><strong>Best Use Cases:</strong>
+<ul>
+<li>General document layouts where images vary in size.</li>
+<li>Preventing single-word columns or fragmented text lines beside
+images placed near page margins.</li>
+<li>Standardizing text flow across multi-page reports without manually
+adjusting left/right wrap constraints.</li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="wrap-through">Wrap Through</h3>
+<p><strong>Wrap Through</strong> disables standard text boundaries
+around the object entirely, allowing the text and the graphic to occupy
+the same spatial area.</p>
+<ul>
+<li><strong>Behavior:</strong>
+<ul>
+<li>The text flows directly across the object as if the object does not
+exist.</li>
+<li>By default, the object sits in the <strong>foreground</strong>,
+obscuring any text behind it.</li>
+<li>When combined with the <strong>In Background</strong> setting
+(accessible via the Wrap tab or context menu), the object moves behind
+the text, allowing the text to remain fully visible on top of the
+image.</li>
+<li>Wrap Through ignores spacing/margin adjustments defined in the
+object properties.</li>
+</ul></li>
+<li><strong>Best Use Cases:</strong>
+<ul>
+<li><strong>Watermarks:</strong> Faded logos or "CONFIDENTIAL" stamps
+placed behind text.</li>
+<li><strong>Decorative Backgrounds:</strong> Tinted panels, subtle
+textures, or border graphics.</li>
+<li><strong>Callout Highlights:</strong> Shapes designed to overlay
+specific text elements when set with semi-transparency.</li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="comparison-with-other-wrapping-modes">Comparison with Other
+Wrapping Modes</h3>
+<p>To understand Optimal Wrap and Wrap Through in context, consider the
+standard alternatives available in LibreOffice Writer:</p>
+<ul>
+<li><strong>Wrap Off (None):</strong> Places the object on its own line.
+Text appears directly above and below the object, leaving the left and
+right sides completely blank.</li>
+<li><strong>Page Wrap (Parallel):</strong> Forces text to flow on both
+the left and right sides of the object simultaneously, regardless of how
+narrow the space is.</li>
+<li><strong>Wrap Left (Before):</strong> Text flows exclusively on the
+left side of the object; the right side remains empty.</li>
+<li><strong>Wrap Right (After):</strong> Text flows exclusively on the
+right side of the object; the left side remains empty.</li>
+</ul>
+<hr />
+<h3 id="fine-tuning-wrap-behavior">Fine-Tuning Wrap Behavior</h3>
+<p>For both Optimal Wrap and standard wrapping modes, you can refine
+layout precision using these additional options in the
+<strong>Properties &gt; Wrap</strong> menu:</p>
+<ol type="1">
+<li><strong>Spacing (Margins):</strong> Add top, bottom, left, and right
+margins to prevent text from touching the outer edges of the
+graphic.</li>
+<li><strong>Contour Wrap:</strong> When enabled, text wraps around the
+actual shape/edges of a transparent image (such as a PNG with an alpha
+channel) rather than its rectangular bounding box.</li>
+<li><strong>First Paragraph:</strong> Forces text wrapping to begin only
+after the first paragraph following the object.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

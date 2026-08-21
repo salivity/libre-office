@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Named Ranges and Formulas in LibreOffice Calc - libre-office</title>
+    <meta name="description" content="Managing named cell ranges and referencing formulas across workbooks in LibreOffice Calc improves spreadsheet organization, simplifies complex calculations, and enhances collaborative data tracking. This guide covers how to define and modify named ranges">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/manage-named-ranges-and-formulas-in-libreoffice-calc">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Manage Named Ranges and Formulas in LibreOffice Calc - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/manage-named-ranges-and-formulas-in-libreoffice-calc" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Managing named cell ranges and referencing formulas across workbooks in LibreOffice Calc improves spreadsheet organization, simplifies complex calculations, and enhances collaborative data tracking. This guide covers how to define and modify named ranges" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="manage-named-ranges-and-formulas-in-libreoffice-calc">Manage
+Named Ranges and Formulas in LibreOffice Calc</h1>
+<p>Managing named cell ranges and referencing formulas across workbooks
+in LibreOffice Calc improves spreadsheet organization, simplifies
+complex calculations, and enhances collaborative data tracking. This
+guide covers how to define and modify named ranges within a sheet,
+implement them in formulas, link external workbooks using absolute file
+paths and named references, and manage external data links
+efficiently.</p>
+<hr />
+<h3 id="creating-and-defining-named-ranges">Creating and Defining Named
+Ranges</h3>
+<p>Named ranges allow you to assign a meaningful label to a single cell
+or a block of cells instead of using standard coordinate references like
+<code>A1:B10</code>.</p>
+<ol type="1">
+<li><strong>Select the Range:</strong> Highlight the cell or group of
+cells you want to name.</li>
+<li><strong>Open the Define Names Dialog:</strong> Navigate to
+<strong>Sheet &gt; Named Ranges and Expressions &gt; Define...</strong>
+(or press <strong>Ctrl + F3</strong>).</li>
+<li><strong>Set the Name and Scope:</strong>
+<ul>
+<li>Enter a descriptive name in the <strong>Name</strong> field (names
+cannot contain spaces or special characters except underscores).</li>
+<li>Define the <strong>Scope</strong>. Select <strong>Document
+(Global)</strong> to use the name across the entire workbook, or select
+a specific sheet to restrict its availability.</li>
+</ul></li>
+<li><strong>Save:</strong> Click <strong>Add</strong> and then
+<strong>OK</strong>.</li>
+</ol>
+<p>Alternatively, select the cell range, click directly into the
+<strong>Name Box</strong> (located to the left of the Formula Bar), type
+your desired name, and press <strong>Enter</strong>.</p>
+<hr />
+<h3 id="editing-and-managing-existing-names">Editing and Managing
+Existing Names</h3>
+<p>To review, edit, or delete existing named ranges:</p>
+<ol type="1">
+<li>Go to <strong>Sheet &gt; Named Ranges and Expressions &gt;
+Manage...</strong> (or press <strong>Ctrl + F3</strong>).</li>
+<li>Select the name you wish to modify.</li>
+<li>Update the cell range in the <strong>Range or formula
+expression</strong> box, or click <strong>Delete</strong> to remove
+it.</li>
+<li>Click <strong>OK</strong> to apply the changes.</li>
+</ol>
+<hr />
+<h3 id="using-named-ranges-in-formulas">Using Named Ranges in
+Formulas</h3>
+<p>Once defined, named ranges replace standard coordinates inside
+formulas to make them easier to read:</p>
+<ul>
+<li><strong>Direct Formula Entry:</strong> Type the assigned name
+directly into your calculation. For example:
+<pre class="text"><code>=SUM(Quarterly_Revenue)</code></pre></li>
+<li><strong>Autocomplete:</strong> Calc provides an autocomplete
+suggestion list as you begin typing the name of a defined range.</li>
+<li><strong>Insert via Dialog:</strong> While writing a formula, press
+<strong>F3</strong> to open the <strong>Paste Names</strong> dialog,
+select the required range, and insert it into the formula.</li>
+</ul>
+<hr />
+<h3 id="referencing-cells-and-named-ranges-across-workbooks">Referencing
+Cells and Named Ranges Across Workbooks</h3>
+<p>To calculate values using data stored in a separate, external
+LibreOffice Calc file, you must use the standard file URI syntax.</p>
+<h4 id="1-referencing-a-standard-cell-range-in-another-workbook">1.
+Referencing a Standard Cell Range in Another Workbook</h4>
+<p>The general syntax to pull data from an external file is:</p>
+<pre class="text"><code>=&#39;file:///Path/To/ExternalWorkbook.ods&#39;#$Sheet1.A1</code></pre>
+<ul>
+<li><strong>Windows Example:</strong>
+<pre class="text"><code>=&#39;file:///C:/Users/Username/Documents/Sales.ods&#39;#$Sheet1.B5</code></pre></li>
+<li><strong>Linux/macOS Example:</strong>
+<pre class="text"><code>=&#39;file:///home/user/documents/Sales.ods&#39;#$Sheet1.B5</code></pre></li>
+</ul>
+<h4 id="2-referencing-an-external-named-range">2. Referencing an
+External Named Range</h4>
+<p>If the external workbook contains a defined named range with a global
+document scope, reference it directly after the file path:</p>
+<pre class="text"><code>=SUM(&#39;file:///C:/Users/Username/Documents/Sales.ods&#39;#Quarterly_Revenue)</code></pre>
+<hr />
+<h3 id="managing-and-updating-external-links">Managing and Updating
+External Links</h3>
+<p>When workbooks depend on external references, links must be
+maintained to ensure data accuracy.</p>
+<ol type="1">
+<li>Go to <strong>Edit &gt; Links to External Files...</strong></li>
+<li>In the dialog, you will see a list of all external files linked to
+the current document.</li>
+<li>Select an external file link to perform any of the following
+actions:
+<ul>
+<li><strong>Update:</strong> Refreshes data immediately from the source
+file.</li>
+<li><strong>Modify:</strong> Updates the source file path if the
+external file has been moved or renamed.</li>
+<li><strong>Break Link:</strong> Removes the external connection and
+converts current external values into static data.</li>
+</ul></li>
+<li>Set the <strong>Update</strong> preference to either
+<strong>Automatic</strong> or <strong>Manual</strong> according to your
+workflow requirements.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

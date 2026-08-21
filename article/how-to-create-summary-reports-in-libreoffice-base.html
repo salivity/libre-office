@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Create Summary Reports in LibreOffice Base - libre-office</title>
+    <meta name="description" content="Generating printable summary reports in LibreOffice Base allows you to aggregate, group, and calculate data from your database tables into a clean, document-ready format. This guide walks you through using the built-in Report Builder and Report Wizard to">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-create-summary-reports-in-libreoffice-base">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Create Summary Reports in LibreOffice Base - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-create-summary-reports-in-libreoffice-base" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Generating printable summary reports in LibreOffice Base allows you to aggregate, group, and calculate data from your database tables into a clean, document-ready format. This guide walks you through using the built-in Report Builder and Report Wizard to" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-create-summary-reports-in-libreoffice-base">How to Create
+Summary Reports in LibreOffice Base</h1>
+<p>Generating printable summary reports in LibreOffice Base allows you
+to aggregate, group, and calculate data from your database tables into a
+clean, document-ready format. This guide walks you through using the
+built-in Report Builder and Report Wizard to select specific data
+fields, set up groupings, calculate summary values like totals and
+averages, and format the output for physical printing or PDF export.</p>
+<h3 id="1-launch-the-report-wizard">1. Launch the Report Wizard</h3>
+<ol type="1">
+<li>Open your database file (<code>.odb</code>) in LibreOffice
+Base.</li>
+<li>In the left-hand <strong>Database</strong> pane, click on
+<strong>Reports</strong>.</li>
+<li>Under the <strong>Tasks</strong> section, click <strong>Use Wizard
+to Create Report...</strong> to launch the step-by-step creation
+tool.</li>
+</ol>
+<h3 id="2-select-fields-and-tables">2. Select Fields and Tables</h3>
+<ol type="1">
+<li>In the <strong>Tables or queries</strong> dropdown menu, select the
+table containing the data you want to summarize.</li>
+<li>Move the fields you want to include in the report from the
+<strong>Available fields</strong> list to the <strong>Fields in
+report</strong> list using the <strong>&gt;</strong> button.</li>
+<li>Include both the descriptive fields (e.g., Department, Category) and
+numeric fields you intend to calculate (e.g., Sales, Quantity).</li>
+<li>Click <strong>Next</strong>.</li>
+</ol>
+<h3 id="3-label-and-group-the-data">3. Label and Group the Data</h3>
+<ol type="1">
+<li><strong>Labeling Fields</strong>: Change any field column labels if
+you want clearer names displayed on the printed page, then click
+<strong>Next</strong>.</li>
+<li><strong>Grouping</strong>: Select the field you want to summarize
+your data by (for example, <em>Category</em> or <em>Region</em>) and
+click the <strong>&gt;</strong> button to define it as a grouping level.
+Grouping is essential for creating sub-totals and summary sections.</li>
+<li>Click <strong>Next</strong>.</li>
+</ol>
+<h3 id="4-apply-summary-calculations">4. Apply Summary Calculations</h3>
+<ol type="1">
+<li>Choose <strong>Summary options</strong> to define calculations for
+your numeric fields.</li>
+<li>Select the calculation type for each field:
+<ul>
+<li><strong>Sum</strong>: Totals the values in a group.</li>
+<li><strong>Average</strong>: Calculates the mean value.</li>
+<li><strong>Min / Max</strong>: Displays the lowest or highest
+value.</li>
+<li><strong>Count</strong>: Counts the number of records.</li>
+</ul></li>
+<li>Choose whether to display <strong>Summary only</strong> or
+<strong>Summary and details</strong> depending on whether you want
+individual line items listed under each group header.</li>
+<li>Click <strong>Next</strong>.</li>
+</ol>
+<h3 id="5-define-layout-and-orientation">5. Define Layout and
+Orientation</h3>
+<ol type="1">
+<li>Choose a layout style for the data and headers (e.g., Tabular,
+Columnar).</li>
+<li>Set the <strong>Orientation</strong> to <strong>Portrait</strong> or
+<strong>Landscape</strong> depending on the number of columns to ensure
+the content fits onto a standard printed page.</li>
+<li>Click <strong>Next</strong>.</li>
+</ol>
+<h3 id="6-generate-and-print-the-report">6. Generate and Print the
+Report</h3>
+<ol type="1">
+<li>Enter a title for the report.</li>
+<li>Select <strong>Create report now</strong> to immediately generate
+the document, or select <strong>Modify report layout</strong> if you
+need to adjust margins, fonts, or page numbers in the design view.</li>
+<li>Click <strong>Finish</strong>.</li>
+<li>Once the report opens in LibreOffice Writer view, go to <strong>File
+&gt; Print</strong> to send it to a printer, or choose <strong>File &gt;
+Export As &gt; Export as PDF</strong> for digital distribution.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

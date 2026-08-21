@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Basic and the UNO API Explained - libre-office</title>
+    <meta name="description" content="LibreOffice Basic is the default macro scripting language embedded within the LibreOffice productivity suite, designed to automate workflows and extend document functionality. To manipulate document elements like spreadsheets, text documents, and present">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-basic-and-the-uno-api-explained">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Basic and the UNO API Explained - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-basic-and-the-uno-api-explained" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Basic is the default macro scripting language embedded within the LibreOffice productivity suite, designed to automate workflows and extend document functionality. To manipulate document elements like spreadsheets, text documents, and present" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-basic-and-the-uno-api-explained">LibreOffice Basic
+and the UNO API Explained</h1>
+<p>LibreOffice Basic is the default macro scripting language embedded
+within the LibreOffice productivity suite, designed to automate
+workflows and extend document functionality. To manipulate document
+elements like spreadsheets, text documents, and presentations,
+LibreOffice Basic relies on the Universal Network Objects (UNO)
+Application Programming Interface (API). This article explains the
+fundamentals of LibreOffice Basic, defines the UNO architecture, and
+demonstrates how Basic interfaces with UNO to control the LibreOffice
+environment.</p>
+<h3 id="what-is-libreoffice-basic">What is LibreOffice Basic?</h3>
+<p>LibreOffice Basic is a lightweight, procedural programming language
+based on traditional BASIC syntax. It is built directly into LibreOffice
+and provides an integrated development environment (IDE) with debugging
+tools, syntax highlighting, and dialog builders. While it can execute
+standard programmatic tasks like loops, conditionals, and file
+operations independently, it cannot interact with documents without
+connecting to the underlying application structure.</p>
+<h3 id="what-is-the-uno-api">What is the UNO API?</h3>
+<p>Universal Network Objects (UNO) is the core component model that
+powers LibreOffice. It is a language-independent, modular architecture
+that exposes the entire functionality of the office suite through a
+system of interfaces, services, and objects. Because UNO is
+language-agnostic, developers can interact with it using various
+programming languages, including Python, C++, Java, and LibreOffice
+Basic.</p>
+<h3 id="how-libreoffice-basic-interacts-with-uno">How LibreOffice Basic
+Interacts with UNO</h3>
+<p>LibreOffice Basic acts as a client that bridges your code to the UNO
+component model. Through built-in runtime functions and global
+variables, Basic can instantiate, inspect, and invoke UNO services.</p>
+<h4 id="1-entry-points-and-global-objects">1. Entry Points and Global
+Objects</h4>
+<p>LibreOffice Basic provides predefined global objects that serve as
+gateways to the UNO API:</p>
+<ul>
+<li><strong><code>ThisComponent</code></strong>: Represents the
+currently active document (such as a Calc spreadsheet or Writer
+document) as a UNO model object.</li>
+<li><strong><code>StarDesktop</code></strong>: Represents the top-level
+application framework, allowing scripts to open new files, iterate over
+open windows, and terminate the application.</li>
+</ul>
+<h4 id="2-instantiating-services">2. Instantiating Services</h4>
+<p>To use UNO components not tied to an open document—such as file
+pickers, path configuration managers, or system services—Basic uses the
+built-in function <code>CreateUnoService</code>. This function requests
+a service by its standardized UNO interface name and returns an object
+reference that Basic can manipulate.</p>
+<h4 id="3-services-and-interfaces">3. Services and Interfaces</h4>
+<p>UNO separates <em>services</em> (the components that perform tasks)
+from <em>interfaces</em> (the specific methods exposed by a service). In
+LibreOffice Basic, this distinction is largely abstracted away: when an
+object supports multiple UNO interfaces, Basic allows developers to call
+any method directly on the object variable without requiring explicit
+interface querying.</p>
+<h4 id="4-structures-and-constants">4. Structures and Constants</h4>
+<p>Many UNO API methods require structured data or specific enumeration
+values. LibreOffice Basic handles this through:</p>
+<ul>
+<li><strong><code>CreateUnoStruct</code></strong>: Creates an instance
+of a UNO structure (such as a cell property structure or color
+value).</li>
+<li><strong>Predefined Constants</strong>: Accesses global UNO constant
+groups to pass required parameters to API methods.</li>
+</ul>
+<h3 id="a-typical-interaction-flow">A Typical Interaction Flow</h3>
+<ol type="1">
+<li><strong>Accessing the Target</strong>: The script references
+<code>ThisComponent</code> to get the root document object.</li>
+<li><strong>Navigating the Object Hierarchy</strong>: The script
+traverses UNO interfaces—for example, moving from the document object to
+the <code>Sheets</code> collection, then to an individual
+<code>Sheet</code>, and finally to a specific <code>Cell</code>.</li>
+<li><strong>Modifying Properties and Calling Methods</strong>: The
+script uses UNO methods on the cell object to set values, apply
+formatting, or execute calculations.</li>
+<li><strong>Utilizing Auxiliary Services</strong>: If advanced actions
+are needed (like exporting to PDF or displaying a dialog box), the
+script invokes <code>CreateUnoService</code> to instantiate the required
+UNO component and passes the document object to it.</li>
+</ol>
+<p>Through this relationship, LibreOffice Basic provides the syntax and
+control flow, while the UNO API provides the extensive object model
+required to manipulate every aspect of the office suite.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

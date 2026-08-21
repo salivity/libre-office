@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulating LibreOffice Documents with Python - libre-office</title>
+    <meta name="description" content="Using Python to manipulate LibreOffice documents enables automated document generation, batch processing, data extraction, and formatting across LibreOffice Writer, Calc, and Impress. This automation is powered by the Python-UNO (PyUNO) bridge, a library">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/manipulating-libreoffice-documents-with-python">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Manipulating LibreOffice Documents with Python - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/manipulating-libreoffice-documents-with-python" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Using Python to manipulate LibreOffice documents enables automated document generation, batch processing, data extraction, and formatting across LibreOffice Writer, Calc, and Impress. This automation is powered by the Python-UNO (PyUNO) bridge, a library" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="manipulating-libreoffice-documents-with-python">Manipulating
+LibreOffice Documents with Python</h1>
+<p>Using Python to manipulate LibreOffice documents enables automated
+document generation, batch processing, data extraction, and formatting
+across LibreOffice Writer, Calc, and Impress. This automation is powered
+by the Python-UNO (PyUNO) bridge, a library that connects Python scripts
+directly to LibreOffice’s Universal Network Objects (UNO) API.
+Developers can execute these scripts either as internal macros directly
+within the LibreOffice user interface or as external standalone scripts
+communicating with a headless background instance of the software.</p>
+<h3 id="the-pyuno-interface">The PyUNO Interface</h3>
+<p>The core mechanism for automating LibreOffice is the <code>uno</code>
+module, which comes bundled with standard LibreOffice installations. The
+PyUNO bridge allows Python to interact with the underlying C++
+components of LibreOffice, exposing objects such as the desktop manager,
+document models, text cursors, and spreadsheet cell ranges.</p>
+<h3 id="execution-methods">Execution Methods</h3>
+<p>Python automation in LibreOffice generally follows one of two
+approaches:</p>
+<ol type="1">
+<li><strong>Embedded Macros:</strong> Scripts placed inside the user's
+LibreOffice scripts directory (<code>Scripts/python/</code>) can be
+triggered via the LibreOffice GUI, assigned to hotkeys, or linked to
+document events.</li>
+<li><strong>Headless / External Automation:</strong> Standalone Python
+scripts connect to a running LibreOffice process over a local socket.
+This is ideal for server-side processing, automated report generation,
+and batch file conversion.</li>
+</ol>
+<p>To run LibreOffice as a background service for external control,
+start it from the command line:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">soffice</span> <span class="at">--headless</span> <span class="at">--accept</span><span class="op">=</span><span class="st">&quot;socket,host=localhost,port=2002;urp;StarOffice.ServiceManager&quot;</span></span></code></pre></div>
+<h3 id="basic-workflow-for-document-manipulation">Basic Workflow for
+Document Manipulation</h3>
+<p>Manipulating any document through Python follows a standardized
+sequence of operations:</p>
+<h4 id="1-connecting-to-the-instance">1. Connecting to the Instance</h4>
+<p>The script establishes a connection to the LibreOffice runtime
+environment via the local resolver:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uno</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> com.sun.star.beans <span class="im">import</span> PropertyValue</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>local_context <span class="op">=</span> uno.getComponentContext()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>resolver <span class="op">=</span> local_context.ServiceManager.createInstanceWithContext(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;com.sun.star.bridge.UnoUrlResolver&quot;</span>, local_context</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>context <span class="op">=</span> resolver.resolve(<span class="st">&quot;uno:socket,host=localhost,port=2002;urp;StarOffice.ServiceManager&quot;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>desktop <span class="op">=</span> context.ServiceManager.createInstanceWithContext(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;com.sun.star.frame.Desktop&quot;</span>, context</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<h4 id="2-opening-or-creating-a-document">2. Opening or Creating a
+Document</h4>
+<p>Documents are opened using the <code>loadComponentFromURL</code>
+method. Paths must be formatted as file URLs:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>file_url <span class="op">=</span> uno.systemPathToFileUrl(<span class="st">&quot;/path/to/document.odt&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>document <span class="op">=</span> desktop.loadComponentFromURL(file_url, <span class="st">&quot;_blank&quot;</span>, <span class="dv">0</span>, ())</span></code></pre></div>
+<p>To create a new document instead of opening an existing one, replace
+the file URL with <code>private:factory/swriter</code> (for Writer) or
+<code>private:factory/scalc</code> (for Calc).</p>
+<h4 id="3-modifying-document-content">3. Modifying Document Content</h4>
+<ul>
+<li><strong>In Writer:</strong> Text can be inserted and formatted using
+the document's <code>Text</code> object and cursors.
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> document.Text</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> text.createTextCursor()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>text.insertString(cursor, <span class="st">&quot;Hello from Python!</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="va">False</span>)</span></code></pre></div></li>
+<li><strong>In Calc:</strong> Cells and ranges are accessed via sheet
+objects.
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sheets <span class="op">=</span> document.getSheets()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sheet <span class="op">=</span> sheets.getByIndex(<span class="dv">0</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cell <span class="op">=</span> sheet.getCellByPosition(<span class="dv">0</span>, <span class="dv">0</span>)  <span class="co"># Column A, Row 1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>cell.setString(<span class="st">&quot;Automated Value&quot;</span>)</span></code></pre></div></li>
+</ul>
+<h4 id="4-saving-and-exporting">4. Saving and Exporting</h4>
+<p>Changes can be saved directly back to the original file, saved to a
+new format, or exported as a PDF using filter properties:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pdf_filter <span class="op">=</span> PropertyValue()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pdf_filter.Name <span class="op">=</span> <span class="st">&quot;FilterName&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pdf_filter.Value <span class="op">=</span> <span class="st">&quot;writer_pdf_Export&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>output_url <span class="op">=</span> uno.systemPathToFileUrl(<span class="st">&quot;/path/to/output.pdf&quot;</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>document.storeToURL(output_url, (pdf_filter,))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>document.dispose()</span></code></pre></div>
+<h3 id="common-use-cases">Common Use Cases</h3>
+<ul>
+<li><strong>Batch Conversion:</strong> Rapidly converting
+<code>.docx</code>, <code>.odt</code>, <code>.xlsx</code>, or
+<code>.ods</code> files to <code>.pdf</code> format without manual
+interaction.</li>
+<li><strong>Mail Merge and Templating:</strong> Dynamically replacing
+placeholder tags in pre-designed templates with data pulled from
+databases or APIs.</li>
+<li><strong>Spreadsheet Reporting:</strong> Generating structured
+financial and analytical reports by injecting data, calculating
+formulas, and applying styling via automated scripts.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

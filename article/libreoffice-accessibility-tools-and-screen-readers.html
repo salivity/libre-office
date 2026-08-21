@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Accessibility Tools and Screen Readers - libre-office</title>
+    <meta name="description" content="LibreOffice includes a comprehensive suite of accessibility features and assistive technology integrations designed to ensure all users can create, edit, and read documents effectively. This guide covers the software's screen reader compatibility across">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-accessibility-tools-and-screen-readers">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Accessibility Tools and Screen Readers - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-accessibility-tools-and-screen-readers" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice includes a comprehensive suite of accessibility features and assistive technology integrations designed to ensure all users can create, edit, and read documents effectively. This guide covers the software's screen reader compatibility across" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-accessibility-tools-and-screen-readers">LibreOffice
+Accessibility Tools and Screen Readers</h1>
+<p>LibreOffice includes a comprehensive suite of accessibility features
+and assistive technology integrations designed to ensure all users can
+create, edit, and read documents effectively. This guide covers the
+software's screen reader compatibility across multiple operating
+systems, its automated accessibility verification tools, interface
+customization options, and accessible document export capabilities.</p>
+<h2 id="screen-reader-support-across-platforms">Screen Reader Support
+Across Platforms</h2>
+<p>LibreOffice interfaces directly with standard assistive technology
+protocols across major desktop operating systems:</p>
+<ul>
+<li><strong>Windows:</strong> LibreOffice supports the
+<strong>IAccessible2</strong> standard, allowing screen readers such as
+<strong>NVDA</strong> (NonVisual Desktop Access) and
+<strong>JAWS</strong> (Job Access With Speech) to read document text,
+interface menus, dialog boxes, and formatting properties. Legacy Java
+Access Bridge support is also available when Java integration is
+enabled.</li>
+<li><strong>Linux:</strong> The suite integrates natively with the
+<strong>AT-SPI</strong> (Assistive Technology Service Provider
+Interface) framework, enabling seamless interaction with the
+<strong>Orca</strong> screen reader in desktop environments such as
+GNOME and KDE.</li>
+<li><strong>macOS:</strong> LibreOffice interfaces with Apple’s
+<strong>NSAccessibility</strong> protocol, providing compatibility with
+the built-in <strong>VoiceOver</strong> screen reader for navigating
+documents and controls.</li>
+</ul>
+<h2 id="built-in-accessibility-checker">Built-In Accessibility
+Checker</h2>
+<p>LibreOffice Writer, Calc, and Impress include an integrated
+<strong>Accessibility Check</strong> tool (accessible via <em>Tools &gt;
+Accessibility Check</em>). This utility audits the active document
+against universal accessibility standards (such as PDF/UA and WCAG) and
+flags potential barriers, including:</p>
+<ul>
+<li><strong>Missing Alternative Text:</strong> Identifies images,
+graphics, and OLE objects that lack descriptive text.</li>
+<li><strong>Heading Structure:</strong> Detects skipped heading levels
+(e.g., jumping from Heading 1 directly to Heading 3) to ensure a logical
+document outline.</li>
+<li><strong>Table Formatting:</strong> Checks for defined header rows
+and flags split or merged cells that disrupt reading order.</li>
+<li><strong>Hyperlink Text:</strong> Warns about generic hyperlink text
+(such as "click here") that lacks contextual clarity for screen
+readers.</li>
+<li><strong>Contrast and Text Formatting:</strong> Flags low-contrast
+text choices and simulated formatting (such as using multiple empty
+paragraphs instead of standard spacing).</li>
+</ul>
+<h2 id="visual-and-interface-customization">Visual and Interface
+Customization</h2>
+<p>LibreOffice provides several visual adjustments to assist users with
+low vision or visual impairments:</p>
+<ul>
+<li><strong>High-Contrast Support:</strong> Automatically detects
+system-level high-contrast themes and adjusts document backgrounds, text
+colors, and UI elements accordingly.</li>
+<li><strong>Icon and Font Scaling:</strong> Users can select
+high-contrast icon sets (such as Sifr) and scale interface elements,
+menu fonts, and toolbar sizes via <em>Tools &gt; Options &gt;
+LibreOffice &gt; View</em>.</li>
+<li><strong>Custom Color Schemes:</strong> <em>Tools &gt; Options &gt;
+LibreOffice &gt; Application Colors</em> allows users to customize
+background colors, font colors, field shadings, and gridline appearances
+to enhance readability.</li>
+</ul>
+<h2 id="comprehensive-keyboard-navigation">Comprehensive Keyboard
+Navigation</h2>
+<p>The entire LibreOffice suite can be operated without a mouse:</p>
+<ul>
+<li><strong>Menu and Dialog Navigation:</strong> Full support for
+<code>F6</code> cycling between document areas, toolbars, sidebars, and
+status bars.</li>
+<li><strong>Configurable Shortcuts:</strong> Every command and macro can
+be mapped to custom key combinations under <em>Tools &gt; Customize &gt;
+Keyboard</em>.</li>
+<li><strong>Mnemonic Keys:</strong> Standard Alt-key shortcuts provide
+direct access to every menu and sub-menu entry.</li>
+</ul>
+<h2 id="accessible-document-creation-and-export">Accessible Document
+Creation and Export</h2>
+<p>To ensure content remains accessible outside the application,
+LibreOffice offers advanced export settings:</p>
+<ul>
+<li><strong>Tagged PDF Export:</strong> Creates a structured layout tree
+within the PDF that screen readers rely on for reading order.</li>
+<li><strong>PDF/UA Compliance:</strong> Supports the universal PDF/UA
+(Universal Accessibility) standard during export.</li>
+<li><strong>Alt-Text Editors:</strong> Built-in dialogs for assigning
+titles and alternative descriptions to all visual elements, including
+drawings, shapes, charts, and mathematical formulas.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

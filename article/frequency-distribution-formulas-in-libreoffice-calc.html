@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Distribution Formulas in LibreOffice Calc - libre-office</title>
+    <meta name="description" content="LibreOffice Calc provides several formulas and tools to calculate frequency distributions, allowing users to organize raw datasets into structured frequency tables, intervals, and relative proportions. This guide details the essential Calc functions used">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/frequency-distribution-formulas-in-libreoffice-calc">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Frequency Distribution Formulas in LibreOffice Calc - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/frequency-distribution-formulas-in-libreoffice-calc" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Calc provides several formulas and tools to calculate frequency distributions, allowing users to organize raw datasets into structured frequency tables, intervals, and relative proportions. This guide details the essential Calc functions used" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="frequency-distribution-formulas-in-libreoffice-calc">Frequency
+Distribution Formulas in LibreOffice Calc</h1>
+<p>LibreOffice Calc provides several formulas and tools to calculate
+frequency distributions, allowing users to organize raw datasets into
+structured frequency tables, intervals, and relative proportions. This
+guide details the essential Calc functions used to determine absolute
+frequencies, calculate relative and cumulative distributions, and
+establish optimal class intervals for statistical analysis.</p>
+<h2 id="the-frequency-function">The FREQUENCY Function</h2>
+<p>The <code>FREQUENCY</code> function is the primary method for
+calculating absolute frequency distribution across specified intervals
+(bins) in LibreOffice Calc.</p>
+<ul>
+<li><strong>Syntax:</strong> <code>=FREQUENCY(Data, Classes)</code></li>
+<li><strong>Parameters:</strong>
+<ul>
+<li><code>Data</code>: The reference range containing the values to be
+counted.</li>
+<li><code>Classes</code>: The reference range containing the upper
+limits of the bin intervals.</li>
+</ul></li>
+<li><strong>Usage:</strong> Because <code>FREQUENCY</code> is an array
+formula, select the output range adjacent to your bins, enter the
+formula, and press <code>Ctrl + Shift + Enter</code>. Calc calculates
+how many data values fall into each interval, including values less than
+or equal to the first bin and greater than the final bin.</li>
+</ul>
+<h2 id="interval-counting-with-countif-and-countifs">Interval Counting
+with COUNTIF and COUNTIFS</h2>
+<p>For discrete categories or customized bin intervals without using
+array formulas, conditional counting functions can be used:</p>
+<ul>
+<li><strong>Single-Value/Categorical Frequency:</strong>
+<ul>
+<li>Formula: <code>=COUNTIF(Data_Range, Category_Cell)</code></li>
+<li>Counts the exact occurrences of specific labels, text, or individual
+numbers.</li>
+</ul></li>
+<li><strong>Range-Based (Bin) Frequency:</strong>
+<ul>
+<li>Formula:
+<code>=COUNTIFS(Data_Range, "&gt;=" &amp; Lower_Bound, Data_Range, "&lt;=" &amp; Upper_Bound)</code></li>
+<li>Counts values falling strictly between a lower limit and an upper
+limit.</li>
+</ul></li>
+</ul>
+<h2 id="relative-and-percentage-frequency-calculations">Relative and
+Percentage Frequency Calculations</h2>
+<p>Relative frequency indicates the proportion of total observations
+belonging to each class.</p>
+<ul>
+<li><strong>Relative Frequency:</strong>
+<ul>
+<li>Formula: <code>=Frequency_Cell / COUNT(Data_Range)</code> or
+<code>=Frequency_Cell / SUM(Total_Frequency_Range)</code></li>
+</ul></li>
+<li><strong>Percentage Frequency:</strong>
+<ul>
+<li>Formula: <code>=(Frequency_Cell / COUNT(Data_Range)) * 100</code>
+(or format the relative frequency cell as a percentage).</li>
+</ul></li>
+</ul>
+<h2 id="cumulative-frequency-calculations">Cumulative Frequency
+Calculations</h2>
+<p>Cumulative frequency tracks the running total of frequencies across
+consecutive bins.</p>
+<ul>
+<li><strong>Cumulative Absolute Frequency:</strong>
+<ul>
+<li>For the first bin: Reference the first frequency cell directly
+(<code>=B2</code>).</li>
+<li>For subsequent bins: Add the previous cumulative total to the
+current bin frequency (<code>=C2 + B3</code>) or use an expanding range
+sum (<code>=SUM($B$2:B3)</code>).</li>
+</ul></li>
+<li><strong>Cumulative Relative Frequency:</strong>
+<ul>
+<li>Formula:
+<code>=Cumulative_Frequency_Cell / COUNT(Data_Range)</code></li>
+</ul></li>
+</ul>
+<h2 id="supporting-formulas-for-constructing-frequency-bins">Supporting
+Formulas for Constructing Frequency Bins</h2>
+<p>To set up an accurate frequency distribution table from continuous
+data, Calc formulas help determine interval sizes and bin limits:</p>
+<ul>
+<li><strong>Total Count (<span
+class="math inline">\(N\)</span>):</strong>
+<code>=COUNT(Data_Range)</code></li>
+<li><strong>Data Range (<span
+class="math inline">\(R\)</span>):</strong>
+<code>=MAX(Data_Range) - MIN(Data_Range)</code></li>
+<li><strong>Number of Classes (<span class="math inline">\(k\)</span>
+via Sturges' Rule):</strong>
+<code>=1 + 3.322 * LOG10(COUNT(Data_Range))</code></li>
+<li><strong>Class Width (<span
+class="math inline">\(w\)</span>):</strong>
+<code>=ROUNDUP((MAX(Data_Range) - MIN(Data_Range)) / Number_of_Classes, Decimals)</code></li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Validation Rules in LibreOffice Calc - libre-office</title>
+    <meta name="description" content="Data validation in LibreOffice Calc allows you to control the type and format of data entered into specific cells, ensuring data consistency and preventing user entry errors. By defining validation criteria, you can restrict inputs to certain numeric ran">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/data-validation-rules-in-libreoffice-calc">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Data Validation Rules in LibreOffice Calc - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/data-validation-rules-in-libreoffice-calc" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Data validation in LibreOffice Calc allows you to control the type and format of data entered into specific cells, ensuring data consistency and preventing user entry errors. By defining validation criteria, you can restrict inputs to certain numeric ran" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="data-validation-rules-in-libreoffice-calc">Data Validation Rules
+in LibreOffice Calc</h1>
+<p>Data validation in LibreOffice Calc allows you to control the type
+and format of data entered into specific cells, ensuring data
+consistency and preventing user entry errors. By defining validation
+criteria, you can restrict inputs to certain numeric ranges, date
+boundaries, character limits, or predefined dropdown selections. This
+guide outlines the core validation rules available in LibreOffice Calc,
+how they function, and the settings used to enforce them.</p>
+<h3 id="accessing-data-validation">Accessing Data Validation</h3>
+<p>To configure validation criteria on any selected cell or range:</p>
+<ol type="1">
+<li>Select the target cells.</li>
+<li>Go to the top menu and select <strong>Data</strong> &gt;
+<strong>Validity</strong>.</li>
+<li>Use the <strong>Criteria</strong>, <strong>Input Help</strong>, and
+<strong>Error Alert</strong> tabs to define your rules.</li>
+</ol>
+<hr />
+<h3 id="core-data-validation-criteria">Core Data Validation
+Criteria</h3>
+<p>Under the <strong>Criteria</strong> tab, the <strong>Allow</strong>
+dropdown provides several rule types:</p>
+<h4 id="1-whole-numbers">1. Whole Numbers</h4>
+<p>Restricts the cell to integer values only. Any decimal entry or text
+string will be rejected. You can apply operators such as <em>equal
+to</em>, <em>less than</em>, <em>greater than</em>, <em>valid range
+(between)</em>, or <em>invalid range (not between)</em>.</p>
+<h4 id="2-decimal">2. Decimal</h4>
+<p>Restricts input to numeric values, including numbers with decimal
+points. This rule supports the same comparison operators as the Whole
+Numbers rule, making it ideal for currency, weights, and
+measurements.</p>
+<h4 id="3-date">3. Date</h4>
+<p>Enforces valid calendar date inputs. Entries can be constrained to
+occur before, after, or between specific dates, preventing invalid
+chronological records.</p>
+<h4 id="4-time">4. Time</h4>
+<p>Limits cell values to valid time formats. You can restrict input to
+specific hours, minutes, and seconds using standard mathematical
+comparison operators.</p>
+<h4 id="5-cell-range">5. Cell Range</h4>
+<p>Creates a dynamic dropdown selection based on values from an existing
+range of cells within the spreadsheet. When the source range updates,
+the allowed options in the validated cell update automatically.</p>
+<h4 id="6-list">6. List</h4>
+<p>Allows you to manually type a fixed set of permitted values separated
+by line breaks. Checking the <strong>Show selection list</strong> option
+displays these entries as a clickable dropdown menu directly in the
+spreadsheet cell.</p>
+<h4 id="7-text-length">7. Text Length</h4>
+<p>Restricts the number of characters allowed in a cell. This rule is
+useful for enforcing standardized input lengths, such as postal codes,
+identification numbers, or fixed-length abbreviations.</p>
+<hr />
+<h3 id="additional-validation-controls">Additional Validation
+Controls</h3>
+<h4 id="blank-cell-and-error-behavior">Blank Cell and Error
+Behavior</h4>
+<ul>
+<li><strong>Allow blank cells:</strong> If enabled, users can leave the
+cell empty without triggering an error.</li>
+<li><strong>Show selection list:</strong> When using <em>List</em> or
+<em>Cell Range</em>, this generates an interactive dropdown arrow in the
+active cell.</li>
+</ul>
+<h4 id="input-help">Input Help</h4>
+<p>The <strong>Input Help</strong> tab allows you to create an
+informational tooltip that automatically appears when a user clicks on
+the validated cell. You can define a custom title and descriptive text
+explaining the input requirements.</p>
+<h4 id="error-alerts">Error Alerts</h4>
+<p>The <strong>Error Alert</strong> tab determines what happens when a
+user enters invalid data:</p>
+<ul>
+<li><strong>Stop:</strong> Blocks invalid data entry completely and
+prompts the user to retry or cancel.</li>
+<li><strong>Warning:</strong> Alerts the user to the invalid entry but
+allows them to keep the value by clicking "OK".</li>
+<li><strong>Information:</strong> Informs the user of the rule violation
+without restricting data entry.</li>
+<li><strong>Macro:</strong> Executes a predefined LibreOffice Basic
+macro when an invalid entry occurs.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

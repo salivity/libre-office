@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add Math Formulas to LibreOffice Impress - libre-office</title>
+    <meta name="description" content="Integrating mathematical equations into LibreOffice Impress allows presenters to display clean, scalable, and accurately formatted formulas alongside presentation content. This guide explains how to create native LibreOffice Math formula objects directly">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-add-math-formulas-to-libreoffice-impress">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Add Math Formulas to LibreOffice Impress - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-add-math-formulas-to-libreoffice-impress" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Integrating mathematical equations into LibreOffice Impress allows presenters to display clean, scalable, and accurately formatted formulas alongside presentation content. This guide explains how to create native LibreOffice Math formula objects directly" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-add-math-formulas-to-libreoffice-impress">How to Add Math
+Formulas to LibreOffice Impress</h1>
+<p>Integrating mathematical equations into LibreOffice Impress allows
+presenters to display clean, scalable, and accurately formatted formulas
+alongside presentation content. This guide explains how to create native
+LibreOffice Math formula objects directly within Impress slides, import
+existing formula files, and edit mathematical expressions for optimal
+slide formatting.</p>
+<h2 id="creating-and-inserting-a-new-math-formula">Creating and
+Inserting a New Math Formula</h2>
+<p>LibreOffice Impress includes a built-in integration with LibreOffice
+Math using Object Linking and Embedding (OLE).</p>
+<ol type="1">
+<li>Open your presentation in LibreOffice Impress and select the slide
+where you want the formula to appear.</li>
+<li>Click on <strong>Insert</strong> in the top menu bar.</li>
+<li>Hover over <strong>Object</strong> and select <strong>Formula
+Object</strong> (or <strong>OLE Object</strong> &gt;
+<strong>Formula</strong> depending on your LibreOffice version).</li>
+<li>The LibreOffice Math interface will appear at the bottom of the
+screen with an equation editor pane, and a placeholder box will appear
+on the active slide.</li>
+<li>Type your mathematical markup into the lower equation pane or select
+symbols from the <strong>Elements</strong> dock (for example, type
+<code>sqrt{a^2 + b^2} = c</code> or
+<code>%sigma = {F} over {A}</code>).</li>
+<li>Click anywhere outside the formula box on the slide to exit the
+equation editor and embed the object.</li>
+</ol>
+<h2 id="inserting-an-existing-libreoffice-math-file">Inserting an
+Existing LibreOffice Math File</h2>
+<p>If you have already created and saved a formula as an
+<code>.odf</code> (OpenDocument Formula) file in LibreOffice Math, you
+can import it directly onto a slide:</p>
+<ol type="1">
+<li>Navigate to the desired slide.</li>
+<li>Go to <strong>Insert</strong> &gt; <strong>Object</strong> &gt;
+<strong>OLE Object...</strong></li>
+<li>In the dialog box, select <strong>Create from file</strong>.</li>
+<li>Click <strong>Search...</strong>, locate your <code>.odf</code>
+formula file, and click <strong>Open</strong>.</li>
+<li>Click <strong>OK</strong> to insert the formula onto the slide.</li>
+</ol>
+<h2 id="editing-and-formatting-math-objects-in-impress">Editing and
+Formatting Math Objects in Impress</h2>
+<p>Once a formula is on the slide, it acts as an embedded object that
+can be moved, resized, or modified at any time:</p>
+<ul>
+<li><strong>Edit the Equation:</strong> Double-click the formula on the
+slide to reactivate the Math equation editor and make changes.</li>
+<li><strong>Reposition:</strong> Single-click the formula to select it,
+then click and drag it to the desired location on the slide.</li>
+<li><strong>Change Formula Font Size:</strong> Double-click the formula
+to enter Math mode, go to the top menu and select
+<strong>Format</strong> &gt; <strong>Font size...</strong>, increase or
+decrease the base size (e.g., set to 24pt or 32pt for slide visibility),
+and click <strong>OK</strong>.</li>
+<li><strong>Change Colors:</strong> In the formula editor, use markup
+commands such as <code>color red {x}</code> or
+<code>color blue {y = mx + b}</code> to highlight specific elements for
+presentation clarity.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

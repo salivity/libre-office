@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packaging LibreOffice for Microsoft Intune - libre-office</title>
+    <meta name="description" content="This guide outlines the end-to-end process enterprise system administrators use to package and deploy LibreOffice using Microsoft Intune. You will learn how to obtain the official MSI package, convert it into the required .intunewin format using the Micr">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/packaging-libreoffice-for-microsoft-intune">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Packaging LibreOffice for Microsoft Intune - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/packaging-libreoffice-for-microsoft-intune" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide outlines the end-to-end process enterprise system administrators use to package and deploy LibreOffice using Microsoft Intune. You will learn how to obtain the official MSI package, convert it into the required .intunewin format using the Micr" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="packaging-libreoffice-for-microsoft-intune">Packaging
+LibreOffice for Microsoft Intune</h1>
+<p>This guide outlines the end-to-end process enterprise system
+administrators use to package and deploy LibreOffice using Microsoft
+Intune. You will learn how to obtain the official MSI package, convert
+it into the required <code>.intunewin</code> format using the Microsoft
+Win32 Content Prep Tool, configure silent installation parameters, set
+up accurate detection rules, and assign the application to target
+enterprise endpoints.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before beginning the packaging process, ensure you have the following
+items:</p>
+<ul>
+<li>The official LibreOffice MSI installer (Enterprise/Still version
+recommended for stability).</li>
+<li>The Microsoft Win32 Content Prep Tool
+(<code>IntuneWinAppUtil.exe</code>), available from Microsoft's official
+GitHub repository.</li>
+<li>Administrative access to the Microsoft Intune admin center.</li>
+</ul>
+<h2 id="step-1-prepare-the-source-directory">Step 1: Prepare the Source
+Directory</h2>
+<ol type="1">
+<li>Create a dedicated working directory on your local machine, such as
+<code>C:\IntunePackaging\LibreOffice</code>.</li>
+<li>Inside that directory, create two subfolders:
+<ul>
+<li><code>Source</code>: Place the downloaded LibreOffice MSI file here
+(e.g., <code>LibreOffice_7.x.x_Win_x64.msi</code>).</li>
+<li><code>Output</code>: Leave this folder empty to store the generated
+<code>.intunewin</code> package.</li>
+</ul></li>
+<li>Place <code>IntuneWinAppUtil.exe</code> in the root working
+directory or make it accessible via command line.</li>
+</ol>
+<h2 id="step-2-generate-the-intunewin-package">Step 2: Generate the
+.intunewin Package</h2>
+<ol type="1">
+<li>Open PowerShell or Command Prompt as an administrator.</li>
+<li>Run <code>IntuneWinAppUtil.exe</code>.</li>
+<li>Provide the required parameters when prompted:
+<ul>
+<li><strong>Source folder:</strong>
+<code>C:\IntunePackaging\LibreOffice\Source</code></li>
+<li><strong>Setup file:</strong>
+<code>LibreOffice_7.x.x_Win_x64.msi</code> (exact filename)</li>
+<li><strong>Output folder:</strong>
+<code>C:\IntunePackaging\LibreOffice\Output</code></li>
+<li><strong>Specify catalog folder:</strong> Type <code>N</code></li>
+</ul></li>
+<li>Wait for the tool to complete the compression process. The generated
+file will be located in the <code>Output</code> directory.</li>
+</ol>
+<h2 id="step-3-add-the-win32-app-to-microsoft-intune">Step 3: Add the
+Win32 App to Microsoft Intune</h2>
+<ol type="1">
+<li>Sign in to the <strong>Microsoft Intune admin center</strong>.</li>
+<li>Navigate to <strong>Apps</strong> &gt; <strong>Windows</strong> &gt;
+<strong>Add</strong>.</li>
+<li>In the <strong>App type</strong> drop-down menu, select
+<strong>Windows app (Win32)</strong> and click
+<strong>Select</strong>.</li>
+<li>On the <strong>App information</strong> tab, click <strong>Select
+app package file</strong>, browse to your <code>Output</code> folder,
+select the <code>.intunewin</code> file, and click
+<strong>OK</strong>.</li>
+</ol>
+<h2 id="step-4-configure-application-metadata-and-commands">Step 4:
+Configure Application Metadata and Commands</h2>
+<h3 id="app-information">App Information</h3>
+<p>Fill in the standard metadata:</p>
+<ul>
+<li><strong>Name:</strong> LibreOffice (include version number if
+desired)</li>
+<li><strong>Description:</strong> Enter a clear description for users
+viewing Company Portal.</li>
+<li><strong>Publisher:</strong> The Document Foundation</li>
+<li><strong>Category:</strong> Productivity (optional)</li>
+</ul>
+<h3 id="program-settings">Program Settings</h3>
+<p>Configure the execution parameters for unattended enterprise
+installation:</p>
+<ul>
+<li><strong>Install command:</strong><br />
+<code>msiexec /i "LibreOffice_7.x.x_Win_x64.msi" /qn /norestart ALLUSERS=1 CREATEDESKTOPICON=0 UI_LANGS=en_US</code></li>
+<li><strong>Uninstall command:</strong><br />
+<code>msiexec /x "{Product-Code-GUID}" /qn /norestart</code><br />
+<em>(Intune typically auto-populates the correct MSI Product
+Code).</em></li>
+<li><strong>Install behavior:</strong> System</li>
+<li><strong>Device restart behavior:</strong> No specific action or
+Determine behavior based on return codes.</li>
+</ul>
+<h2 id="step-5-specify-requirements-and-detection-rules">Step 5: Specify
+Requirements and Detection Rules</h2>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li><strong>Operating system architecture:</strong> 64-bit (or 32-bit
+depending on the installer used).</li>
+<li><strong>Minimum operating system:</strong> Select your enterprise
+baseline (e.g., Windows 10 21H2 or Windows 11).</li>
+</ul>
+<h3 id="detection-rules">Detection Rules</h3>
+<ol type="1">
+<li>In the <strong>Rules format</strong> drop-down menu, select
+<strong>Manually configure detection rules</strong>.</li>
+<li>Click <strong>Add</strong> and choose <strong>MSI</strong> as the
+rule type.</li>
+<li>Intune will automatically detect and populate the <strong>MSI
+product code</strong>.</li>
+<li>Set <strong>MSI product version check</strong> to
+<strong>No</strong> (or <strong>Yes</strong> if you specifically require
+version-level enforcement).</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<h2 id="step-6-assign-and-deploy">Step 6: Assign and Deploy</h2>
+<ol type="1">
+<li>Proceed to the <strong>Assignments</strong> tab.</li>
+<li>Under <strong>Required</strong>, add the Entra ID device or user
+groups that must receive LibreOffice automatically.</li>
+<li>Alternatively, add groups under <strong>Available for enrolled
+devices</strong> to allow users to self-install via the Company Portal
+app.</li>
+<li>Review your settings on the <strong>Review + create</strong> tab and
+click <strong>Create</strong>.</li>
+</ol>
+<p>Intune will upload the package. Once uploaded, the service will
+process the deployment and begin distributing LibreOffice to the
+targeted endpoints according to your assignment schedule.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

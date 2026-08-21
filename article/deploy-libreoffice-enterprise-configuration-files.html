@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy LibreOffice Enterprise Configuration Files - libre-office</title>
+    <meta name="description" content="Deploying custom enterprise configuration files in LibreOffice allows system administrators to centrally manage, standardize, and lock user settings across an entire organization. By leveraging XML-based configuration files referencing the org.openoffice">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/deploy-libreoffice-enterprise-configuration-files">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Deploy LibreOffice Enterprise Configuration Files - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/deploy-libreoffice-enterprise-configuration-files" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Deploying custom enterprise configuration files in LibreOffice allows system administrators to centrally manage, standardize, and lock user settings across an entire organization. By leveraging XML-based configuration files referencing the org.openoffice" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="deploy-libreoffice-enterprise-configuration-files">Deploy
+LibreOffice Enterprise Configuration Files</h1>
+<p>Deploying custom enterprise configuration files in LibreOffice allows
+system administrators to centrally manage, standardize, and lock user
+settings across an entire organization. By leveraging XML-based
+configuration files referencing the <code>org.openoffice.Office</code>
+registry schema, administrators can enforce default save formats,
+disable unwanted features, configure macro security, and set application
+defaults across Windows, macOS, and Linux environments.</p>
+<h3
+id="understanding-libreoffice-configuration-architecture">Understanding
+LibreOffice Configuration Architecture</h3>
+<p>LibreOffice relies on a layered XML configuration registry using the
+OpenOffice Registry (<code>oor</code>) schema. The application evaluates
+settings in a specific hierarchy:</p>
+<ol type="1">
+<li><strong>Default Settings:</strong> Built-in application schemas
+found in the core installation (<code>main.xcd</code>).</li>
+<li><strong>Enterprise Layer:</strong> Custom <code>.xcu</code> files
+placed in the shared application directory, applied globally to all
+users.</li>
+<li><strong>User Layer:</strong> User-specific changes stored locally in
+the profile's <code>registrymodifications.xcu</code>.</li>
+</ol>
+<p>Enterprise configurations take precedence over defaults. When marked
+with the <code>finalized</code> attribute, these settings become
+read-only in the user interface, preventing individual users from
+overriding them.</p>
+<hr />
+<h3 id="step-1-create-the-custom-xcu-configuration-file">Step 1: Create
+the Custom <code>.xcu</code> Configuration File</h3>
+<p>Create a standard XML file (e.g.,
+<code>enterprise-policy.xcu</code>). Specify the target node under the
+<code>org.openoffice.Office</code> component and define the desired
+properties.</p>
+<p>Below is an example configuration that sets default document formats
+to Microsoft OpenXML formats (DOCX, XLSX, PPTX) and locks the
+settings:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">&quot;1.0&quot;</span> <span class="ot">encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">oor:component-data</span> <span class="ot">xmlns:oor=</span><span class="st">&quot;http://openoffice.org/2001/registry&quot;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                    <span class="ot">xmlns:xs=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    <span class="ot">oor:name=</span><span class="st">&quot;Common&quot;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                    <span class="ot">oor:package=</span><span class="st">&quot;org.openoffice.Office&quot;</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Enforce default save formats --&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">node</span> <span class="ot">oor:name=</span><span class="st">&quot;Save&quot;</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">node</span> <span class="ot">oor:name=</span><span class="st">&quot;DefaultFormat&quot;</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">prop</span> <span class="ot">oor:name=</span><span class="st">&quot;Writer&quot;</span> <span class="ot">oor:type=</span><span class="st">&quot;xs:string&quot;</span> <span class="ot">oor:finalized=</span><span class="st">&quot;true&quot;</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;MS Word 2007 XML&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">prop</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">prop</span> <span class="ot">oor:name=</span><span class="st">&quot;Calc&quot;</span> <span class="ot">oor:type=</span><span class="st">&quot;xs:string&quot;</span> <span class="ot">oor:finalized=</span><span class="st">&quot;true&quot;</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;Calc MS Excel 2007 XML&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">prop</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">prop</span> <span class="ot">oor:name=</span><span class="st">&quot;Impress&quot;</span> <span class="ot">oor:type=</span><span class="st">&quot;xs:string&quot;</span> <span class="ot">oor:finalized=</span><span class="st">&quot;true&quot;</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;Impress MS PowerPoint 2007 XML&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">prop</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">node</span>&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">node</span>&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Disable Telemetry / Crash Reporting --&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">node</span> <span class="ot">oor:name=</span><span class="st">&quot;Misc&quot;</span>&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">prop</span> <span class="ot">oor:name=</span><span class="st">&quot;Telemetry&quot;</span> <span class="ot">oor:type=</span><span class="st">&quot;xs:boolean&quot;</span> <span class="ot">oor:finalized=</span><span class="st">&quot;true&quot;</span>&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">value</span>&gt;false&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">prop</span>&gt;</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">node</span>&gt;</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">oor:component-data</span>&gt;</span></code></pre></div>
+<h4 id="key-attributes">Key Attributes:</h4>
+<ul>
+<li><strong><code>oor:package="org.openoffice.Office"</code></strong>:
+Specifies the base schema component (e.g., <code>Common</code>,
+<code>Writer</code>, <code>Calc</code>, <code>Security</code>).</li>
+<li><strong><code>oor:name="ComponentSubgroup"</code></strong>: Targets
+the functional group inside the package.</li>
+<li><strong><code>oor:finalized="true"</code></strong>: Locks the
+setting. The corresponding GUI option will be grayed out for standard
+users.</li>
+</ul>
+<hr />
+<h3 id="step-2-identify-the-deployment-paths">Step 2: Identify the
+Deployment Paths</h3>
+<p>To apply the configuration system-wide, place the <code>.xcu</code>
+file directly into the shared configuration directory corresponding to
+the operating system:</p>
+<ul>
+<li><p><strong>Windows:</strong><br />
+<code>C:\Program Files\LibreOffice\share\registry\</code><br />
+<em>(For 32-bit on 64-bit OS:
+<code>C:\Program Files (x86)\LibreOffice\share\registry\</code>)</em></p></li>
+<li><p><strong>Linux (System Packages):</strong><br />
+<code>/usr/lib/libreoffice/share/registry/</code> or
+<code>/etc/libreoffice/registry/</code></p></li>
+<li><p><strong>macOS:</strong><br />
+<code>/Applications/LibreOffice.app/Contents/Resources/registry/</code></p></li>
+</ul>
+<hr />
+<h3 id="step-3-deploy-via-management-tools">Step 3: Deploy via
+Management Tools</h3>
+<p>Distribute the <code>.xcu</code> file across client machines using
+your organization's deployment tool:</p>
+<ul>
+<li><strong>Group Policy (GPO) / Microsoft Intune:</strong> Use file
+copy preferences or deployment scripts to copy
+<code>enterprise-policy.xcu</code> to the target
+<code>share\registry\</code> path on Windows endpoints.</li>
+<li><strong>Ansible / Puppet / Chef:</strong> Include a file management
+task in your playbooks to place the configuration file on Linux/macOS
+systems with root read permissions (<code>chmod 644</code>).</li>
+<li><strong>Custom MSI Wrapper:</strong> Repackage the official
+LibreOffice MSI installer to include the <code>.xcu</code> file in the
+installation layout directly.</li>
+</ul>
+<hr />
+<h3 id="step-4-verify-deployment">Step 4: Verify Deployment</h3>
+<ol type="1">
+<li>Launch LibreOffice on a managed client machine.</li>
+<li>Navigate to <strong>Tools &gt; Options</strong> (or
+<strong>LibreOffice &gt; Preferences</strong> on macOS).</li>
+<li>Confirm that the configured values reflect the changes specified in
+the <code>.xcu</code> file.</li>
+<li>Verify that properties with <code>oor:finalized="true"</code> appear
+locked and cannot be edited by the user.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

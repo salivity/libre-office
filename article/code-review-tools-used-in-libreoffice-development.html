@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Tools Used in LibreOffice Development - libre-office</title>
+    <meta name="description" content="LibreOffice relies on a robust suite of development tools to maintain code quality, automate testing, and manage contributions from hundreds of global developers. At the heart of this workflow is Gerrit Code Review, an open-source, web-based tool tightly">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/code-review-tools-used-in-libreoffice-development">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Code Review Tools Used in LibreOffice Development - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/code-review-tools-used-in-libreoffice-development" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice relies on a robust suite of development tools to maintain code quality, automate testing, and manage contributions from hundreds of global developers. At the heart of this workflow is Gerrit Code Review, an open-source, web-based tool tightly" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="code-review-tools-used-in-libreoffice-development">Code Review
+Tools Used in LibreOffice Development</h1>
+<p>LibreOffice relies on a robust suite of development tools to maintain
+code quality, automate testing, and manage contributions from hundreds
+of global developers. At the heart of this workflow is Gerrit Code
+Review, an open-source, web-based tool tightly integrated with Git and
+continuous integration (CI) systems. This article outlines the role of
+Gerrit in LibreOffice development and explores the supporting tools that
+complete their peer review and testing infrastructure.</p>
+<h3 id="gerrit-code-review">Gerrit Code Review</h3>
+<p>Gerrit is the primary code review platform for the core LibreOffice
+repository. It acts as an intermediary between a developer’s local Git
+workspace and the central LibreOffice repository. When developers push
+commits, Gerrit stages them as proposed changes rather than applying
+them directly to the main branch.</p>
+<p>Key aspects of how LibreOffice employs Gerrit include:</p>
+<ul>
+<li><strong>Patch Set Management:</strong> Each revision of a change is
+tracked as a distinct "Patch Set," allowing reviewers to compare
+incremental updates and ensure requested changes are implemented
+properly.</li>
+<li><strong>Inline Commenting:</strong> Reviewers can leave comments on
+specific lines of code, ask questions, and suggest alterations directly
+in the web UI.</li>
+<li><strong>Scoring and Approvals:</strong> LibreOffice uses Gerrit’s
+voting mechanism (such as Code-Review +1/-1 or +2 to approve). Only
+authorized committers can grant the final approval (+2) to merge the
+change into the main codebase.</li>
+</ul>
+<h3 id="jenkins-for-continuous-integration">Jenkins for Continuous
+Integration</h3>
+<p>Gerrit in LibreOffice is integrated with Jenkins, an automation
+server that executes automated builds and unit tests across multiple
+platforms (Linux, macOS, and Windows) for every submitted patch set.</p>
+<ul>
+<li><strong>Automated Verification:</strong> Jenkins tests each incoming
+patch set before human reviewers invest time in a detailed review.</li>
+<li><strong>Verified Votes:</strong> If a build breaks or unit tests
+fail, Jenkins assigns a "Verified -1" score to the change in Gerrit,
+blocking it from being merged until the developer fixes the issue.</li>
+</ul>
+<h3 id="bugzilla-integration">Bugzilla Integration</h3>
+<p>While Bugzilla is primarily an issue tracker rather than a dedicated
+review tool, it is integrated into the LibreOffice review pipeline.
+Developers reference Bugzilla ticket numbers (e.g.,
+<code>tdf#12345</code>) in their commit messages. Gerrit automatically
+links these commits to the relevant Bugzilla issues, and when a review
+is approved and merged, Bugzilla is updated automatically with the
+commit reference and the status of the bug.</p>
+<h3 id="tinderbox-system">Tinderbox System</h3>
+<p>Complementing Gerrit and Jenkins is the LibreOffice Tinderbox
+infrastructure. Tinderboxes are dedicated build machines that
+continuously pull the latest integrated code from the main repository to
+compile and run the full test suite under various environments and
+configurations (such as different compiler versions or specialized
+optimization flags). This catches platform-specific regressions that
+quick pre-merge CI checks might miss.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

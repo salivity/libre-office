@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Custom Envelopes and Labels in LibreOffice - libre-office</title>
+    <meta name="description" content="LibreOffice Writer provides dedicated built-in tools for generating custom envelopes and mailing labels, allowing you to design individual mail pieces or automate bulk mailings using connected databases. This guide explains how to configure custom dimens">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/create-custom-envelopes-and-labels-in-libreoffice">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Custom Envelopes and Labels in LibreOffice - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/create-custom-envelopes-and-labels-in-libreoffice" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Writer provides dedicated built-in tools for generating custom envelopes and mailing labels, allowing you to design individual mail pieces or automate bulk mailings using connected databases. This guide explains how to configure custom dimens" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-custom-envelopes-and-labels-in-libreoffice">Create Custom
+Envelopes and Labels in LibreOffice</h1>
+<p>LibreOffice Writer provides dedicated built-in tools for generating
+custom envelopes and mailing labels, allowing you to design individual
+mail pieces or automate bulk mailings using connected databases. This
+guide explains how to configure custom dimensions, format text layouts,
+synchronize label sheets, and print both envelopes and labels
+accurately.</p>
+<hr />
+<h2 id="designing-custom-envelopes">Designing Custom Envelopes</h2>
+<p>LibreOffice Writer includes an envelope wizard that lets you specify
+recipient details, sender information, page orientation, and custom
+dimensions.</p>
+<h3 id="1-open-the-envelope-dialog">1. Open the Envelope Dialog</h3>
+<ol type="1">
+<li>Open a new or existing document in LibreOffice Writer.</li>
+<li>Go to the top menu and select <strong>Insert &gt;
+Envelope</strong>.</li>
+</ol>
+<h3 id="2-configure-address-and-layout-details">2. Configure Address and
+Layout Details</h3>
+<p>The dialog contains three primary tabs:</p>
+<ul>
+<li><strong>Envelope Tab:</strong> Enter the text for both the
+<strong>Addressee</strong> and <strong>Sender</strong>. If you are using
+a database for mail merge, select your data source, table, and fields
+from the drop-down menus to insert dynamic merge fields.</li>
+<li><strong>Format Tab:</strong> Select standard envelope sizes (such as
+#10, DL, or C5) from the <strong>Format</strong> dropdown. To set custom
+dimensions, select <strong>[User]</strong> and manually define the width
+and height. You can also adjust the exact positioning and character
+styles for the sender and addressee blocks.</li>
+<li><strong>Printer Tab:</strong> Configure how your printer feeds
+envelopes (horizontal, vertical, face up, or face down) and select the
+appropriate paper tray.</li>
+</ul>
+<h3 id="3-insert-and-print">3. Insert and Print</h3>
+<ul>
+<li>Click <strong>New Document</strong> to create a standalone envelope
+file, or click <strong>Insert</strong> to attach the envelope as the
+first page of your active document.</li>
+<li>Review the layout in the workspace. Make any final font, color, or
+alignment adjustments directly on the page.</li>
+<li>Select <strong>File &gt; Print</strong> to send the envelope to your
+printer.</li>
+</ul>
+<hr />
+<h2 id="designing-mailing-labels">Designing Mailing Labels</h2>
+<p>The Labels tool allows you to create sheets of identical labels or
+populate individual labels with customer data from a spreadsheet or
+database.</p>
+<h3 id="1-open-the-labels-dialog">1. Open the Labels Dialog</h3>
+<ol type="1">
+<li>Navigate to <strong>File &gt; New &gt; Labels</strong>.</li>
+</ol>
+<h3 id="2-set-up-the-label-sheet">2. Set Up the Label Sheet</h3>
+<ul>
+<li><strong>Labels Tab:</strong>
+<ul>
+<li>In the <strong>Label Text</strong> box, type your custom text (e.g.,
+return address) or insert database fields for a mailing list.</li>
+<li>Under the <strong>Format</strong> section, choose
+<strong>Labels</strong>. Select the manufacturer <strong>Brand</strong>
+(such as Avery) and the specific <strong>Type</strong> number
+corresponding to your label paper.</li>
+</ul></li>
+<li><strong>Format Tab (for Custom Sizes):</strong>
+<ul>
+<li>If your label paper is not listed under predefined brands, switch to
+the <strong>Format</strong> tab.</li>
+<li>Define the <strong>Horizontal pitch</strong>, <strong>Vertical
+pitch</strong>, <strong>Width</strong>, <strong>Height</strong>,
+<strong>Left margin</strong>, <strong>Top margin</strong>,
+<strong>Columns</strong>, and <strong>Rows</strong> according to the
+measurements of your physical label sheet.</li>
+</ul></li>
+<li><strong>Options Tab:</strong>
+<ul>
+<li>Select <strong>Entire page</strong> to fill the full sheet.</li>
+<li>Check the <strong>Synchronize contents</strong> box. This adds a
+floating "Synchronize" button to your document, allowing you to edit the
+top-left label and automatically replicate the design across all other
+labels.</li>
+</ul></li>
+</ul>
+<h3 id="3-generate-and-finalize">3. Generate and Finalize</h3>
+<ol type="1">
+<li>Click <strong>New Document</strong> to generate the label grid.</li>
+<li>If <strong>Synchronize contents</strong> was enabled, format the
+text, fonts, or spacing in the first label (top-left corner), then click
+the <strong>Synchronize Labels</strong> floating button to update the
+rest of the sheet.</li>
+<li>Go to <strong>File &gt; Print</strong>. If using database fields,
+confirm the prompt to print a form letter to merge the records.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

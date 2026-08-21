@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Conditional Text in LibreOffice Writer - libre-office</title>
+    <meta name="description" content="LibreOffice Writer allows you to dynamically display different text strings or entire paragraphs based on predefined variable values. This feature is useful for creating automated document templates, personalized letters, and contracts that adapt based o">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/create-conditional-text-in-libreoffice-writer">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Conditional Text in LibreOffice Writer - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/create-conditional-text-in-libreoffice-writer" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Writer allows you to dynamically display different text strings or entire paragraphs based on predefined variable values. This feature is useful for creating automated document templates, personalized letters, and contracts that adapt based o" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-conditional-text-in-libreoffice-writer">Create
+Conditional Text in LibreOffice Writer</h1>
+<p>LibreOffice Writer allows you to dynamically display different text
+strings or entire paragraphs based on predefined variable values. This
+feature is useful for creating automated document templates,
+personalized letters, and contracts that adapt based on specific
+conditions. This guide outlines the exact steps to define a variable and
+insert conditional text fields to control your document's output.</p>
+<h3 id="step-1-define-a-user-variable">Step 1: Define a User
+Variable</h3>
+<p>Before creating conditional text, you must define the variable that
+the condition will evaluate.</p>
+<ol type="1">
+<li>Place your cursor where you want to set the variable (usually at the
+beginning of the document).</li>
+<li>Open the Fields dialog by pressing <strong>Ctrl + F2</strong> (or
+navigate to <strong>Insert &gt; Field &gt; More
+Fields...</strong>).</li>
+<li>Select the <strong>Variables</strong> tab.</li>
+<li>In the <strong>Type</strong> column, click on <strong>Set
+Variable</strong>.</li>
+<li>In the <strong>Format</strong> column, select <strong>Text</strong>
+or <strong>General</strong> depending on your variable type.</li>
+<li>Enter a name in the <strong>Name</strong> field (e.g.,
+<code>UserType</code>).</li>
+<li>Enter an initial value in the <strong>Value</strong> field (e.g.,
+<code>Admin</code>).</li>
+<li>Check the <strong>Invisible</strong> box if you do not want this
+variable definition to appear on the printed page.</li>
+<li>Click <strong>Insert</strong>, then close the dialog.</li>
+</ol>
+<h3 id="step-2-insert-the-conditional-text-field">Step 2: Insert the
+Conditional Text Field</h3>
+<p>Once the variable exists, configure the conditional text field to
+evaluate its state.</p>
+<ol type="1">
+<li>Place the cursor where you want the dynamic text to appear.</li>
+<li>Press <strong>Ctrl + F2</strong> to open the <strong>More
+Fields</strong> dialog again.</li>
+<li>Select the <strong>Functions</strong> tab.</li>
+<li>In the <strong>Type</strong> list, choose <strong>Conditional
+text</strong>.</li>
+<li>In the <strong>Condition</strong> box, enter your logical
+expression. Use standard comparison operators (such as <code>==</code>,
+<code>!=</code>, <code>&lt;</code>, <code>&gt;</code>):
+<ul>
+<li>Example for text variables: <code>UserType == "Admin"</code></li>
+<li>Example for numeric variables: <code>UserType == 1</code></li>
+</ul></li>
+<li>In the <strong>Then</strong> box, type the text that should appear
+when the condition is true (e.g.,
+<code>Welcome, Administrator</code>).</li>
+<li>In the <strong>Else</strong> box, type the text that should appear
+when the condition is false (e.g., <code>Welcome, Guest</code>).</li>
+<li>Click <strong>Insert</strong>, then click
+<strong>Close</strong>.</li>
+</ol>
+<h3 id="step-3-hide-entire-paragraphs-optional">Step 3: Hide Entire
+Paragraphs (Optional)</h3>
+<p>If you need to show or hide entire blocks of text rather than inline
+words:</p>
+<ol type="1">
+<li>Select the <strong>Functions</strong> tab in the <strong>More
+Fields</strong> dialog (<strong>Ctrl + F2</strong>).</li>
+<li>Select <strong>Hidden Paragraph</strong> in the
+<strong>Type</strong> list.</li>
+<li>In the <strong>Condition</strong> field, write the condition under
+which the paragraph should be hidden (e.g.,
+<code>UserType != "Admin"</code>).</li>
+<li>Click <strong>Insert</strong> inside the target paragraph.</li>
+</ol>
+<h3 id="step-4-test-and-update-the-condition">Step 4: Test and Update
+the Condition</h3>
+<ol type="1">
+<li>Double-click the gray field box representing your variable
+definition to open the edit dialog.</li>
+<li>Change the value in the <strong>Value</strong> box and click
+<strong>OK</strong>.</li>
+<li>Press <strong>F9</strong> on your keyboard to refresh all fields in
+the document. The conditional text will immediately update to match the
+new variable state.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

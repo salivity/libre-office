@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice MSI Properties for Silent Deployment - libre-office</title>
+    <meta name="description" content="This guide provides a comprehensive overview of the Microsoft Windows Installer (MSI) properties and command-line switches used for silently deploying LibreOffice across enterprise environments. System administrators can leverage these standard and vendo">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-msi-properties-for-silent-deployment">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice MSI Properties for Silent Deployment - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-msi-properties-for-silent-deployment" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This guide provides a comprehensive overview of the Microsoft Windows Installer (MSI) properties and command-line switches used for silently deploying LibreOffice across enterprise environments. System administrators can leverage these standard and vendo" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-msi-properties-for-silent-deployment">LibreOffice
+MSI Properties for Silent Deployment</h1>
+<p>This guide provides a comprehensive overview of the Microsoft Windows
+Installer (MSI) properties and command-line switches used for silently
+deploying LibreOffice across enterprise environments. System
+administrators can leverage these standard and vendor-specific
+properties to automate installations, suppress reboots, disable
+automatic update notifications, set default file associations, and
+tailor installed components to organizational standards.</p>
+<h3 id="standard-msi-execution-switches">Standard MSI Execution
+Switches</h3>
+<p>When deploying LibreOffice silently via <code>msiexec.exe</code>,
+standard Windows Installer switches define the execution behavior:</p>
+<ul>
+<li><code>/i &lt;path_to_msi&gt;</code>: Initiates the installation of
+the specified package.</li>
+<li><code>/qn</code>: Runs the installation silently without user
+interface or user interaction.</li>
+<li><code>/norestart</code>: Prevents the target machine from
+automatically restarting after installation.</li>
+<li><code>/L*v &lt;path_to_log&gt;</code>: Generates a verbose log file
+for troubleshooting deployment issues.</li>
+</ul>
+<h3 id="libreoffice-specific-public-msi-properties">LibreOffice-Specific
+Public MSI Properties</h3>
+<p>LibreOffice provides several custom MSI properties that control
+application behavior, UI defaults, and integrations.</p>
+<h4 id="update-checks-and-telemetry">Update Checks and Telemetry</h4>
+<ul>
+<li><strong><code>ISCHECKFORPRODUCTUPDATES=0</code></strong>: Disables
+the built-in online update checker. Highly recommended for enterprise
+environments where updates are managed centrally.</li>
+<li><strong><code>VC_REDIST=0</code></strong>: Skips the bundled
+Microsoft Visual C++ Redistributable check/installation if the required
+runtime is already deployed across your fleet.</li>
+</ul>
+<h4 id="shortcuts-and-startup">Shortcuts and Startup</h4>
+<ul>
+<li><strong><code>CREATEDESKTOPLINK=1</code></strong> (or
+<code>0</code>): Controls whether application shortcuts are placed on
+the public desktop. Set to <code>0</code> to prevent cluttering user
+desktops.</li>
+<li><strong><code>QUICKSTART=1</code></strong> (or <code>0</code>):
+Controls whether the LibreOffice Quickstarter tray utility loads at
+Windows login. Set to <code>0</code> to optimize boot times and system
+resource usage.</li>
+</ul>
+<h4 id="file-type-associations-microsoft-office-formats">File Type
+Associations (Microsoft Office Formats)</h4>
+<ul>
+<li><strong><code>REGISTER_ALL_MSO_TYPES=1</code></strong>: Configures
+LibreOffice as the default application for all supported Microsoft
+Office file formats (Word, Excel, PowerPoint formats, both legacy and
+OpenXML).</li>
+<li><strong><code>REGISTER_NO_MSO_TYPES=1</code></strong>: Prevents
+LibreOffice from taking over any Microsoft Office file
+associations.</li>
+<li><strong>Individual Association Properties</strong>: Set to
+<code>1</code> to enable or <code>0</code> to omit:
+<ul>
+<li><code>REGISTER_DOC=1</code>: Microsoft Word (.doc)</li>
+<li><code>REGISTER_DOCX=1</code>: Microsoft Word OpenXML (.docx)</li>
+<li><code>REGISTER_XLS=1</code>: Microsoft Excel (.xls)</li>
+<li><code>REGISTER_XLSX=1</code>: Microsoft Excel OpenXML (.xlsx)</li>
+<li><code>REGISTER_PPT=1</code>: Microsoft PowerPoint (.ppt)</li>
+<li><code>REGISTER_PPTX=1</code>: Microsoft PowerPoint OpenXML
+(.pptx)</li>
+</ul></li>
+</ul>
+<h4 id="language-selection">Language Selection</h4>
+<ul>
+<li><strong><code>UI_LANGS</code></strong>: Defines which user interface
+languages to install using comma-separated language identifiers (e.g.,
+<code>UI_LANGS=en_US,de,fr,es</code>). If omitted, the installer
+installs languages matching the system locale and standard
+defaults.</li>
+</ul>
+<h4 id="installation-path">Installation Path</h4>
+<ul>
+<li><strong><code>INSTALLLOCATION</code></strong> or
+<strong><code>INSTALLDIR</code></strong>: Overrides the default target
+directory (e.g.,
+<code>INSTALLDIR="C:\Program Files\LibreOffice"</code>).</li>
+</ul>
+<h3 id="component-control-with-addlocal-and-remove">Component Control
+with ADDLOCAL and REMOVE</h3>
+<p>Administrators can selectively install or exclude specific modules
+using standard MSI feature selection:</p>
+<ul>
+<li><strong><code>gm_o_Writer</code></strong>: LibreOffice Writer</li>
+<li><strong><code>gm_o_Calc</code></strong>: LibreOffice Calc</li>
+<li><strong><code>gm_o_Impress</code></strong>: LibreOffice Impress</li>
+<li><strong><code>gm_o_Draw</code></strong>: LibreOffice Draw</li>
+<li><strong><code>gm_o_Base</code></strong>: LibreOffice Base</li>
+<li><strong><code>gm_o_Math</code></strong>: LibreOffice Math</li>
+<li><strong><code>gm_r_ex_Dictionary_En</code></strong>: English
+Dictionaries and proofing tools</li>
+</ul>
+<h3 id="example-deployment-command">Example Deployment Command</h3>
+<p>The following command installs LibreOffice silently, writes a verbose
+log file, suppresses reboots, disables auto-updates, disables desktop
+icons, and sets LibreOffice as the default handler for standard
+Microsoft Office formats:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>msiexec.exe <span class="at">/i</span> <span class="st">&quot;LibreOffice.msi&quot;</span> <span class="at">/qn</span> <span class="at">/norestart</span> <span class="at">/L</span>*v <span class="st">&quot;C:\Logs\LibreOffice_Install.log&quot;</span> ISCHECKFORPRODUCTUPDATES=0 QUICKSTART=0 CREATEDESKTOPLINK=0 REGISTER_ALL_MSO_TYPES=1</span></code></pre></div></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Bugzilla Bug Reporting Protocols - libre-office</title>
+    <meta name="description" content="This article provides a comprehensive overview of the bug reporting protocols established on the LibreOffice Bugzilla platform. It outlines the standard procedures required for submitting high-quality defect reports, including pre-submission checks, mand">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-bugzilla-bug-reporting-protocols">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Bugzilla Bug Reporting Protocols - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-bugzilla-bug-reporting-protocols" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This article provides a comprehensive overview of the bug reporting protocols established on the LibreOffice Bugzilla platform. It outlines the standard procedures required for submitting high-quality defect reports, including pre-submission checks, mand" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-bugzilla-bug-reporting-protocols">LibreOffice
+Bugzilla Bug Reporting Protocols</h1>
+<p>This article provides a comprehensive overview of the bug reporting
+protocols established on the LibreOffice Bugzilla platform. It outlines
+the standard procedures required for submitting high-quality defect
+reports, including pre-submission checks, mandatory submission fields,
+issue classification, lifecycle statuses, and specialized reporting
+practices like regression tagging and crash log submission.</p>
+<h2 id="pre-submission-verification">Pre-Submission Verification</h2>
+<p>Before submitting a new report, users and Quality Assurance (QA)
+contributors must follow standard verification steps:</p>
+<ul>
+<li><strong>Search for Duplicates:</strong> Search the Bugzilla database
+using keywords, error messages, or component names to ensure the issue
+has not already been reported.</li>
+<li><strong>Test with Clean Profiles:</strong> Test the issue in
+LibreOffice Safe Mode (<code>Help &gt; Restart in Safe Mode</code>) to
+rule out corrupted user profiles or misconfigured extensions.</li>
+<li><strong>Verify on the Latest Version:</strong> Check if the defect
+persists in the latest stable ("Fresh") release, the latest development
+build, or the latest pre-release build.</li>
+</ul>
+<h2 id="essential-information-required-in-bug-reports">Essential
+Information Required in Bug Reports</h2>
+<p>When opening a new bug ticket, specific technical details must be
+provided to ensure developers and QA volunteers can reproduce the
+issue:</p>
+<ol type="1">
+<li><strong>Summary:</strong> A concise, descriptive title outlining the
+exact failure and the affected module.</li>
+<li><strong>Environment Details:</strong> The exact operating system,
+architecture (32-bit/64-bit), and complete LibreOffice version details,
+which can be copied directly from
+<code>Help &gt; About LibreOffice</code>.</li>
+<li><strong>Step-by-Step Instructions:</strong> A numbered, precise list
+of steps to reproduce the behavior from a blank document or fresh
+launch.</li>
+<li><strong>Expected vs. Actual Behavior:</strong> A clear statement
+describing what should have happened versus what actually occurred.</li>
+<li><strong>Attachments:</strong> Minimal sample files that trigger the
+bug, screenshots (where relevant for visual glitches), and stack traces
+for crashes.</li>
+</ol>
+<h2 id="severity-and-priority-classifications">Severity and Priority
+Classifications</h2>
+<p>LibreOffice Bugzilla strictly separates user-assigned severity from
+developer-assigned priority:</p>
+<ul>
+<li><strong>Severity:</strong> Describes the impact on the user.
+Reporters may set this to:
+<ul>
+<li><em>Blocker:</em> Causes crashes, data loss, or blocks basic
+functionality.</li>
+<li><em>Critical:</em> Major functionality is broken with no
+workaround.</li>
+<li><em>Major:</em> Major functionality is broken, but a workaround
+exists.</li>
+<li><em>Normal:</em> Default level for most regular bugs.</li>
+<li><em>Minor / Trivial:</em> Minor functional issues, cosmetic defects,
+or UI typos.</li>
+<li><em>Enhancement:</em> Requests for new features or functionality
+improvements.</li>
+</ul></li>
+<li><strong>Priority:</strong> Dictates the scheduling order for
+developer resolution. This field is managed exclusively by the QA team
+and core developers.</li>
+</ul>
+<h2 id="the-bug-lifecycle-and-status-protocols">The Bug Lifecycle and
+Status Protocols</h2>
+<p>Bug reports move through distinct statuses during their
+lifecycle:</p>
+<ul>
+<li><strong>UNCONFIRMED:</strong> The default initial state for reports
+submitted by general users.</li>
+<li><strong>NEW:</strong> Assigned by QA triagers once the issue is
+reproduced and validated with proper information.</li>
+<li><strong>ASSIGNED:</strong> A developer has taken ownership of the
+bug and is actively working on a fix.</li>
+<li><strong>NEEDINFO:</strong> Additional details, test files, or
+clarification are requested from the reporter.</li>
+<li><strong>RESOLVED:</strong> The issue is addressed. Common resolution
+resolutions include <code>FIXED</code>, <code>DUPLICATE</code>,
+<code>NOTABUG</code>, <code>WONTFIX</code>, or
+<code>WORKSFORME</code>.</li>
+<li><strong>VERIFIED:</strong> QA or the original reporter confirms that
+the fix works in a newer build.</li>
+<li><strong>CLOSED:</strong> The final administrative state confirming
+the bug lifecycle is complete.</li>
+</ul>
+<h2 id="specialized-protocols">Specialized Protocols</h2>
+<p>LibreOffice incorporates specialized reporting workflows for complex
+defects:</p>
+<ul>
+<li><strong>Regressions:</strong> If a feature worked in an older
+version but fails in a newer version, the report is tagged with the
+<code>regression</code> keyword. Advanced contributors may perform a
+"bibisect" to identify the exact commit that introduced the
+regression.</li>
+<li><strong>Crashes and Freezes:</strong> When reporting unexpected
+termination, contributors are expected to attach a debugger backtrace
+(such as from GDB on Linux/macOS or WinDbg on Windows) or provide a link
+to the LibreOffice Crash Report server using the generated Crash
+ID.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

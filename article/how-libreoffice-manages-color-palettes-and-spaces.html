@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How LibreOffice Manages Color Palettes and Spaces - libre-office</title>
+    <meta name="description" content="LibreOffice provides a flexible system for managing colors across its entire office suite, allowing users to choose from standard presets, build custom palettes, and configure colors for both digital display and print output. This article details how Lib">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-libreoffice-manages-color-palettes-and-spaces">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How LibreOffice Manages Color Palettes and Spaces - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-libreoffice-manages-color-palettes-and-spaces" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice provides a flexible system for managing colors across its entire office suite, allowing users to choose from standard presets, build custom palettes, and configure colors for both digital display and print output. This article details how Lib" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-libreoffice-manages-color-palettes-and-spaces">How
+LibreOffice Manages Color Palettes and Spaces</h1>
+<p>LibreOffice provides a flexible system for managing colors across its
+entire office suite, allowing users to choose from standard presets,
+build custom palettes, and configure colors for both digital display and
+print output. This article details how LibreOffice stores and organizes
+color palettes, how to create and import custom palette files, and how
+the software handles color spaces like sRGB and CMYK.</p>
+<h2 id="built-in-color-palettes">Built-In Color Palettes</h2>
+<p>LibreOffice includes several pre-installed color palettes tailored
+for various design tasks. These include the default Standard palette,
+Material Design, HTML, Chart-specific palettes, and tonal
+collections.</p>
+<p>Users can access these palettes from any color selection menu (such
+as Font Color, Area Fill, or Line Color) by clicking the palette
+drop-down menu at the top of the color picker dialog.</p>
+<h2 id="creating-and-managing-custom-palettes">Creating and Managing
+Custom Palettes</h2>
+<p>LibreOffice manages color palettes using the Standard Open Color
+(<code>.soc</code>) file format, which is an XML-based specification.
+Users can create, modify, and delete custom colors directly within the
+application:</p>
+<ol type="1">
+<li>Open any color selection dialog and click <strong>Custom
+Color</strong>.</li>
+<li>Define the color using RGB, HSB, or Hex values, or use the visual
+color picker.</li>
+<li>Click <strong>Add</strong> and assign a name to save the color to
+the current palette.</li>
+</ol>
+<p>To manage entire palettes:</p>
+<ul>
+<li><strong>Storage Location:</strong> Custom palettes are stored in the
+user profile directory under <code>/user/config/</code> as
+<code>.soc</code> files.</li>
+<li><strong>Importing Palettes:</strong> External <code>.soc</code> or
+ASE (Adobe Swatch Exchange) palettes can be added to LibreOffice by
+placing the files in the configuration directory or using palette
+extension packages.</li>
+</ul>
+<h2 id="how-libreoffice-handles-color-spaces">How LibreOffice Handles
+Color Spaces</h2>
+<p>LibreOffice processes color differently depending on whether the
+document is displayed on-screen or prepared for professional print
+export.</p>
+<h3 id="srgb-display-and-default-processing">sRGB (Display and Default
+Processing)</h3>
+<p>The internal rendering engine of LibreOffice operates primarily in
+the sRGB color space. All on-screen elements, user interface components,
+and standard document colors are calculated and rendered using RGB
+values.</p>
+<h3 id="cmyk-print-and-export">CMYK (Print and Export)</h3>
+<p>While LibreOffice does not feature a dedicated, real-time CMYK
+soft-proofing engine for everyday editing, it supports CMYK color
+definition and output:</p>
+<ul>
+<li><strong>CMYK Color Input:</strong> Users can input CMYK percentage
+values in the <strong>Custom Color</strong> dialog. The software
+translates these into sRGB values for screen display while retaining
+color fidelity for supported export formats.</li>
+<li><strong>PDF/X and Color Management via Export:</strong> When
+exporting to PDF (<strong>File &gt; Export As &gt; Export as
+PDF</strong>), LibreOffice supports PDF/A and PDF/X specifications. The
+PDF export engine can embed ICC color profiles, converting sRGB and
+document assets into standardized CMYK profiles suitable for commercial
+printing.</li>
+</ul>
+<h3 id="icc-profiles-and-limitations">ICC Profiles and Limitations</h3>
+<p>Unlike specialized desktop publishing software (such as Scribus or
+Adobe InDesign), LibreOffice does not implement a full, end-to-end ICC
+color management workflow. Spot colors (such as Pantone) and advanced
+color separation must be managed either at the PDF export stage using
+target print profiles or by post-processing exported documents in
+dedicated prepress utilities.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

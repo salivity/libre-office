@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Grid and Snapping in LibreOffice Draw - libre-office</title>
+    <meta name="description" content="LibreOffice Draw includes several grid and snapping tools designed to help you align, position, and organize objects precisely on the canvas. This guide covers the available alignment options, including the visible grid, snap lines, object-to-object snap">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-use-grid-and-snapping-in-libreoffice-draw">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Use Grid and Snapping in LibreOffice Draw - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-use-grid-and-snapping-in-libreoffice-draw" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Draw includes several grid and snapping tools designed to help you align, position, and organize objects precisely on the canvas. This guide covers the available alignment options, including the visible grid, snap lines, object-to-object snap" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-use-grid-and-snapping-in-libreoffice-draw">How to Use
+Grid and Snapping in LibreOffice Draw</h1>
+<p>LibreOffice Draw includes several grid and snapping tools designed to
+help you align, position, and organize objects precisely on the canvas.
+This guide covers the available alignment options, including the visible
+grid, snap lines, object-to-object snapping, and margin alignment, along
+with instructions on how to enable and configure them for efficient
+layout design.</p>
+<h3 id="1-the-work-grid">1. The Work Grid</h3>
+<p>The work grid is a background matrix of dots or lines that provides a
+visual reference and automatic alignment points for drawing and moving
+shapes.</p>
+<ul>
+<li><strong>Display Grid:</strong> Shows or hides the visible grid on
+the workspace. You can toggle this via <strong>View &gt; Grid and
+Helplines &gt; Display Grid</strong> or by right-clicking the canvas and
+selecting <strong>Grid &gt; Display Grid</strong>.</li>
+<li><strong>Snap to Grid:</strong> Forces the edges, corners, or center
+points of objects to snap to the nearest grid intersection when drawn,
+moved, or resized. Toggle this via <strong>View &gt; Grid and Helplines
+&gt; Snap to Grid</strong>.</li>
+<li><strong>Customizing Grid Settings:</strong> To adjust grid
+resolution and subdivision, go to <strong>Tools &gt; Options &gt;
+LibreOffice Draw &gt; Grid</strong>. Here, you can define the horizontal
+and vertical spacing, subdivision steps, and snap sensitivity.</li>
+</ul>
+<h3 id="2-snap-guides-helplines">2. Snap Guides (Helplines)</h3>
+<p>Snap guides (also known as guide lines or helplines) are customizable
+lines placed on the canvas to aid in alignment along specific axes.</p>
+<ul>
+<li><strong>Creating Snap Guides:</strong> Click on either the top or
+left ruler and drag onto the workspace to place a horizontal or vertical
+guide line.</li>
+<li><strong>Exact Positioning:</strong> Right-click an existing guide
+and choose <strong>Edit Snap Line</strong> to specify exact X or Y
+coordinates, or choose <strong>Insert Snap Point/Guide</strong> to add
+lines or individual point coordinates directly.</li>
+<li><strong>Snap to Helplines:</strong> When enabled under <strong>View
+&gt; Snap Guides &gt; Snap to Snap Lines</strong>, objects automatically
+latch onto these reference lines when moved nearby.</li>
+</ul>
+<h3 id="3-object-to-object-snapping">3. Object-to-Object Snapping</h3>
+<p>LibreOffice Draw allows elements to snap to other elements on the
+page, eliminating the need to align shapes manually.</p>
+<ul>
+<li><strong>Snap to Object Contours:</strong> Constrains moving objects
+to align precisely with the contours and borders of adjacent
+objects.</li>
+<li><strong>Snap to Object Points:</strong> Snaps the anchor or control
+points of one shape to the control points (such as corners or endpoints)
+of another.</li>
+<li><strong>Snap to Center:</strong> Helps position objects directly
+along the horizontal or vertical center axis of neighboring shapes.</li>
+</ul>
+<p>These settings can be toggled through the <strong>Options</strong>
+toolbar (enabled via <strong>View &gt; Toolbars &gt; Options</strong>)
+or configured within <strong>Tools &gt; Options &gt; LibreOffice Draw
+&gt; Grid</strong>.</p>
+<h3 id="4-snap-to-page-margins">4. Snap to Page Margins</h3>
+<p>Draw provides the option to snap objects directly to the printable
+area borders of your document.</p>
+<ul>
+<li><strong>Snap to Page Margins:</strong> When active, dragging an
+object close to the page boundary snaps it directly to the inner margin
+line, ensuring elements remain within the designated print and view
+area.</li>
+</ul>
+<h3 id="5-accessing-and-managing-snapping-controls">5. Accessing and
+Managing Snapping Controls</h3>
+<p>To manage all snapping and alignment tools quickly during a
+project:</p>
+<ul>
+<li>Access global toggles through the <strong>View &gt; Snap
+Guides</strong> and <strong>View &gt; Grid and Helplines</strong>
+menus.</li>
+<li>Use the <strong>Options Toolbar</strong> (<strong>View &gt; Toolbars
+&gt; Options</strong>) to click snapping features on and off directly
+from the interface.</li>
+<li>Configure default behavior, snap ranges (in pixels), and visual
+appearances under <strong>Tools &gt; Options &gt; LibreOffice Draw &gt;
+Grid</strong>.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

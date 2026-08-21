@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreOffice Basic IDE Debugging Tools - libre-office</title>
+    <meta name="description" content="This article provides a concise overview of the debugging tools built into the LibreOffice Basic Integrated Development Environment (IDE). It outlines essential features such as breakpoints, step-by-step code execution, variable inspection, the Watch win">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/libreoffice-basic-ide-debugging-tools">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LibreOffice Basic IDE Debugging Tools - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/libreoffice-basic-ide-debugging-tools" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="This article provides a concise overview of the debugging tools built into the LibreOffice Basic Integrated Development Environment (IDE). It outlines essential features such as breakpoints, step-by-step code execution, variable inspection, the Watch win" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="libreoffice-basic-ide-debugging-tools">LibreOffice Basic IDE
+Debugging Tools</h1>
+<p>This article provides a concise overview of the debugging tools built
+into the LibreOffice Basic Integrated Development Environment (IDE). It
+outlines essential features such as breakpoints, step-by-step code
+execution, variable inspection, the Watch window, and the Call Stack,
+enabling developers to efficiently locate and resolve errors in their
+macro scripts.</p>
+<h3 id="breakpoints">Breakpoints</h3>
+<p>Breakpoints pause code execution right before a designated line runs,
+allowing you to inspect the program's state.</p>
+<ul>
+<li><strong>Setting Breakpoints:</strong> Click in the left-hand margin
+next to the line number or place the cursor on a line and press
+<code>F9</code> (or select the breakpoint icon on the Macro
+toolbar).</li>
+<li><strong>Behavior:</strong> When the macro runs, execution
+automatically halts at the breakpoint, highlighting the line in
+yellow.</li>
+</ul>
+<h3 id="stepping-execution">Stepping Execution</h3>
+<p>The IDE offers multiple stepping commands to navigate code line by
+line:</p>
+<ul>
+<li><strong>Single Step / Step Into (<code>F8</code>):</strong> Executes
+the current line of code. If the line contains a call to another Sub or
+Function, execution steps inside that procedure.</li>
+<li><strong>Procedure Step / Step Over
+(<code>Shift + F8</code>):</strong> Executes the current line without
+entering called procedures, treating the entire procedure call as a
+single step.</li>
+<li><strong>Step Out (<code>Ctrl + Shift + F8</code>):</strong> Executes
+the remainder of the current procedure and pauses immediately after
+returning to the calling procedure.</li>
+</ul>
+<h3 id="watch-window">Watch Window</h3>
+<p>The Watch window monitors specific variables, objects, and
+expressions as the code executes.</p>
+<ul>
+<li><strong>Adding a Watch:</strong> Select a variable or expression in
+the code editor, right-click, and choose <strong>Enable Watch</strong>,
+or click the <strong>Watch</strong> button on the toolbar.</li>
+<li><strong>Monitoring:</strong> The Watch pane displays the variable
+name, its current runtime value, and its data type, updating dynamically
+as you step through the code.</li>
+</ul>
+<h3 id="calls-window-call-stack">Calls Window (Call Stack)</h3>
+<p>When debugging nested procedures, the <strong>Calls</strong> window
+displays the execution hierarchy.</p>
+<ul>
+<li>It lists the chain of active Sub and Function calls leading up to
+the current point of execution.</li>
+<li>Selecting an entry in the Call Stack navigates to that specific
+frame's context within the editor.</li>
+</ul>
+<h3 id="value-tooltips-data-inspection">Value Tooltips (Data
+Inspection)</h3>
+<p>When execution is paused (either at a breakpoint or during a step),
+you can hover the mouse cursor over any variable in the code editor. A
+tooltip pops up instantly displaying the variable's current value.</p>
+<h3 id="execution-control-run-pause-stop">Execution Control (Run, Pause,
+Stop)</h3>
+<p>The Macro toolbar provides core execution controls:</p>
+<ul>
+<li><strong>Run Basic (<code>F5</code>):</strong> Starts or resumes
+execution until the next breakpoint or program completion.</li>
+<li><strong>Stop (<code>Shift + F5</code>):</strong> Terminates the
+macro execution immediately and resets runtime variables.</li>
+<li><strong>Compile:</strong> Verifies the macro syntax and prepares the
+code for execution without running it.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

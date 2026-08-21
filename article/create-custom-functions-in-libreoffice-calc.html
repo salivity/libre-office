@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Custom Functions in LibreOffice Calc - libre-office</title>
+    <meta name="description" content="LibreOffice Calc allows users to extend its built-in calculation capabilities by building custom User-Defined Functions (UDFs). Using either LibreOffice Basic or Python, you can automate complex calculations, manipulate strings, and create reusable formu">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/create-custom-functions-in-libreoffice-calc">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Custom Functions in LibreOffice Calc - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/create-custom-functions-in-libreoffice-calc" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Calc allows users to extend its built-in calculation capabilities by building custom User-Defined Functions (UDFs). Using either LibreOffice Basic or Python, you can automate complex calculations, manipulate strings, and create reusable formu" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-custom-functions-in-libreoffice-calc">Create Custom
+Functions in LibreOffice Calc</h1>
+<p>LibreOffice Calc allows users to extend its built-in calculation
+capabilities by building custom User-Defined Functions (UDFs). Using
+either LibreOffice Basic or Python, you can automate complex
+calculations, manipulate strings, and create reusable formulas that
+function just like native Calc formulas (such as <code>SUM</code> or
+<code>VLOOKUP</code>). This guide provides straightforward instructions
+for creating and implementing custom functions using both languages.</p>
+<hr />
+<h2 id="creating-custom-functions-with-libreoffice-basic">Creating
+Custom Functions with LibreOffice Basic</h2>
+<p>LibreOffice Basic is the simplest and most integrated method for
+writing custom spreadsheet functions. Functions written in Basic are
+immediately available in the formula bar of your spreadsheet.</p>
+<h3 id="step-1-open-the-macro-editor">Step 1: Open the Macro Editor</h3>
+<ol type="1">
+<li>Open your Calc spreadsheet.</li>
+<li>Navigate to <strong>Tools</strong> &gt; <strong>Macros</strong> &gt;
+<strong>Organize Macros</strong> &gt; <strong>Basic...</strong></li>
+<li>Select your current document (or <strong>My Macros</strong> &gt;
+<strong>Standard</strong> to make the function available globally across
+all spreadsheets).</li>
+<li>Click <strong>New</strong> or select an existing module and click
+<strong>Edit</strong>.</li>
+</ol>
+<h3 id="step-2-write-the-basic-function">Step 2: Write the Basic
+Function</h3>
+<p>In the editor window, define your function using the
+<code>Function</code> and <code>End Function</code> keywords. The
+function must return a value by assigning the result to the function
+name.</p>
+<pre class="basic"><code>Function CALCULATETAX(amount As Double, taxRate As Double) As Double
+    CALCULATETAX = amount * taxRate
+End Function</code></pre>
+<h3 id="step-3-use-the-function-in-calc">Step 3: Use the Function in
+Calc</h3>
+<p>Return to your Calc sheet and enter the formula into any cell:</p>
+<pre class="text"><code>=CALCULATETAX(100, 0.05)</code></pre>
+<p>The cell will output <code>5</code>.</p>
+<hr />
+<h2 id="creating-custom-functions-with-python">Creating Custom Functions
+with Python</h2>
+<p>Python provides advanced libraries, modern syntax, and superior
+performance for complex logic.</p>
+<h3 id="step-1-locate-the-python-scripts-directory">Step 1: Locate the
+Python Scripts Directory</h3>
+<p>To make Python functions accessible to LibreOffice, place your
+<code>.py</code> files in the user scripts folder:</p>
+<ul>
+<li><strong>Windows:</strong>
+<code>%APPDATA%\LibreOffice\4\user\Scripts\python\</code></li>
+<li><strong>Linux:</strong>
+<code>~/.config/libreoffice/4/user/Scripts/python/</code></li>
+<li><strong>macOS:</strong>
+<code>~/Library/Application Support/LibreOffice/4/user/Scripts/python/</code></li>
+</ul>
+<p><em>(If the <code>Scripts</code> or <code>python</code> directories
+do not exist, create them manually).</em></p>
+<h3 id="step-2-write-the-python-script">Step 2: Write the Python
+Script</h3>
+<p>Create a new file named <code>custom_functions.py</code> in the
+directory specified above and define your calculation:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiply_values(a, b):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(a) <span class="op">*</span> <span class="bu">float</span>(b)</span></code></pre></div>
+<h3 id="step-3-bridge-python-to-calc-via-basic">Step 3: Bridge Python to
+Calc via Basic</h3>
+<p>While Calc handles Basic natively in cell formulas, the cleanest
+built-in method to execute a Python function directly from a cell
+without third-party extensions is to use a lightweight Basic bridge
+wrapper.</p>
+<ol type="1">
+<li>Open <strong>Tools</strong> &gt; <strong>Macros</strong> &gt;
+<strong>Organize Macros</strong> &gt; <strong>Basic...</strong></li>
+<li>Add the following bridge function to your module:</li>
+</ol>
+<pre class="basic"><code>Function PY_MULTIPLY(a As Double, b As Double) As Double
+    Dim scriptProvider As Object
+    Dim scriptURI As String
+    Dim script As Object
+
+    scriptURI = &quot;vnd.sun.star.script:custom_functions.py$multiply_values?language=Python&amp;location=user&quot;
+    scriptProvider = ThisComponent.getScriptProvider()
+    script = scriptProvider.getScript(scriptURI)
+
+    PY_MULTIPLY = script.invoke(Array(a, b), Array(), Array())
+End Function</code></pre>
+<h3 id="step-4-call-the-python-function">Step 4: Call the Python
+Function</h3>
+<p>In your spreadsheet cell, call the Basic wrapper that executes the
+underlying Python code:</p>
+<pre class="text"><code>=PY_MULTIPLY(12, 8)</code></pre>
+<p>The cell will evaluate and display <code>96</code>.</p>
+<hr />
+<h2 id="key-considerations-for-custom-functions">Key Considerations for
+Custom Functions</h2>
+<ul>
+<li><strong>Macro Security:</strong> Ensure your macro execution
+permissions are set appropriately. Go to <strong>Tools</strong> &gt;
+<strong>Options</strong> &gt; <strong>LibreOffice</strong> &gt;
+<strong>Security</strong> &gt; <strong>Macro Security</strong> and
+select <strong>Medium</strong> or add your document directory to
+<strong>Trusted File Locations</strong>.</li>
+<li><strong>Recalculation:</strong> Custom functions recalculate
+automatically when referenced input cells change. If a function relies
+on external data, press <code>Ctrl + Shift + F9</code> to force a full
+hard recalculation.</li>
+<li><strong>Scope:</strong> Storing macros under <strong>My
+Macros</strong> makes them accessible to any spreadsheet opened on your
+local machine, whereas storing them within the document itself ensures
+the macro travels with the file when shared.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Dimension Lines in LibreOffice Draw - libre-office</title>
+    <meta name="description" content="LibreOffice Draw provides built-in dimensioning tools and scaling capabilities suitable for creating 2D architectural plans, elevations, and technical layouts. This guide covers how to configure the drawing scale, place and snap dimension lines to object">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-use-dimension-lines-in-libreoffice-draw">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Use Dimension Lines in LibreOffice Draw - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-use-dimension-lines-in-libreoffice-draw" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Draw provides built-in dimensioning tools and scaling capabilities suitable for creating 2D architectural plans, elevations, and technical layouts. This guide covers how to configure the drawing scale, place and snap dimension lines to object" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-use-dimension-lines-in-libreoffice-draw">How to Use
+Dimension Lines in LibreOffice Draw</h1>
+<p>LibreOffice Draw provides built-in dimensioning tools and scaling
+capabilities suitable for creating 2D architectural plans, elevations,
+and technical layouts. This guide covers how to configure the drawing
+scale, place and snap dimension lines to objects, format measurement
+units, and organize architectural dimensions using layers.</p>
+<h2 id="setting-up-document-scale-and-units">Setting Up Document Scale
+and Units</h2>
+<p>Before drawing dimension lines, you must set the drawing scale so
+that measurements accurately represent real-world architectural
+dimensions.</p>
+<ol type="1">
+<li>Navigate to <strong>Tools &gt; Options</strong> (or
+<strong>LibreOffice &gt; Preferences</strong> on macOS).</li>
+<li>Expand <strong>LibreOffice Draw</strong> in the left sidebar and
+select <strong>General</strong>.</li>
+<li>Under the <strong>Scale</strong> section, choose an appropriate
+architectural scale (such as <code>1:50</code> or
+<code>1:100</code>).</li>
+<li>Set the default <strong>Unit of measurement</strong> to your
+preferred standard, such as meters, centimeters, or feet/inches.</li>
+<li>Click <strong>OK</strong> to apply the changes.</li>
+</ol>
+<p>To ensure alignment accuracy, enable snapping by going to
+<strong>View &gt; Snap Guides</strong> and ensuring <strong>Snap to
+Object Points</strong> and <strong>Snap to Grid</strong> are active.</p>
+<h2 id="inserting-dimension-lines">Inserting Dimension Lines</h2>
+<ol type="1">
+<li>Locate the <strong>Lines and Arrows</strong> dropdown on the main
+Drawing toolbar.</li>
+<li>Select the <strong>Dimension Line</strong> tool.</li>
+<li>Click and hold on the starting point of the object or wall you want
+to measure.</li>
+<li>Drag the cursor to the endpoint of the object and release the mouse
+button.</li>
+<li>Drag perpendicular to the measured line to set the offset distance
+for the dimension line and extension guides, then click to place
+it.</li>
+</ol>
+<p>The dimension line will automatically compute and display the scaled
+measurement between the two points.</p>
+<h2 id="customizing-dimension-line-properties">Customizing Dimension
+Line Properties</h2>
+<p>You can adjust the appearance, text format, and offset markers to
+conform to architectural drafting standards:</p>
+<ol type="1">
+<li>Right-click the placed dimension line and select
+<strong>Dimensions...</strong> from the context menu.</li>
+<li>Configure the following key settings in the dialog:
+<ul>
+<li><strong>Line Distance</strong>: Sets the distance between the
+measurement line and the object.</li>
+<li><strong>Guide Line Overhang</strong>: Controls how far the extension
+lines extend past the dimension line.</li>
+<li><strong>Guide Line Distance</strong>: Sets the gap between the
+object boundary and the start of the extension line.</li>
+<li><strong>Unit</strong>: Check or uncheck <strong>Show unit of
+measurement</strong> depending on standard blueprint formatting (many
+architectural plans omit the unit label if defined in a title
+block).</li>
+<li><strong>Text Position</strong>: Choose whether the dimension text
+appears centered inside the line, above the line, or outside the
+guides.</li>
+<li><strong>Decimal Places</strong>: Adjust precision based on your
+tolerance requirements.</li>
+</ul></li>
+<li>Click <strong>OK</strong> to update the line.</li>
+</ol>
+<p>To adjust styling such as line weight, arrowheads, or ticks (often
+preferred in architectural drafting over standard arrows), select the
+dimension line and use the <strong>Properties</strong> sidebar on the
+right to modify the line style and end markers.</p>
+<h2 id="organizing-dimensions-with-layers">Organizing Dimensions with
+Layers</h2>
+<p>For professional drafting workflow, keep dimensions separate from
+geometry:</p>
+<ol type="1">
+<li>Look at the bottom of the Draw workspace to see the <strong>Layer
+Tabs</strong> (<code>Layout</code>, <code>Controls</code>,
+<code>Dimension Lines</code>).</li>
+<li>Draw directly on the default <strong>Dimension Lines</strong> layer,
+or right-click a layer tab and choose <strong>Insert Layer</strong> to
+create a custom one.</li>
+<li>Locking or hiding the dimension layer allows you to edit
+architectural geometry without accidentally moving or deleting
+measurement callouts.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

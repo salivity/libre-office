@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Create Custom Slide Shows in LibreOffice Impress - libre-office</title>
+    <meta name="description" content="Custom slide shows in LibreOffice Impress allow you to create tailored, mini-presentations from a single master presentation without duplicating slides or creating multiple files. This guide provides a straightforward walkthrough on how to set up, organi">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-create-custom-slide-shows-in-libreoffice-impress">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Create Custom Slide Shows in LibreOffice Impress - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-create-custom-slide-shows-in-libreoffice-impress" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Custom slide shows in LibreOffice Impress allow you to create tailored, mini-presentations from a single master presentation without duplicating slides or creating multiple files. This guide provides a straightforward walkthrough on how to set up, organi" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-create-custom-slide-shows-in-libreoffice-impress">How to
+Create Custom Slide Shows in LibreOffice Impress</h1>
+<p>Custom slide shows in LibreOffice Impress allow you to create
+tailored, mini-presentations from a single master presentation without
+duplicating slides or creating multiple files. This guide provides a
+straightforward walkthrough on how to set up, organize, manage, and run
+custom slide shows to present specific content to different audiences
+efficiently.</p>
+<h2 id="what-is-a-custom-slide-show">What is a Custom Slide Show?</h2>
+<p>A custom slide show is a feature in LibreOffice Impress that lets you
+group a specific subset of slides from an existing presentation into a
+unique running order. This is useful when you have a comprehensive deck
+and need to present only relevant sections to specific groups, such as
+clients, executives, or technical teams.</p>
+<h2 id="steps-to-create-a-custom-slide-show">Steps to Create a Custom
+Slide Show</h2>
+<ol type="1">
+<li><strong>Open Your Presentation:</strong> Launch LibreOffice Impress
+and open the presentation file containing all your slides.</li>
+<li><strong>Access the Custom Slide Show Menu:</strong> In the top menu
+bar, click on <strong>Slide Show</strong> and select <strong>Custom
+Slide Show...</strong> from the dropdown list.</li>
+<li><strong>Create a New Show:</strong> In the Custom Slide Shows dialog
+box, click the <strong>New</strong> button on the right side.</li>
+<li><strong>Name the Show:</strong> Enter a descriptive name in the
+<strong>Name</strong> field (for example, "Executive Summary" or
+"10-Minute Overview").</li>
+<li><strong>Select and Add Slides:</strong>
+<ul>
+<li>The <strong>Existing slides</strong> column on the left displays all
+the slides in your presentation.</li>
+<li>Click on a slide you want to include, then click the
+<strong>&gt;&gt;</strong> (Right Arrow) button to move it to the
+<strong>Selected slides</strong> column on the right.</li>
+<li>Hold <strong>Ctrl</strong> (or <strong>Cmd</strong> on macOS) while
+clicking to select multiple non-consecutive slides, or hold
+<strong>Shift</strong> to select a continuous range of slides.</li>
+</ul></li>
+<li><strong>Reorder Slides (Optional):</strong> Click on any slide in
+the <strong>Selected slides</strong> column and use the up and down
+arrow buttons on the far right to change the presentation sequence.</li>
+<li><strong>Save the Custom Show:</strong> Click <strong>OK</strong> to
+save the new show configuration.</li>
+</ol>
+<h2 id="how-to-run-a-custom-slide-show">How to Run a Custom Slide
+Show</h2>
+<p>You can launch a custom slide show in two ways:</p>
+<ul>
+<li><strong>Directly from the Custom Slide Show Dialog:</strong> Go to
+<strong>Slide Show</strong> &gt; <strong>Custom Slide Show...</strong>,
+highlight your custom show in the list, and click
+<strong>Start</strong>.</li>
+<li><strong>Via Slide Show Settings:</strong>
+<ol type="1">
+<li>Go to <strong>Slide Show</strong> &gt; <strong>Slide Show
+Settings...</strong>.</li>
+<li>Under the <strong>Range</strong> section, select the <strong>Custom
+slide show</strong> radio button.</li>
+<li>Choose your desired custom show from the dropdown menu.</li>
+<li>Click <strong>OK</strong>. Pressing <strong>F5</strong> will now
+play your selected custom show instead of the full presentation.</li>
+</ol></li>
+</ul>
+<h2 id="managing-existing-custom-slide-shows">Managing Existing Custom
+Slide Shows</h2>
+<p>To make changes later, navigate back to <strong>Slide Show</strong>
+&gt; <strong>Custom Slide Show...</strong>:</p>
+<ul>
+<li><strong>Edit:</strong> Select a custom show and click
+<strong>Edit</strong> to add, remove, or reorder slides.</li>
+<li><strong>Copy:</strong> Duplicate an existing custom show to create a
+variation quickly.</li>
+<li><strong>Delete:</strong> Remove a custom show without deleting the
+actual slides from your presentation file.</li>
+</ul></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

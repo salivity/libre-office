@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use IFERROR and ISERROR in LibreOffice Calc - libre-office</title>
+    <meta name="description" content="Handling formula errors is essential for creating clean, professional spreadsheets in LibreOffice Calc. This guide covers how to use the IFERROR and ISERROR functions to detect and manage errors like #DIV/0!, #N/A, and #VALUE!. You will learn the syntax,">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-use-iferror-and-iserror-in-libreoffice-calc">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Use IFERROR and ISERROR in LibreOffice Calc - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-use-iferror-and-iserror-in-libreoffice-calc" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Handling formula errors is essential for creating clean, professional spreadsheets in LibreOffice Calc. This guide covers how to use the IFERROR and ISERROR functions to detect and manage errors like #DIV/0!, #N/A, and #VALUE!. You will learn the syntax," />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-use-iferror-and-iserror-in-libreoffice-calc">How to Use
+IFERROR and ISERROR in LibreOffice Calc</h1>
+<p>Handling formula errors is essential for creating clean, professional
+spreadsheets in LibreOffice Calc. This guide covers how to use the
+<code>IFERROR</code> and <code>ISERROR</code> functions to detect and
+manage errors like <code>#DIV/0!</code>, <code>#N/A</code>, and
+<code>#VALUE!</code>. You will learn the syntax, key differences, and
+practical examples for both functions to prevent broken formulas from
+cluttering your sheets.</p>
+<hr />
+<h3 id="the-iferror-function">The IFERROR Function</h3>
+<p>The <code>IFERROR</code> function evaluates an expression and returns
+a fallback value if the formula results in an error. If no error occurs,
+it returns the standard result of the formula.</p>
+<h4 id="syntax">Syntax</h4>
+<pre class="text"><code>IFERROR(Value, Value_if_error)</code></pre>
+<ul>
+<li><strong>Value</strong>: The formula or cell reference being
+evaluated.</li>
+<li><strong>Value_if_error</strong>: The custom result returned if an
+error is detected (such as text, a number, or an empty string
+<code>""</code>).</li>
+</ul>
+<h4 id="example">Example</h4>
+<p>If you are dividing cell <code>A1</code> by cell <code>B1</code>, a
+standard division formula will return <code>#DIV/0!</code> if
+<code>B1</code> is zero or blank:</p>
+<pre class="text"><code>=A1/B1</code></pre>
+<p>To display <code>0</code> instead of the error, use:</p>
+<pre class="text"><code>=IFERROR(A1/B1, 0)</code></pre>
+<p>To display a custom text message, wrap the string in quotation
+marks:</p>
+<pre class="text"><code>=IFERROR(A1/B1, &quot;Division by Zero&quot;)</code></pre>
+<hr />
+<h3 id="the-iserror-function">The ISERROR Function</h3>
+<p>The <code>ISERROR</code> function checks whether a specific value or
+formula produces any error. Unlike <code>IFERROR</code>, it only returns
+a boolean value: <code>TRUE</code> if there is an error, and
+<code>FALSE</code> if there is not.</p>
+<h4 id="syntax-1">Syntax</h4>
+<pre class="text"><code>ISERROR(Value)</code></pre>
+<ul>
+<li><strong>Value</strong>: The expression, formula, or cell reference
+you want to test.</li>
+</ul>
+<h4 id="using-iserror-with-the-if-function">Using ISERROR with the IF
+Function</h4>
+<p>Because <code>ISERROR</code> only outputs <code>TRUE</code> or
+<code>FALSE</code>, it is typically nested inside an <code>IF</code>
+statement to perform conditional actions.</p>
+<pre class="text"><code>=IF(ISERROR(A1/B1), &quot;Error Occurred&quot;, A1/B1)</code></pre>
+<p>In this formula:</p>
+<ol type="1">
+<li><code>ISERROR(A1/B1)</code> checks for an error.</li>
+<li>If <code>TRUE</code>, the <code>IF</code> statement outputs
+<code>"Error Occurred"</code>.</li>
+<li>If <code>FALSE</code>, the <code>IF</code> statement calculates
+<code>A1/B1</code>.</li>
+</ol>
+<hr />
+<h3 id="key-differences-between-iferror-and-iserror">Key Differences
+Between IFERROR and ISERROR</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;"><code>IFERROR</code></th>
+<th style="text-align: left;"><code>ISERROR</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Output Type</strong></td>
+<td style="text-align: left;">Formula result or fallback value</td>
+<td style="text-align: left;">Boolean (<code>TRUE</code> or
+<code>FALSE</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Formula Length</strong></td>
+<td style="text-align: left;">Shorter; combines detection and
+replacement</td>
+<td style="text-align: left;">Longer; requires pairing with
+<code>IF</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efficiency</strong></td>
+<td style="text-align: left;">Evaluates the primary expression once</td>
+<td style="text-align: left;">Evaluates the expression twice when nested
+with <code>IF</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Best Used For</strong></td>
+<td style="text-align: left;">Direct error replacement</td>
+<td style="text-align: left;">Conditional formatting, logic checks, or
+complex branching</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-trapping-vlookup-errors">Practical Example:
+Trapping VLOOKUP Errors</h3>
+<p>A common scenario involves searching for records using
+<code>VLOOKUP</code>. When an item does not exist in the lookup range,
+Calc produces an <code>#N/A</code> error.</p>
+<h4 id="using-iferror">Using IFERROR:</h4>
+<pre class="text"><code>=IFERROR(VLOOKUP(D2, A2:B10, 2, FALSE), &quot;Not Found&quot;)</code></pre>
+<p>If the search key in <code>D2</code> is not located within
+<code>A2:B10</code>, the formula cleanly outputs
+<code>"Not Found"</code> instead of <code>#N/A</code>.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

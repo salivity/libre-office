@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker and Masked Fields in LibreOffice Base - libre-office</title>
+    <meta name="description" content="In LibreOffice Base, maintaining high data integrity requires restricting user input to predefined, valid formats. This article explores how to implement and configure Date Picker controls and Pattern (masked text) Fields within Base forms. By utilizing">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/date-picker-and-masked-fields-in-libreoffice-base">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Date Picker and Masked Fields in LibreOffice Base - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/date-picker-and-masked-fields-in-libreoffice-base" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="In LibreOffice Base, maintaining high data integrity requires restricting user input to predefined, valid formats. This article explores how to implement and configure Date Picker controls and Pattern (masked text) Fields within Base forms. By utilizing" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="date-picker-and-masked-fields-in-libreoffice-base">Date Picker
+and Masked Fields in LibreOffice Base</h1>
+<p>In LibreOffice Base, maintaining high data integrity requires
+restricting user input to predefined, valid formats. This article
+explores how to implement and configure Date Picker controls and Pattern
+(masked text) Fields within Base forms. By utilizing these tools,
+database developers can eliminate typing ambiguities, enforce rigid
+formatting standards for dates, phone numbers, and identification codes,
+and significantly accelerate the data entry workflow.</p>
+<h3 id="using-the-date-picker-for-structured-dates">Using the Date
+Picker for Structured Dates</h3>
+<p>The standard text box is error-prone when handling chronological data
+due to varying regional formats (such as MM/DD/YYYY versus DD/MM/YYYY).
+LibreOffice Base solves this using the <strong>Date Field</strong>
+control paired with a visual date picker.</p>
+<ul>
+<li><strong>Enabling the Date Picker:</strong> When designing a form in
+Design Mode, insert a <em>Date Field</em> or open the control properties
+of an existing date box. Under the <strong>General</strong> tab, locate
+the <strong>Dropdown</strong> property and set it to
+<strong>Yes</strong>.</li>
+<li><strong>Visual Calendar Selection:</strong> Once enabled, clicking
+the down arrow inside the field opens an interactive pop-up calendar,
+allowing users to select days, months, and years directly.</li>
+<li><strong>Format Enforcement:</strong> The control automatically
+writes the selection into the underlying database table using the strict
+standard SQL <code>DATE</code> format (<code>YYYY-MM-DD</code>),
+preventing impossible dates such as February 30th.</li>
+<li><strong>Default Values and Ranges:</strong> Properties can be set to
+assign the current date automatically by default, or to restrict entries
+within a defined minimum and maximum date range.</li>
+</ul>
+<h3 id="using-masked-text-fields-pattern-fields">Using Masked Text
+Fields (Pattern Fields)</h3>
+<p>For non-date alphanumeric data that follows a rigid structure—such as
+postal codes, phone numbers, tax IDs, or serial numbers—LibreOffice Base
+provides the <strong>Pattern Field</strong> control. This functions as a
+masked input field.</p>
+<ul>
+<li><strong>Edit Mask:</strong> Defines the character types allowed at
+each position. Common mask characters include:
+<ul>
+<li><code>N</code>: Allows only digits (0–9).</li>
+<li><code>a</code>: Allows only letters (a–z, A–Z).</li>
+<li><code>A</code>: Forces letters to uppercase.</li>
+<li><code>X</code>: Allows any character (letters, numbers, or
+symbols).</li>
+</ul></li>
+<li><strong>Literal Mask:</strong> Defines the constant characters and
+delimiters displayed to the user that do not need to be manually typed.
+For example, in a phone number format, parentheses, spaces, and hyphens
+<code>(___) ___-____</code> appear automatically.</li>
+<li><strong>Example Configurations:</strong>
+<ul>
+<li><strong>US Phone Number:</strong> Edit Mask:
+<code>NNNNNNNNNN</code>; Literal Mask: <code>(NNN) NNN-NNNN</code></li>
+<li><strong>Standard Product Key:</strong> Edit Mask:
+<code>AAAA-NNNN-AAAA</code>; Literal Mask:
+<code>____-____-____</code></li>
+</ul></li>
+</ul>
+<h3 id="benefits-for-structured-data-entry">Benefits for Structured Data
+Entry</h3>
+<p>Implementing these controls offers distinct advantages for database
+maintenance:</p>
+<ol type="1">
+<li><strong>Input Validation at the Form Level:</strong> Invalid
+characters are rejected in real time before form submission, reducing
+SQL validation errors.</li>
+<li><strong>Consistency Across Multiple Users:</strong> Data entry
+operators enter values uniformly, eliminating clean-up steps before
+querying or reporting.</li>
+<li><strong>Streamlined User Experience:</strong> Users do not need to
+manually type punctuation, hyphens, or formatting symbols, reducing
+keystrokes and entry fatigue.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

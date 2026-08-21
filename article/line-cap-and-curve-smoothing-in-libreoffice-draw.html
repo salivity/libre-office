@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Cap and Curve Smoothing in LibreOffice Draw - libre-office</title>
+    <meta name="description" content="LibreOffice Draw provides precise control over vector paths through configurable line caps, corner joint styles, and Bézier point smoothing types. This guide details the available line cap options, corner join behaviors, and vector node smoothing settin">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/line-cap-and-curve-smoothing-in-libreoffice-draw">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Line Cap and Curve Smoothing in LibreOffice Draw - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/line-cap-and-curve-smoothing-in-libreoffice-draw" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice Draw provides precise control over vector paths through configurable line caps, corner joint styles, and Bézier point smoothing types. This guide details the available line cap options, corner join behaviors, and vector node smoothing settin" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="line-cap-and-curve-smoothing-in-libreoffice-draw">Line Cap and
+Curve Smoothing in LibreOffice Draw</h1>
+<p>LibreOffice Draw provides precise control over vector paths through
+configurable line caps, corner joint styles, and Bézier point smoothing
+types. This guide details the available line cap options, corner join
+behaviors, and vector node smoothing settings in LibreOffice Draw, along
+with instructions on where to configure them.</p>
+<h3 id="line-cap-styles">Line Cap Styles</h3>
+<p>Line caps define the shape applied to the unclosed endpoints of an
+open stroke or path. LibreOffice Draw offers three line cap styles:</p>
+<ul>
+<li><strong>Flat (Default):</strong> The stroke ends squarely at the
+exact coordinate of the endpoint without extending beyond it.</li>
+<li><strong>Round:</strong> Adds a semicircular cap to the end of the
+stroke with a radius equal to half the line width.</li>
+<li><strong>Square:</strong> Extends the stroke beyond the endpoint by
+half the line width, terminating with a squared-off edge.</li>
+</ul>
+<h3 id="line-corner-joint-styles">Line Corner (Joint) Styles</h3>
+<p>Corner styles dictate how vector segments connect at sharp angles
+along a path:</p>
+<ul>
+<li><strong>Miter:</strong> Extends the outer edges until they meet at a
+sharp point.</li>
+<li><strong>Round:</strong> Replaces sharp intersections with a smooth
+circular arc matching the line width.</li>
+<li><strong>Beveled:</strong> Truncates the corner with a flat diagonal
+edge connecting the outer corners.</li>
+<li><strong>None:</strong> Joins lines abruptly without additional
+styling.</li>
+</ul>
+<h3 id="how-to-configure-line-caps-and-corner-styles">How to Configure
+Line Caps and Corner Styles</h3>
+<ol type="1">
+<li>Select the vector line or shape.</li>
+<li>Open the <strong>Line</strong> settings by navigating to
+<strong>Format &gt; Line</strong> in the top menu, or open the
+<strong>Properties</strong> deck in the right-hand
+<strong>Sidebar</strong>.</li>
+<li>Under the <strong>Line</strong> section, locate the dropdown menus
+for <strong>Cap style</strong> and <strong>Corner style</strong>.</li>
+<li>Select your preferred style and apply the changes.</li>
+</ol>
+<h3 id="vector-curve-smoothing-node-types">Vector Curve Smoothing (Node
+Types)</h3>
+<p>When editing Bézier curves in LibreOffice Draw using the
+<strong>Points (F8)</strong> tool, you can adjust point transitions to
+control curve smoothness across nodes:</p>
+<ul>
+<li><strong>Corner Point:</strong> Allows the incoming and outgoing
+tangent handles to move independently, creating sharp angles and abrupt
+changes in direction.</li>
+<li><strong>Smooth Transition:</strong> Locks both tangent handles into
+a straight 180-degree line to ensure a continuous, smooth curve, while
+allowing each handle to have a different length for asymmetrical
+curvature.</li>
+<li><strong>Symmetric Transition:</strong> Locks both tangent handles
+into a straight line and forces them to maintain equal lengths, creating
+a balanced, uniform curve on both sides of the node.</li>
+</ul>
+<h3 id="how-to-adjust-curve-smoothing">How to Adjust Curve
+Smoothing</h3>
+<ol type="1">
+<li>Select the vector path and press <strong>F8</strong> (or click
+<strong>Edit Points</strong> in the Standard toolbar).</li>
+<li>Click on the node you want to modify.</li>
+<li>In the <strong>Edit Points</strong> floating toolbar, select one of
+the transition modes: <strong>Corner Point</strong>, <strong>Smooth
+Transition</strong>, or <strong>Symmetric Transition</strong>.</li>
+<li>Drag the control handles to fine-tune the curvature.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

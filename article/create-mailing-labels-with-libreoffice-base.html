@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Mailing Labels with LibreOffice Base - libre-office</title>
+    <meta name="description" content="Using LibreOffice Base as an address book data source allows you to streamline the process of creating and printing customized mailing labels in LibreOffice Writer. By registering a Base database containing your contact information, you can map fields su">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/create-mailing-labels-with-libreoffice-base">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Mailing Labels with LibreOffice Base - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/create-mailing-labels-with-libreoffice-base" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Using LibreOffice Base as an address book data source allows you to streamline the process of creating and printing customized mailing labels in LibreOffice Writer. By registering a Base database containing your contact information, you can map fields su" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="create-mailing-labels-with-libreoffice-base">Create Mailing
+Labels with LibreOffice Base</h1>
+<p>Using LibreOffice Base as an address book data source allows you to
+streamline the process of creating and printing customized mailing
+labels in LibreOffice Writer. By registering a Base database containing
+your contact information, you can map fields such as names, street
+addresses, and postal codes directly onto standardized label templates.
+This guide provides a straightforward walkthrough for registering your
+database, configuring the label layout, synchronizing the fields, and
+printing the final batch of labels.</p>
+<h3 id="step-1-prepare-and-register-the-base-database">Step 1: Prepare
+and Register the Base Database</h3>
+<p>Before creating labels, your contact list must be saved as a
+LibreOffice Base database file (<code>.odb</code>) and registered as an
+accessible data source.</p>
+<ol type="1">
+<li>Open LibreOffice Base and either create a new database with your
+contacts table or connect to an existing external data source (such as a
+spreadsheet or external address book).</li>
+<li>Save the database file on your computer.</li>
+<li>Open LibreOffice Writer.</li>
+<li>Navigate to <strong>Tools</strong> &gt; <strong>Options</strong> (or
+<strong>Preferences</strong> on macOS) &gt; <strong>LibreOffice
+Base</strong> &gt; <strong>Databases</strong>.</li>
+<li>Click <strong>New</strong>, browse to select your <code>.odb</code>
+database file, assign it a recognizable registered name, and click
+<strong>OK</strong>.</li>
+</ol>
+<h3 id="step-2-set-up-the-label-document">Step 2: Set Up the Label
+Document</h3>
+<p>Once registered, you can pull data from Base into a label template in
+Writer.</p>
+<ol type="1">
+<li>In LibreOffice Writer, go to <strong>File</strong> &gt;
+<strong>New</strong> &gt; <strong>Labels</strong>.</li>
+<li>Under the <strong>Labels</strong> tab, locate the <strong>Data
+source</strong> section:
+<ul>
+<li><strong>Database</strong>: Select your registered Base
+database.</li>
+<li><strong>Table</strong>: Select the table or query containing your
+contact records.</li>
+<li><strong>Database field</strong>: Select a field (e.g., "First Name")
+and click the left-arrow button to insert it into the <strong>Label
+text</strong> box.</li>
+</ul></li>
+<li>Arrange your fields in the <strong>Label text</strong> box by adding
+spaces, commas, and line breaks to format the address correctly (e.g.,
+First Name Last Name, Street Address, City, State ZIP).</li>
+<li>Under the <strong>Format</strong> section, select your label brand
+and type (such as Avery Letter Size), or switch to the
+<strong>Format</strong> tab to enter custom dimensions.</li>
+<li>Go to the <strong>Options</strong> tab and check the
+<strong>Synchronize contents</strong> option.</li>
+<li>Click <strong>New Document</strong> to generate the label
+sheet.</li>
+</ol>
+<h3 id="step-3-synchronize-and-preview-data">Step 3: Synchronize and
+Preview Data</h3>
+<ol type="1">
+<li>The generated document will display the layout for the first label
+along with <code>&lt;Next record&gt;</code> markers across subsequent
+label boxes.</li>
+<li>If you need to make formatting changes (such as adjusting fonts or
+margins), edit the top-left label and click the floating
+<strong>Synchronize Labels</strong> button to apply the changes across
+the entire sheet.</li>
+<li>Press <strong>F4</strong> (or go to <strong>View</strong> &gt;
+<strong>Data Sources</strong>) to open the data source viewer above your
+document to verify that your Base records match the fields.</li>
+</ol>
+<h3 id="step-4-merge-and-print-the-labels">Step 4: Merge and Print the
+Labels</h3>
+<ol type="1">
+<li>Select <strong>File</strong> &gt; <strong>Print</strong>.</li>
+<li>A prompt will appear asking: <em>"Your document contains address
+database fields. Do you want to print a form letter?"</em> Click
+<strong>Yes</strong>.</li>
+<li>In the Mail Merge dialog box:
+<ul>
+<li>Choose to print <strong>All</strong> records or select specific
+rows.</li>
+<li>Under <strong>Output</strong>, choose <strong>Printer</strong> to
+print immediately, or choose <strong>File</strong> to save the merged
+output as a new document for final review.</li>
+</ul></li>
+<li>Click <strong>OK</strong> to complete the merge.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

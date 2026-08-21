@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use LibreOffice Reliably on SMB Shares - libre-office</title>
+    <meta name="description" content="Working with LibreOffice documents directly over Server Message Block (SMB) network shares can sometimes result in slow performance, document locking conflicts, and failed save operations. This guide outlines the essential LibreOffice configurations, ope">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-to-use-libreoffice-reliably-on-smb-shares">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to Use LibreOffice Reliably on SMB Shares - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-to-use-libreoffice-reliably-on-smb-shares" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Working with LibreOffice documents directly over Server Message Block (SMB) network shares can sometimes result in slow performance, document locking conflicts, and failed save operations. This guide outlines the essential LibreOffice configurations, ope" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-to-use-libreoffice-reliably-on-smb-shares">How to Use
+LibreOffice Reliably on SMB Shares</h1>
+<p>Working with LibreOffice documents directly over Server Message Block
+(SMB) network shares can sometimes result in slow performance, document
+locking conflicts, and failed save operations. This guide outlines the
+essential LibreOffice configurations, operating system mounting
+techniques, and network settings required to establish a stable and
+responsive workflow when opening and saving files across SMB shares.</p>
+<h2 id="1-mount-shares-at-the-operating-system-level">1. Mount Shares at
+the Operating System Level</h2>
+<p>Directly opening files via network pathways can bypass native
+filesystem caching and locking mechanisms. Mount the share at the OS
+level instead of accessing it through temporary runtime paths.</p>
+<ul>
+<li><strong>Windows:</strong> Map the SMB share to a designated drive
+letter (e.g., <code>Z:</code>) rather than accessing files via UNC paths
+(e.g., <code>\\server\share</code>). Ensure <strong>Reconnect at
+sign-in</strong> is checked.</li>
+<li><strong>Linux:</strong> Mount the SMB share using <code>cifs</code>
+via <code>/etc/fstab</code> or <code>systemd.mount</code> rather than
+user-space protocols (such as GVFS in GNOME or KIO in KDE). When using
+<code>cifs</code>, use the <code>nobrl</code> mount option if byte-range
+locking causes file freezes:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//server/share</span> /mnt/smb cifs credentials=/path/to/creds,iocharset=utf8,nobrl,file_mode=0777,dir_mode=0777 0 0</span></code></pre></div></li>
+</ul>
+<h2 id="2-adjust-libreoffice-save-and-recovery-settings">2. Adjust
+LibreOffice Save and Recovery Settings</h2>
+<p>Aggressive automatic background saves can cause LibreOffice to
+stutter over high-latency networks.</p>
+<ol type="1">
+<li>Open LibreOffice and navigate to <strong>Tools &gt; Options</strong>
+(or <strong>LibreOffice &gt; Preferences</strong> on macOS).</li>
+<li>Go to <strong>Load/Save &gt; General</strong>.</li>
+<li>Increase the interval for <strong>Save AutoRecovery information
+every</strong> from the default 10 minutes to 15 or 20 minutes, or
+ensure <strong>Save AutoRecovery information</strong> is not set to an
+excessively frequent interval.</li>
+<li>Ensure <strong>Always create backup copy</strong> is evaluated based
+on your bandwidth. If enabled, LibreOffice writes an extra copy over the
+network during every save, which can slow down operations on larger
+files.</li>
+</ol>
+<h2 id="3-manage-file-locking-in-expert-configuration">3. Manage File
+Locking in Expert Configuration</h2>
+<p>LibreOffice creates hidden lock files
+(<code>.~lock.filename.odt#</code>) in the same directory as the open
+file. If network latency or permission issues prevent the lock file from
+being created or cleared, adjust the internal lock settings.</p>
+<ol type="1">
+<li>Navigate to <strong>Tools &gt; Options &gt; LibreOffice &gt;
+Advanced</strong>.</li>
+<li>Click <strong>Open Expert Configuration</strong>.</li>
+<li>Search for <code>UseLocking</code>.</li>
+<li>Locate
+<code>org.openoffice.Office.Common &gt; Misc &gt; UseLocking</code>.</li>
+<li>Set the boolean value to <code>true</code> to prevent multi-user
+overwrites. If your SMB server does not support POSIX locks or crashes
+when managing lock states, toggle this to <code>false</code> as a
+temporary workaround.</li>
+</ol>
+<h2 id="4-optimize-smb-server-configuration-samba">4. Optimize SMB
+Server Configuration (Samba)</h2>
+<p>If you have administrative access to the SMB/Samba server hosting the
+files, add the following parameters to the <code>[global]</code> or
+specific share definition in <code>/etc/samba/smb.conf</code>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode ini"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enforce modern SMB dialect</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">min protocol </span><span class="ot">=</span><span class="st"> SMB2_10</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimize locking behavior for desktop office suites</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">oplocks </span><span class="ot">=</span><span class="st"> </span><span class="kw">yes</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">level2 oplocks </span><span class="ot">=</span><span class="st"> </span><span class="kw">yes</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">kernel oplocks </span><span class="ot">=</span><span class="st"> </span><span class="kw">no</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dt">posix locking </span><span class="ot">=</span><span class="st"> </span><span class="kw">yes</span></span></code></pre></div>
+<p>Reload the Samba service after making changes:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart smbd</span></code></pre></div>
+<h2
+id="5-exclude-network-drives-from-local-antivirus-real-time-scanning">5.
+Exclude Network Drives from Local Antivirus Real-Time Scanning</h2>
+<p>Real-time antivirus scanning on client machines can intercept
+temporary file creation during LibreOffice's atomic save process.
+Configure your client-side security software to exclude the mapped
+network drive letters or SMB mount points from real-time read/write
+scanning, and rely on scheduled server-side scans instead.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

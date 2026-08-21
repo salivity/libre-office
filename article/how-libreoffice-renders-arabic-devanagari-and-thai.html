@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How LibreOffice Renders Arabic, Devanagari, and Thai - libre-office</title>
+    <meta name="description" content="LibreOffice renders complex scripts such as Devanagari, Arabic, and Thai through a dedicated Complex Text Layout (CTL) subsystem powered by open-source text-shaping engines and typography standards. This article breaks down the underlying technical archi">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/how-libreoffice-renders-arabic-devanagari-and-thai">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How LibreOffice Renders Arabic, Devanagari, and Thai - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/how-libreoffice-renders-arabic-devanagari-and-thai" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="LibreOffice renders complex scripts such as Devanagari, Arabic, and Thai through a dedicated Complex Text Layout (CTL) subsystem powered by open-source text-shaping engines and typography standards. This article breaks down the underlying technical archi" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="how-libreoffice-renders-arabic-devanagari-and-thai">How
+LibreOffice Renders Arabic, Devanagari, and Thai</h1>
+<p>LibreOffice renders complex scripts such as Devanagari, Arabic, and
+Thai through a dedicated Complex Text Layout (CTL) subsystem powered by
+open-source text-shaping engines and typography standards. This article
+breaks down the underlying technical architecture, detailing how
+LibreOffice coordinates bidirectional text analysis, OpenType shaping
+via HarfBuzz, dictionary-based line breaking, and font rasterization to
+display linguistically accurate glyphs on screen.</p>
+<h3 id="the-complex-text-layout-ctl-engine">The Complex Text Layout
+(CTL) Engine</h3>
+<p>Standard Western scripts (like Latin) generally use a one-to-one
+mapping between a character code and a visual glyph, placed sequentially
+from left to right. In contrast, complex scripts require contextual
+transformations, non-linear positioning, dynamic ligatures, or
+bidirectional reordering.</p>
+<p>LibreOffice handles these scripts by routing them through its CTL
+pipeline rather than the standard simple text rendering path. When CTL
+support is enabled, the layout engine relies on the International
+Components for Unicode (ICU) library and the HarfBuzz text-shaping
+engine to process characters before they are drawn.</p>
+<h3 id="text-shaping-with-harfbuzz">Text Shaping with HarfBuzz</h3>
+<p>At the core of LibreOffice’s complex script rendering is
+<strong>HarfBuzz</strong>, an industry-standard text shaping engine.
+HarfBuzz receives Unicode input strings alongside font metrics and
+applies font-specific layout tables to determine the correct sequence
+and exact coordinates of visual glyphs.</p>
+<ol type="1">
+<li><strong>Glyph Substitution (GSUB):</strong> Replaces basic character
+shapes with context-appropriate glyphs, ligatures, or decomposed
+components.</li>
+<li><strong>Glyph Positioning (GPOS):</strong> Calculates precise
+two-dimensional offsets for diacritics, vowel signs, and overlapping
+elements relative to base characters.</li>
+</ol>
+<h3 id="handling-arabic-bidirectionality-and-cursive-joining">Handling
+Arabic: Bidirectionality and Cursive Joining</h3>
+<p>Arabic rendering introduces two primary challenges: directionality
+and cursive connectivity.</p>
+<ul>
+<li><strong>Bidirectional Algorithm (BiDi):</strong> LibreOffice uses
+ICU to implement the Unicode Bidirectional Algorithm. When mixed text
+(such as Arabic and English) is processed, the engine assigns
+directional levels to each character, reordering the logical storage
+order into visual order from right to left.</li>
+<li><strong>Contextual Shaping:</strong> Arabic letters change shape
+depending on whether they appear in an isolated, initial, medial, or
+final position. HarfBuzz reads the font’s GSUB tables to substitute
+standard Unicode codepoints with the appropriate positional glyph
+variant.</li>
+<li><strong>Mark Placement:</strong> Diacritics (tashkeel) are
+dynamically positioned above or below base consonants using GPOS anchor
+points to avoid collisions with neighboring letters.</li>
+</ul>
+<h3 id="handling-devanagari-conjuncts-and-reordering">Handling
+Devanagari: Conjuncts and Reordering</h3>
+<p>Devanagari and other Indic scripts rely on complex syllable
+structures consisting of consonants, implicit vowels, explicit vowel
+signs (matras), and viramas (halant).</p>
+<ul>
+<li><strong>Reordering:</strong> Certain vowels, such as the short "I"
+matra (ि), are typed and stored after a consonant logically, but must be
+rendered to the left of the consonant cluster visually. The shaping
+engine handles this reordering automatically before glyph
+assignment.</li>
+<li><strong>Conjunct Formation:</strong> When a virama sits between
+consonants, the engine merges them into half-forms or unique conjunct
+ligatures (e.g., क् + ष = क्ष).</li>
+<li><strong>Stacking and Matra Positioning:</strong> Below-base and
+above-base signs are aligned using GPOS anchor points defined in the
+OpenType font, ensuring correct placement regardless of consonant
+cluster width.</li>
+</ul>
+<h3 id="handling-thai-stacking-and-word-boundary-detection">Handling
+Thai: Stacking and Word Boundary Detection</h3>
+<p>Thai script rendering requires multi-level vertical alignment and
+specialized boundary parsing.</p>
+<ul>
+<li><strong>Vertical Diacritic Stacking:</strong> Thai characters can
+stack up to three levels high (base consonant, vowel mark, and tone
+mark). If a consonant has an ascender, the tone mark must shift upward
+or to the side. LibreOffice uses OpenType rules to prevent diacritic
+overlapping.</li>
+<li><strong>Dictionary-Based Line Breaking:</strong> Unlike Latin or
+Arabic scripts, Thai does not use spaces between words. To wrap lines
+correctly without breaking mid-word, LibreOffice uses ICU's rule-based
+and dictionary-based break iterators. The engine checks text against a
+Thai word dictionary to insert soft line breaks at legitimate lexical
+boundaries.</li>
+</ul>
+<h3 id="advanced-font-tech-graphite-support">Advanced Font Tech:
+Graphite Support</h3>
+<p>In addition to OpenType, LibreOffice supports <strong>SIL
+Graphite</strong>, a programmable smart-font system designed for
+minority and highly complex writing systems. Graphite allows font
+designers to embed complex shaping logic directly into the font file,
+which LibreOffice executes natively for scripts that exceed standard
+OpenType capabilities.</p>
+<h3 id="rasterization-and-output">Rasterization and Output</h3>
+<p>Once HarfBuzz and ICU calculate the final glyph IDs, visual ordering,
+and coordinate placements, LibreOffice hands the data to its graphical
+backend (such as Skia, Cairo, or platform-native APIs like DirectWrite
+on Windows and CoreText on macOS). The rasterization layer pulls the
+vector outlines from FreeType or the system font engine and renders the
+shaped, positioned text onto the document canvas.</p></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>

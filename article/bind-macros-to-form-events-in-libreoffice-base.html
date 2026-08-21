@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4Y4YXFHZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-R4Y4YXFHZS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind Macros to Form Events in LibreOffice Base - libre-office</title>
+    <meta name="description" content="Binding macro scripts to form events in LibreOffice Base allows you to automate tasks, validate user input, and control data flow before it is written to your database. By attaching a macro to specific triggers like the "Before record action" or "Before">
+    <link rel="canonical" href="https://salivity.github.io/libre-office/article/bind-macros-to-form-events-in-libreoffice-base">
+    <link rel="icon" href="/libre-office/favicon.ico">
+    <link rel="stylesheet" href="/libre-office/css/style.css">
+    <link media="print" rel="stylesheet" href="/libre-office/css/print.css">
+    <script src="/libre-office/js/fuse.min.js"></script>
+    <script src="/libre-office/js/script.js"></script>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-chtml.min.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bind Macros to Form Events in LibreOffice Base - libre-office" />
+    <meta property="og:url" content="https://salivity.github.io/libre-office/article/bind-macros-to-form-events-in-libreoffice-base" />
+    <meta property="og:image:url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:secure_url" content="https://salivity.github.io/libre-office/images/open-graph/default.webp" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Binding macro scripts to form events in LibreOffice Base allows you to automate tasks, validate user input, and control data flow before it is written to your database. By attaching a macro to specific triggers like the "Before record action" or "Before" />
+    <link rel="manifest" href="/libre-office/pwa/manifest.json" />
+</head>
+<body>
+    <header>
+        <a href="/libre-office/" aria-label="Go To Home Page" title="Go To Home Page" id="logo">
+            <span>salivity.github.io/</span><span>libre-office</span>
+        </a>
+        <nav>
+            <ul class="header-links">
+                <li><a href="https://github.com/salivity" title="Github" aria-label="Go To Github Profile Page"><svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a></li>
+                <li><a href="/libre-office/search" title="Search" aria-label="Go To Search Page"><svg class="svg-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"></path></svg></a></li>
+                <li><a id="theme-toggle" title="Theme" href="javascript:void(0);" aria-label="Toggle Website Theme"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article><h1 id="bind-macros-to-form-events-in-libreoffice-base">Bind Macros to
+Form Events in LibreOffice Base</h1>
+<p>Binding macro scripts to form events in LibreOffice Base allows you
+to automate tasks, validate user input, and control data flow before it
+is written to your database. By attaching a macro to specific triggers
+like the "Before record action" or "Before updating" events, you can
+intercept record changes, run validation scripts, and cancel erroneous
+commits before they reach the backend tables.</p>
+<h3 id="1-open-the-form-in-edit-mode">1. Open the Form in Edit Mode</h3>
+<ol type="1">
+<li>Open your LibreOffice Base (<code>.odb</code>) database file.</li>
+<li>In the main database window, click on the <strong>Forms</strong>
+section in the left panel.</li>
+<li>Right-click the form you want to modify and select
+<strong>Edit</strong> to open it in Form Design view.</li>
+</ol>
+<h3 id="2-open-form-properties">2. Open Form Properties</h3>
+<p>Form-level events (like record updates) must be bound via the
+<strong>Form Properties</strong> window, not the individual control
+properties:</p>
+<ol type="1">
+<li>Ensure the <strong>Form Design</strong> toolbar is visible (if not,
+enable it via <strong>View &gt; Toolbars &gt; Form
+Design</strong>).</li>
+<li>Click the <strong>Form Properties</strong> icon on the toolbar, or
+open the <strong>Form Navigator</strong> (available on the same
+toolbar), right-click your main form (typically named
+<code>MainForm</code>), and choose <strong>Properties</strong>.</li>
+</ol>
+<h3 id="3-navigate-to-the-events-tab">3. Navigate to the Events Tab</h3>
+<ol type="1">
+<li>In the <strong>Form Properties</strong> dialog box, select the
+<strong>Events</strong> tab.</li>
+<li>Scroll through the available events to find the trigger you need:
+<ul>
+<li><strong>Before record action:</strong> Fires immediately before a
+record is inserted, updated, or deleted, allowing you to validate data
+or abort the action.</li>
+<li><strong>Before updating:</strong> Available on specific input
+fields/controls if you only want to validate an individual field before
+it passes data to the record.</li>
+</ul></li>
+</ol>
+<h3 id="4-assign-the-macro">4. Assign the Macro</h3>
+<ol type="1">
+<li>Click the ellipsis button (<strong>...</strong>) located next to the
+target event (e.g., <strong>Before record action</strong>).</li>
+<li>In the <strong>Assign Action</strong> dialog, click the
+<strong>Macro...</strong> button on the right.</li>
+<li>Browse the <strong>Macro Selector</strong> tree to locate your macro
+library, module, and the specific procedure you want to execute.</li>
+<li>Select the procedure and click <strong>OK</strong>.</li>
+<li>Click <strong>OK</strong> again in the Assign Action dialog to
+confirm the assignment.</li>
+</ol>
+<h3 id="5-intercepting-and-canceling-the-event-macro-example">5.
+Intercepting and Canceling the Event (Macro Example)</h3>
+<p>To prevent invalid data from saving during a "Before record action"
+event, write your macro to inspect values and, if necessary, cancel the
+event by returning <code>False</code> or stopping the update
+listener:</p>
+<pre class="basic"><code>Sub ValidateBeforeRecordAction(oEvent As Object)
+    Dim oForm As Object
+    Dim oField As Object
+    
+    oForm = oEvent.Source
+    oField = oForm.getByName(&quot;txtRequiredField&quot;)
+    
+    &#39; Check if field is empty
+    If Trim(oField.Text) = &quot;&quot; Then
+        MsgBox &quot;The required field cannot be empty.&quot;, 48, &quot;Validation Error&quot;
+        
+        &#39; Abort the save action
+        &#39; Depending on the event implementation, you can call reload or discard changes
+        &#39; Returning False or raising an error halts standard execution flow
+    End If
+End Sub</code></pre>
+<h3 id="6-save-and-test-the-form">6. Save and Test the Form</h3>
+<ol type="1">
+<li>Close the Form Properties dialog.</li>
+<li>Save your form changes (<strong>File &gt; Save</strong> or
+<code>Ctrl+S</code>).</li>
+<li>Exit Design Mode by clicking the <strong>Design Mode On/Off</strong>
+toggle icon on the Form Design toolbar.</li>
+<li>Enter test data and attempt to save the record to verify that your
+macro executes as expected.</li>
+</ol></article>
+        <div id=comments-container></div>
+
+        <script>
+            const utterancesScript = document.createElement('script');
+            
+            utterancesScript.setAttribute('src', 'https://utteranc.es/client.js');
+            utterancesScript.setAttribute('repo', 'salivity/libre-office'); 
+            utterancesScript.setAttribute('issue-term', 'pathname'); 
+            utterancesScript.setAttribute('theme', localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light'); 
+            utterancesScript.setAttribute('crossorigin', 'anonymous');
+            utterancesScript.async = true;
+
+            document.getElementById('comments-container').appendChild(utterancesScript);
+        </script>
+    
+    </main>
+    <footer>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="/libre-office/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/libre-office/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            Copyright &copy; <span id="current-year"></span>
+        </div>
+    </footer>
+</body>
+</html>
