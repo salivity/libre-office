@@ -1,0 +1,2420 @@
+[
+  [
+    404,
+    "How TDF Ensures LibreOffice Vendor Neutrality",
+    "The Document Foundation (TDF) maintains strict vendor neutrality in LibreOffice through a structured legal framework, balanced governance rules, and a merit-based development model. By preventing any single commercial entity from dominating development,",
+    false
+  ],
+  [
+    403,
+    "Enforce LibreOffice Settings in registrymodifications.xcu",
+    "Managing LibreOffice configurations across an enterprise environment requires standardizing preferences such as default file formats, macro security levels, update notifications, and path locations. While user-level changes are stored dynamically in regi",
+    false
+  ],
+  [
+    402,
+    "Disable LibreOffice Automatic Updates in Enterprise",
+    "Managing software updates centrally in enterprise environments ensures system stability and prevents standard users without administrator rights from being interrupted by actionable update prompts. This guide details how to suppress and permanently disab",
+    false
+  ],
+  [
+    401,
+    "Silent Install LibreOffice MSI with MST Transform",
+    "Deploying LibreOffice silently across multiple Windows systems requires executing the Windows Installer (msiexec.exe) with specific command-line switches. This guide explains how to apply transform files (.mst) to the LibreOffice Windows Installer packag",
+    false
+  ],
+  [
+    400,
+    "Packaging LibreOffice for Microsoft Intune",
+    "This guide outlines the end-to-end process enterprise system administrators use to package and deploy LibreOffice using Microsoft Intune. You will learn how to obtain the official MSI package, convert it into the required .intunewin format using the Micr",
+    false
+  ],
+  [
+    399,
+    "Automate LibreOffice with Python UNO Bridge",
+    "Automating LibreOffice as a headless background service allows developers to convert, generate, and manipulate office documents programmatically without a graphical interface. By utilizing the Python Universal Network Objects (UNO) bridge, external appli",
+    false
+  ],
+  [
+    398,
+    "Creating Multilingual LibreOffice Extensions",
+    "This guide outlines the end-to-end process of developing, localizing, packaging, and publishing multilingual extensions for LibreOffice. Developers will learn how to structure an OpenOffice/LibreOffice Extension (.oxt) package, localize extension metadat",
+    false
+  ],
+  [
+    397,
+    "LibreOffice OXT Extension Packaging Standards",
+    "LibreOffice extensions use the OpenOffice.org Extension (.oxt) format to distribute add-ons, templates, dictionaries, and custom functionality. An .oxt package is essentially a standard ZIP archive containing metadata, configuration files, and program co",
+    false
+  ],
+  [
+    396,
+    "How to Add Trusted Macro Sources in LibreOffice",
+    "LibreOffice provides security controls to protect systems from malicious code by restricting how macros execute. By configuring trusted file locations and trusted certificate authorities, you can automatically run legitimate macros from approved director",
+    false
+  ],
+  [
+    395,
+    "LibreOffice Macro Security Levels Explained",
+    "LibreOffice uses macro security levels to protect users from malicious embedded scripts while still enabling legitimate workflow automation. This article breaks down the four macro security levels available in LibreOffice—Very High, High, Medium, and L",
+    false
+  ],
+  [
+    394,
+    "Assign Shortcuts to LibreOffice Basic Macros",
+    "Assigning personalized keyboard shortcuts to LibreOffice Basic macros allows you to execute repetitive automation tasks instantly without navigating through multi-level menus. Whether you are working in LibreOffice Writer, Calc, or Impress, customizing h",
+    false
+  ],
+  [
+    393,
+    "Configuring ICC Profiles for LibreOffice Printing",
+    "This article provides an overview of how LibreOffice handles color management and International Color Consortium (ICC) profiles for printing workflows. While LibreOffice does not feature a dedicated, standalone internal color engine for desktop printing,",
+    false
+  ],
+  [
+    392,
+    "Set LibreOffice to Save as DOCX and XLSX by Default",
+    "By default, LibreOffice saves files in OpenDocument Formats (such as ODT for text and ODS for spreadsheets). If you frequently share files with Microsoft Office users, you can configure LibreOffice to automatically save your documents in formats like DOC",
+    false
+  ],
+  [
+    391,
+    "Install Microsoft Fonts on Linux for LibreOffice",
+    "This guide provides the exact steps required to install proprietary Microsoft fonts, such as Calibri, Cambria, and Arial, on Linux systems. Following these instructions ensures proper document formatting, layout consistency, and seamless font rendering w",
+    false
+  ],
+  [
+    390,
+    "Troubleshoot Missing Fonts in LibreOffice",
+    "LibreOffice automatically substitutes fonts when a document requires a typeface not installed on your operating system, which often alters document layout, spacing, and formatting. This guide provides a straightforward method to identify substituted font",
+    false
+  ],
+  [
+    389,
+    "WebDAV Locking Mechanisms in LibreOffice",
+    "LibreOffice supports standard WebDAV protocol locking mechanisms to prevent data loss and resolve concurrency conflicts when multiple users access remote files. By utilizing native WebDAV lock management, LibreOffice detects whether a remote document is",
+    false
+  ],
+  [
+    388,
+    "How to Use LibreOffice Reliably on SMB Shares",
+    "Working with LibreOffice documents directly over Server Message Block (SMB) network shares can sometimes result in slow performance, document locking conflicts, and failed save operations. This guide outlines the essential LibreOffice configurations, ope",
+    false
+  ],
+  [
+    387,
+    "LibreOffice File Locking on Shared Network Drives",
+    "When multiple users collaborate on documents across network shares, LibreOffice relies on a combination of application-level lock files and operating system network protocols to prevent conflicting simultaneous edits. This article details the native lock",
+    false
+  ],
+  [
+    386,
+    "Set Custom Auto Backup Location in LibreOffice",
+    "LibreOffice provides built-in tools to safeguard your work by creating automatic backup copies every time you save a document. By default, these files are placed in a hidden system directory, but you can easily redirect them to a custom location—such a",
+    false
+  ],
+  [
+    385,
+    "LibreOffice Privacy Settings for History and Links",
+    "LibreOffice includes built-in privacy tools that allow users to control metadata retention, link interaction behaviors, and document modification tracking. This guide covers how to locate and configure the specific settings in LibreOffice that manage doc",
+    false
+  ],
+  [
+    384,
+    "How to Clear Recent Documents in LibreOffice",
+    "LibreOffice tracks recently opened files across all of its modules—including Writer, Calc, Impress, and Draw—to provide quick access to your ongoing work. While this feature improves workflow efficiency, you may occasionally need to clear this list f",
+    false
+  ],
+  [
+    383,
+    "Enable OpenCL GPU Acceleration in LibreOffice Calc",
+    "LibreOffice Calc allows users to offload complex, large-scale formula calculations to the system's Graphics Processing Unit (GPU) using OpenCL. Enabling these settings significantly accelerates spreadsheet processing times when dealing with extensive dat",
+    false
+  ],
+  [
+    382,
+    "Switch LibreOffice Backends: GTK3, GTK4, Qt5, Qt6",
+    "LibreOffice utilizes the Visual Class Library (VCL) plugin system on Linux to adapt its graphical interface to different desktop environments. By changing the SALUSEVCLPLUGIN environment variable, you can override the default UI rendering backend and swi",
+    false
+  ],
+  [
+    381,
+    "LibreOffice GUI Toolkit Environment Variables",
+    "This article explains how to control the graphical user interface (GUI) toolkit in LibreOffice on Linux and UNIX-like systems using environment variables. It details the primary variable, SALUSEVCLPLUGIN, describes the supported backend values—such as",
+    false
+  ],
+  [
+    380,
+    "Launch LibreOffice with a Temporary Profile",
+    "Corrupted user configurations in LibreOffice often lead to unexpected crashes, missing toolbars, or sluggish performance. This guide explains how to launch LibreOffice with a fresh, temporary user profile to isolate and troubleshoot these issues without",
+    false
+  ],
+  [
+    379,
+    "Run LibreOffice Without Splash Screen Command",
+    "This guide explains the command-line switches used to launch LibreOffice without displaying the graphical startup splash screen. By utilizing these parameters, you can accelerate document loading times, avoid visual distractions on the desktop, and optim",
+    false
+  ],
+  [
+    378,
+    "How to Save Custom Formulas in LibreOffice Math",
+    "LibreOffice Math allows users to streamline their workflow by saving frequently used formula expressions and custom symbols for quick reuse. This guide walks you through the exact steps required to customize your Elements catalog, define new formula snip",
+    false
+  ],
+  [
+    377,
+    "Assign Serif and Sans Fonts in LibreOffice Math",
+    "LibreOffice Math allows users to customize formula typography by mapping default font categories to specific serif, sans-serif, and monospaced typefaces installed on the system. This guide explains how LibreOffice Math manages font categories, how to ass",
+    false
+  ],
+  [
+    376,
+    "Chemical Formula Isotopes in LibreOffice Math",
+    "Writing chemical formulas with isotope notations in LibreOffice Math requires placing superscripts (mass numbers) and subscripts (atomic numbers) on the left side of the element symbol. This guide explains how to use left-hand script commands (lsup and l",
+    false
+  ],
+  [
+    375,
+    "LibreOffice Math: Integral, Sum, and Product Formatting",
+    "LibreOffice Math provides a comprehensive set of markup commands to render and format integral, summation, and product symbols. This guide covers the syntax options for single and multiple integrals, contour integrals, standard summations, products, copr",
+    false
+  ],
+  [
+    374,
+    "Export LibreOffice Base Reports to Writer",
+    "LibreOffice Base allows users to generate structured reports from queries and tables, but many users struggle to convert these outputs into editable formats. When generated, reports often default to a read-only view or standard print layout. This guide e",
+    false
+  ],
+  [
+    373,
+    "Connect LibreOffice Base to Cloud Databases",
+    "Connecting LibreOffice Base to cloud databases like Amazon RDS or Google Cloud SQL allows you to manage remote data using a familiar open-source desktop interface. This guide outlines the essential prerequisites in your cloud environment, required local",
+    false
+  ],
+  [
+    372,
+    "Configure HSQLDB Server Mode for LibreOffice Base",
+    "By default, LibreOffice Base uses an embedded HSQLDB engine that restricts database access to a single user at a time. Converting to an external HSQLDB server mode resolves this limitation, allowing multiple users to perform concurrent read and write ope",
+    false
+  ],
+  [
+    371,
+    "Date Picker and Masked Fields in LibreOffice Base",
+    "In LibreOffice Base, maintaining high data integrity requires restricting user input to predefined, valid formats. This article explores how to implement and configure Date Picker controls and Pattern (masked text) Fields within Base forms. By utilizing",
+    false
+  ],
+  [
+    370,
+    "Build Search and Filter Forms in LibreOffice Base",
+    "Creating search and filter forms in LibreOffice Base allows you to locate specific database records without manually scrolling through large tables or editing raw queries. By using a dedicated filter table, SQL parameter queries, and linked form controls",
+    false
+  ],
+  [
+    369,
+    "LibreOffice Base Record Navigation Controls",
+    "This article provides an overview of the navigation bar controls in LibreOffice Base used to browse, skip, and manage records within database tables and forms. Understanding these controls allows users to efficiently traverse datasets, jump to specific e",
+    false
+  ],
+  [
+    368,
+    "Bind Macros to Form Events in LibreOffice Base",
+    "Binding macro scripts to form events in LibreOffice Base allows you to automate tasks, validate user input, and control data flow before it is written to your database. By attaching a macro to specific triggers like the \"Before record action\" or \"Before",
+    false
+  ],
+  [
+    367,
+    "How to Create SQL Views in LibreOffice Base",
+    "Creating reusable virtual tables—commonly known as SQL views—in LibreOffice Base allows users to encapsulate complex queries, simplify reporting, and establish persistent data abstractions across forms and reports. This article covers the primary bui",
+    false
+  ],
+  [
+    366,
+    "Visual Query Design in LibreOffice Base",
+    "The Graphical Query Interface in LibreOffice Base provides a visual way to build SQL database queries without writing code manually. This guide covers how to launch the Query Design View, select data sources, establish table joins, apply filters and sort",
+    false
+  ],
+  [
+    365,
+    "Referential Integrity Rules in LibreOffice Base",
+    "Maintaining data consistency is essential in database design, and LibreOffice Base provides several referential integrity rules to manage relationships between tables. This article explains the relational integrity options available in LibreOffice Base",
+    false
+  ],
+  [
+    364,
+    "Export Vector Art to SVG in LibreOffice Draw",
+    "LibreOffice Draw provides a lightweight, free solution for creating and exporting clean vector line art directly into the Scalable Vector Graphics (SVG) format for web publishing. This guide explains how to prepare your artwork, configure the export sett",
+    false
+  ],
+  [
+    363,
+    "Boolean Shape Operations in LibreOffice Draw",
+    "LibreOffice Draw provides built-in geometric Boolean tools that allow users to create complex vector graphics by combining, cutting, and overlapping basic 2D shapes. These vector operations—specifically Merge, Subtract, and Intersect—alter the paths",
+    false
+  ],
+  [
+    362,
+    "How to Distribute Objects Evenly in LibreOffice Draw",
+    "Distributing objects evenly in LibreOffice Draw allows you to arrange multiple shapes or elements with consistent gaps between them, ensuring a clean and professional layout. This guide explains how to use the built-in Distribution tool to apply equal ho",
+    false
+  ],
+  [
+    361,
+    "Object Snapping Options in LibreOffice Draw",
+    "LibreOffice Draw provides robust snapping tools designed to help users precisely position and align objects without manual guesswork. This guide covers the essential snapping options available in the software—specifically snapping to page margins, snap",
+    false
+  ],
+  [
+    360,
+    "How to Set Drawing Scale in LibreOffice Draw",
+    "Configuring drawing scale ratios such as 1:50 or 1:100 in LibreOffice Draw allows you to create accurate floor plans, technical schematics, and scaled diagrams. This guide explains how to access the application settings to define predefined or custom sca",
+    false
+  ],
+  [
+    359,
+    "LibreOffice Draw Layer Locking and Visibility Guide",
+    "LibreOffice Draw provides layer management tools, specifically layer locking and visibility controls, that streamline the creation of complex vector illustrations. By isolating graphic elements, preventing accidental modifications, and hiding non-essenti",
+    false
+  ],
+  [
+    358,
+    "How to Convert Raster to Vector in LibreOffice Draw",
+    "Converting raster photographs into editable vector polygons in LibreOffice Draw is a straightforward process using the software's built-in bitmap tracing tool. This guide outlines how to import a raster image (such as a PNG or JPEG), apply the polygon co",
+    false
+  ],
+  [
+    357,
+    "Hatching and Bitmap Fills in LibreOffice Draw",
+    "LibreOffice Draw allows users to customize the interior of closed 2D shapes using various fill styles, including hatching patterns and bitmap textures. This guide covers the built-in hatching and bitmap options available in the software, how they functio",
+    false
+  ],
+  [
+    356,
+    "Create RGB and CMYK Gradients in LibreOffice Draw",
+    "LibreOffice Draw allows users to design custom color gradients tailored for both digital screens and physical print using RGB and CMYK color spaces. This guide explains how to access the gradient editor, define start and end colors using precise RGB and",
+    false
+  ],
+  [
+    355,
+    "Line Cap and Curve Smoothing in LibreOffice Draw",
+    "LibreOffice Draw provides precise control over vector paths through configurable line caps, corner joint styles, and Bézier point smoothing types. This guide details the available line cap options, corner join behaviors, and vector node smoothing settin",
+    false
+  ],
+  [
+    354,
+    "Create Custom Slide Layouts in LibreOffice Impress",
+    "Creating custom slide layouts with dedicated content placeholders in LibreOffice Impress allows you to maintain visual consistency and streamline presentation design. This guide covers how to access the Master View, configure customized placeholders for",
+    false
+  ],
+  [
+    353,
+    "LibreOffice Impress Master Slide Changes",
+    "Modifying the Master Slide in LibreOffice Impress allows presenters to apply global visual updates instantly across an entire presentation. By editing the background design on the master layer, any slide assigned to that master automatically adopts the c",
+    false
+  ],
+  [
+    352,
+    "Compress Images in LibreOffice Impress",
+    "Large presentation files in LibreOffice Impress are almost always the result of uncompressed, high-resolution embedded images. This guide provides a straightforward walkthrough on how to use LibreOffice's built-in compression tools to reduce image dimens",
+    false
+  ],
+  [
+    351,
+    "How to Export Animated GIFs from LibreOffice Impress",
+    "LibreOffice Impress allows users to transform slide presentations into looping animated GIF images directly without needing third-party conversion software. This guide covers the exact export process, configuration dialogs, and essential settings require",
+    false
+  ],
+  [
+    350,
+    "How to Hide Slides in LibreOffice Impress",
+    "Hiding slides in LibreOffice Impress allows you to keep non-essential, reference, or backup information in your deck without displaying it to your audience during a slideshow. This guide provides clear, step-by-step instructions on how to quickly hide an",
+    false
+  ],
+  [
+    349,
+    "LibreOffice Impress Mouse Pointer and Pen Tools",
+    "During a presentation in LibreOffice Impress, presenters have access to dedicated on-screen pointer options to emphasize key information and interact with their slides in real time. These features include the default navigation cursor, an interactive dra",
+    false
+  ],
+  [
+    348,
+    "How to Loop Presentations in LibreOffice Impress",
+    "Configuring a presentation to run continuously on an unattended display screen is an effective way to showcase information for digital signage, trade show booths, or public kiosks. This guide explains how to set up automated slide transitions and configu",
+    false
+  ],
+  [
+    347,
+    "How to Animate Along Curves in LibreOffice Impress",
+    "LibreOffice Impress includes built-in Motion Path animation tools that allow users to move objects, shapes, and graphics along custom trajectories, including smooth curves and freeform lines. By combining the Custom Animation panel with vector point-edit",
+    false
+  ],
+  [
+    346,
+    "How to Trigger Animations on Click in LibreOffice Impress",
+    "This guide explains how to set up interactive trigger animations in LibreOffice Impress, allowing you to play specific entrance, exit, or emphasis effects only when distinct objects on your slide are clicked during a presentation. 1. Open your presentati",
+    false
+  ],
+  [
+    345,
+    "LibreOffice Impress Slide Sounds and Loop Options",
+    "LibreOffice Impress provides several audio and playback settings to enhance multimedia presentations, including built-in transition sounds, custom audio integration, and automated presentation looping. Users can assign specific audio cues to slide transi",
+    false
+  ],
+  [
+    344,
+    "Repeat Rows and Columns on Every Page in LibreOffice Calc",
+    "When printing large spreadsheets spanning multiple pages in LibreOffice Calc, data can quickly become difficult to read without context. This guide explains how to set specific rows at the top and columns on the left to repeat automatically on every prin",
+    false
+  ],
+  [
+    343,
+    "LibreOffice Calc Header and Footer Variables",
+    "When printing spreadsheets in LibreOffice Calc, headers and footers can automatically display dynamic document metadata using predefined variables. This article outlines all the built-in variables available for headers and footers—including page counts",
+    false
+  ],
+  [
+    342,
+    "Print Gridlines by Default in LibreOffice Calc",
+    "By default, LibreOffice Calc displays cell gridlines on your screen while editing but hides them when printing or exporting to PDF. You can enable print gridlines for a single document through the page style settings, or save the configuration into a cus",
+    false
+  ],
+  [
+    341,
+    "Export CSV with UTF-8 Encoding in LibreOffice Calc",
+    "LibreOffice Calc provides robust text export capabilities that allow users to customize character sets, delimiters, and text formatting. When saving spreadsheets as plain text or CSV files, enabling the filter settings dialog gives you complete control o",
+    false
+  ],
+  [
+    340,
+    "Import Fixed-Width Text Files in LibreOffice Calc",
+    "LibreOffice Calc provides a built-in Text Import wizard that allows you to easily parse fixed-width text files into structured spreadsheets. By utilizing the visual preview ruler, you can set custom column breaks, adjust line positions, define specific d",
+    false
+  ],
+  [
+    339,
+    "LibreOffice Calc Budget Scenario Comparison Guide",
+    "Evaluating different budget models is essential for testing financial resilience against market fluctuations and operational changes. LibreOffice Calc provides several built-in tools and data structuring methods to create clear scenario comparison summar",
+    false
+  ],
+  [
+    338,
+    "Non-Linear Optimization in LibreOffice Calc",
+    "LibreOffice Calc solves complex, multi-variable equations using built-in non-linear solver algorithms designed to optimize target outcomes subject to defined constraints. When standard linear programming fails due to curved, non-proportional, or disconti",
+    false
+  ],
+  [
+    337,
+    "Configure Goal Seek Precision in LibreOffice Calc",
+    "This guide explains how to configure goal-seeking and iterative calculation precision settings in LibreOffice Calc using the Options dialog. Adjusting these parameters allows you to control the numerical accuracy of the Goal Seek tool, manage convergence",
+    false
+  ],
+  [
+    336,
+    "Evaluate Nested Formulas in LibreOffice Calc",
+    "Evaluating complex, nested formulas in LibreOffice Calc can be challenging when errors occur or unexpected results appear. The built-in Formula Wizard provides an interactive interface that visualizes formula hierarchy and displays intermediate calculati",
+    false
+  ],
+  [
+    335,
+    "Trace Calculation Errors in LibreOffice Calc",
+    "LibreOffice Calc provides built-in auditing tools called the \"Detective\" to help users diagnose and fix formula issues within complex spreadsheets. When a formula returns an error code, visual trace arrows point directly from the offending data cells to",
+    false
+  ],
+  [
+    334,
+    "Highlight Precedent Cells in LibreOffice Calc",
+    "Auditing formulas in LibreOffice Calc is essential for verifying data accuracy and troubleshooting calculation errors. Using Calc’s built-in \"Detective\" tool, you can visually trace and highlight all precedent cells—the cells directly or indirectly r",
+    false
+  ],
+  [
+    333,
+    "Data Bar and Icon Set Options in LibreOffice Calc",
+    "LibreOffice Calc provides powerful conditional formatting features to visually represent spreadsheet data at a glance. This guide explores the built-in Data Bar and Icon Set visualizations available in LibreOffice Calc, detailing the specific styles, cus",
+    false
+  ],
+  [
+    332,
+    "Create Color Scale Heatmaps in LibreOffice Calc",
+    "Color scale heatmaps in LibreOffice Calc provide a visual representation of your numeric data by automatically applying color gradients based on cell values. This guide explains how to apply, configure, and manage both two-color and three-color heatmaps",
+    false
+  ],
+  [
+    331,
+    "Highlight Duplicates or Unique Values in LibreOffice Calc",
+    "LibreOffice Calc allows users to instantly identify duplicate or unique records across spreadsheets using conditional formatting combined with the COUNTIF formula. While Calc does not feature a single-click duplicate button like some other spreadsheet pr",
+    false
+  ],
+  [
+    330,
+    "Format Negative Numbers in Red with Brackets in Calc",
+    "This guide explains how to format negative values in LibreOffice Calc so they appear in red text and are enclosed within custom brackets. By utilizing custom number format codes, you can enhance the readability of your financial sheets, budgets, and data",
+    false
+  ],
+  [
+    329,
+    "LibreOffice Calc Custom Currency and Scientific Formats",
+    "This guide provides an overview of how to create and apply custom numeric formatting strings for both scientific notation and currencies in LibreOffice Calc. Custom formats allow you to control decimal precision, exponent signs, thousands grouping, curre",
+    false
+  ],
+  [
+    328,
+    "Format Labels, Legends, Gridlines in LibreOffice Calc",
+    "Customizing chart elements in LibreOffice Calc improves the readability and visual presentation of your spreadsheets. This guide provides straightforward instructions on how to insert and format chart data labels, customize legend keys, and adjust major",
+    false
+  ],
+  [
+    327,
+    "LibreOffice Calc Trendlines and Forecasting Options",
+    "LibreOffice Calc provides built-in statistical tools within its charting module to help visualize data directions, smooth fluctuations, and project future values. By inserting trendlines and moving averages into 2D charts—such as XY (Scatter), Bar, Col",
+    false
+  ],
+  [
+    326,
+    "Create Histograms and Box Plots in LibreOffice Calc",
+    "LibreOffice Calc provides robust built-in tools to visualize statistical data distributions using histograms and box-and-whisker plots. This guide walks you through the exact steps required to generate both chart types, from preparing your raw data and s",
+    false
+  ],
+  [
+    325,
+    "Frequency Distribution Formulas in LibreOffice Calc",
+    "LibreOffice Calc provides several formulas and tools to calculate frequency distributions, allowing users to organize raw datasets into structured frequency tables, intervals, and relative proportions. This guide details the essential Calc functions used",
+    false
+  ],
+  [
+    324,
+    "Calculate Std Dev, Variance, & Median in LibreOffice Calc",
+    "LibreOffice Calc provides powerful built-in statistical functions that allow you to analyze datasets quickly and accurately. This guide explains how to calculate standard deviation, variance, and median in LibreOffice Calc using straightforward formulas",
+    false
+  ],
+  [
+    323,
+    "Matrix Multiplication and Inversion in LibreOffice Calc",
+    "LibreOffice Calc includes powerful built-in functions designed for linear algebra operations, specifically MMULT for multiplying matrices and MINVERSE for inverting square matrices. Because matrix operations produce results spanning multiple cells, both",
+    false
+  ],
+  [
+    322,
+    "Real-Time Stock and Currency Tracking in LibreOffice Calc",
+    "LibreOffice Calc allows users to automatically fetch live financial data, including stock prices and currency exchange rates, directly into spreadsheets. By utilizing built-in web queries or data import functions like WEBSERVICE, you can build an automat",
+    false
+  ],
+  [
+    321,
+    "LibreOffice Calc External Data Link Update Intervals",
+    "LibreOffice Calc allows users to import dynamic tables and data ranges from external files or web pages and keep them synchronized. When establishing these connections, Calc provides flexible update intervals ranging from real-time second-based frequenci",
+    false
+  ],
+  [
+    320,
+    "Move, Copy, and Reorder Sheets in LibreOffice Calc",
+    "Managing multiple sheets efficiently is a fundamental skill when working with complex datasets in LibreOffice Calc. This guide explains how to organize your workspace by reordering tabs within a single file, as well as moving and copying worksheets betwe",
+    false
+  ],
+  [
+    319,
+    "How to Manage and Color Sheet Tabs in LibreOffice Calc",
+    "LibreOffice Calc provides a variety of sheet tab management and customization tools designed to organize complex spreadsheets efficiently. This guide covers how to color-code sheet tabs for better visual hierarchy and details the essential management opt",
+    false
+  ],
+  [
+    318,
+    "Export LibreOffice Master Document to Single PDF",
+    "LibreOffice Writer allows you to assemble large projects by combining multiple sub-documents into a single master document (.odm). When you are ready to publish, you can easily compile and export all linked files into one unified PDF directly from the ma",
+    false
+  ],
+  [
+    317,
+    "LibreOffice Writer Master Document Linking Protocols",
+    "LibreOffice Writer uses a master document system (.odm) to combine multiple sub-documents (.odt) into a single cohesive work. This article explains the underlying linking protocols, URI schemes, and file management mechanisms LibreOffice Writer employs t",
+    false
+  ],
+  [
+    316,
+    "How to Manage Version History in LibreOffice Writer",
+    "LibreOffice Writer includes a built-in feature that allows you to store, manage, and review multiple versions of a document directly inside a single OpenDocument Text (.odt) file. This system eliminates the need to clutter your storage with duplicate fil",
+    false
+  ],
+  [
+    315,
+    "Cross-Reference Formats in LibreOffice Writer",
+    "Cross-references in LibreOffice Writer allow you to dynamically link to specific sections, headings, bookmarks, footnotes, and captioned objects within your document. This article provides a comprehensive overview of the available cross-reference formats",
+    false
+  ],
+  [
+    314,
+    "How to Link to Bookmarks in LibreOffice Writer",
+    "Navigating large documents in LibreOffice Writer is made significantly easier by linking text directly to specific sections. This guide provides a straightforward walkthrough on how to insert bookmarks as target points within a single document and how to",
+    false
+  ],
+  [
+    313,
+    "How to Sum Columns in LibreOffice Writer Tables",
+    "LibreOffice Writer includes built-in calculation tools that allow you to perform basic arithmetic, such as summing columns, directly inside text document tables without needing to open LibreOffice Calc. This guide explains the exact formula syntax requir",
+    false
+  ],
+  [
+    312,
+    "How to Convert Text to Table in LibreOffice Writer",
+    "Converting raw, delimited text into a structured table is a fast and efficient way to organize data in LibreOffice Writer without manually retyping information. Whether your data uses commas, tabs, semicolons, or custom symbols as separators, LibreOffice",
+    false
+  ],
+  [
+    311,
+    "LibreOffice Writer Table AutoFormat Presets",
+    "LibreOffice Writer includes a built-in feature called AutoFormat Styles that allows you to instantly change the appearance of tables using pre-designed templates. This article covers the available Table AutoFormat presets, what each design looks like, ho",
+    false
+  ],
+  [
+    310,
+    "How to Repeat Table Headers in LibreOffice Writer",
+    "When working with large tables in LibreOffice Writer that span across multiple pages, repeating the header row ensures your data remains easy to read and understand. This guide provides a straightforward, step-by-step walkthrough to automatically repeat",
+    false
+  ],
+  [
+    309,
+    "LibreOffice Writer Merge and Split Table Shortcuts",
+    "LibreOffice Writer provides flexible options for adjusting table layouts, including splitting and merging table cells. While LibreOffice does not provide pre-assigned default shortcut key combinations specifically for merging and splitting cells, you can",
+    false
+  ],
+  [
+    308,
+    "LibreOffice Writer Tab Stops and Leader Dots Guide",
+    "Tab stops and leader dots in LibreOffice Writer offer a precise way to align text horizontally without creating complex tables. By setting custom tab stops—such as left, right, centered, or decimal—and pairing them with leader dots (fill characters),",
+    false
+  ],
+  [
+    307,
+    "LibreOffice Writer Line Spacing Settings Explained",
+    "LibreOffice Writer provides a comprehensive suite of line spacing controls that allow you to adjust the vertical distance between lines of text within a paragraph. This guide explains all available line spacing options in LibreOffice Writer—including s",
+    false
+  ],
+  [
+    306,
+    "Convert Footnotes to Endnotes in LibreOffice Writer",
+    "Converting all footnotes to endnotes in LibreOffice Writer is a quick and automated process that eliminates the need to manually re-enter your citations. This guide covers the built-in configuration settings that instantly reposition your reference notes",
+    false
+  ],
+  [
+    305,
+    "LibreOffice Writer Footnote and Endnote Settings",
+    "LibreOffice Writer provides flexible customization options for controlling where footnotes and endnotes appear and how they are displayed. Users can position footnotes at the bottom of each page or collected at the end of the text, place endnotes at the",
+    false
+  ],
+  [
+    304,
+    "Exclude Headers and Footnotes from LibreOffice Word Count",
+    "LibreOffice Writer includes headers, footers, and footnotes in its total document word count by default. To obtain an accurate count of only your main body text, you can use the built-in selection feature or the Word Count dialog to isolate body text fro",
+    false
+  ],
+  [
+    303,
+    "Word and Character Count in LibreOffice Writer",
+    "LibreOffice Writer includes several built-in tools to monitor document length and text statistics. These features range from real-time counters displayed on the interface to detailed statistical breakdowns and dynamic document fields. Users can easily tr",
+    false
+  ],
+  [
+    302,
+    "Manage Chapter Numbering in LibreOffice Writer",
+    "Managing chapter numbering hierarchies in LibreOffice Writer allows you to automatically number headings, create multi-level outlines (such as 1.1, 1.1.1), and maintain consistent document structure. By utilizing the dedicated Chapter Numbering tool loca",
+    false
+  ],
+  [
+    301,
+    "Sorting Multi-Level Indexes in LibreOffice Writer",
+    "Creating an organized multi-level index in LibreOffice Writer requires an understanding of how the application processes alphabetical sorting across different entry tiers. This article outlines the specific sorting rules, hierarchical behaviors, and loca",
+    false
+  ],
+  [
+    300,
+    "Create a Table of Figures in LibreOffice Writer",
+    "Creating a table of figures in LibreOffice Writer allows you to automatically generate a neat, organized list of all images, diagrams, and illustrations present in your document. By utilizing Writer's built-in captioning system, you can ensure that figur",
+    false
+  ],
+  [
+    299,
+    "LibreOffice Writer Caption Numbering Sequences",
+    "LibreOffice Writer provides robust tools for automatically numbering image captions, allowing users to select standard sequential formats, integrate multi-level chapter numbering, or define custom numbering sequences. This guide explains the available nu",
+    false
+  ],
+  [
+    298,
+    "Text Wrapping Modes in LibreOffice Writer",
+    "Text wrapping in LibreOffice Writer controls how text flows around embedded objects such as images, shapes, frames, and charts. Understanding these settings allows you to design professional layouts, eliminate awkward gaps, and place graphics precisely w",
+    false
+  ],
+  [
+    297,
+    "LibreOffice Writer Image Anchor Modes Explained",
+    "When inserting images into LibreOffice Writer, understanding anchor modes is essential for controlling how images interact with surrounding text and layout changes. This guide provides a clear overview of how anchoring works, breaking down the specific b",
+    false
+  ],
+  [
+    296,
+    "Link Text Frames Across Pages in LibreOffice Writer",
+    "Linking text frames in LibreOffice Writer allows continuous text to automatically overflow from one frame into another, even across different pages. This feature is essential for designing multi-page newsletters, brochures, and desktop publishing layouts",
+    false
+  ],
+  [
+    295,
+    "LibreOffice Writer Text Frame Colors and Gradients",
+    "LibreOffice Writer allows users to enhance documents by applying solid background colors and customized gradient fills to text frames. Through the Area formatting properties, you can choose from extensive color palettes, create custom RGB or Hex shades,",
+    false
+  ],
+  [
+    294,
+    "How to Add Borders and Shadows in LibreOffice Writer",
+    "LibreOffice Writer provides built-in paragraph formatting tools that allow you to customize individual text blocks with borders and drop shadows. By accessing the paragraph properties menu, you can select specific line arrangements, adjust padding, and c",
+    false
+  ],
+  [
+    293,
+    "LibreOffice Writer Font Effects Guide",
+    "LibreOffice Writer offers a built-in collection of typographic font effects that allow users to customize the visual appearance of their text beyond standard bold, italic, and underline styling. Accessible through the Character formatting menu, these fea",
+    false
+  ],
+  [
+    292,
+    "Set Hyphenation Exceptions in LibreOffice Writer",
+    "LibreOffice Writer provides multiple methods to manage how complex technical terminology, code identifiers, and acronyms break across lines. This guide outlines how to define custom hyphenation rules globally using user-defined dictionaries, apply manual",
+    false
+  ],
+  [
+    291,
+    "LibreOffice Thesaurus and Synonym Lookup Tools",
+    "LibreOffice Writer includes built-in thesaurus and synonym lookup tools out of the box, allowing users to find alternative words, definitions, and related terms without installing external add-ons. Powered primarily by the open-source MyThes engine, thes",
+    false
+  ],
+  [
+    290,
+    "Install Medical and Legal Dictionaries in LibreOffice",
+    "LibreOffice allows users to expand its default spell-checking capabilities by integrating specialized vocabulary databases, such as medical, legal, and technical lexicons. This guide provides a straightforward walkthrough on how to source, install, and m",
+    false
+  ],
+  [
+    289,
+    "Grammar Checker Extensions for LibreOffice",
+    "LibreOffice offers robust writing tools, but its default spell checker lacks the advanced contextual grammar, style, and syntax checking required for professional drafting. This guide covers the top extensions and built-in integration methods that bring",
+    false
+  ],
+  [
+    288,
+    "How to Create Custom Toolbars in LibreOffice",
+    "Creating customized toolbars in LibreOffice allows you to group your most frequently used commands into a single, easily accessible interface. By tailoring your workspace to fit your specific workflow—whether you are using Writer, Calc, or Impress—yo",
+    false
+  ],
+  [
+    287,
+    "Customize Status Bar in LibreOffice Writer",
+    "The status bar at the bottom of the LibreOffice Writer workspace provides essential document statistics and quick-access settings. By customizing and interacting with this bar, users can monitor real-time word and character counts, switch page layouts, a",
+    false
+  ],
+  [
+    286,
+    "How to Customize Context Menus in LibreOffice",
+    "Customizing context menus in LibreOffice allows you to tailor the right-click options for specific objects—such as text, tables, images, or spreadsheet cells—to fit your workflow. This guide explains how to access the built-in customization settings,",
+    false
+  ],
+  [
+    285,
+    "LibreOffice Mouse Customization and Middle-Click Paste",
+    "LibreOffice provides several configuration options to customize mouse behavior, enabling users to streamline document navigation, editing, and text insertion. This guide covers how to configure the middle mouse button for functions like clipboard pasting",
+    false
+  ],
+  [
+    284,
+    "Create and Save Shortcut Profiles in LibreOffice",
+    "Customizing keyboard shortcuts in LibreOffice streamlines your workflow by allowing you to map frequently used commands to your preferred key combinations. This guide explains how to access the keyboard configuration menu, assign custom key bindings eith",
+    false
+  ],
+  [
+    283,
+    "LibreOffice Fuzz Testing and OSS-Fuzz Integration",
+    "LibreOffice maintains a rigorous security posture by integrating automated fuzz testing directly into its continuous development lifecycle. Through deep integration with Google’s OSS-Fuzz platform, along with native fuzzing engines and automated docume",
+    false
+  ],
+  [
+    282,
+    "How LibreOffice Prevents Buffer Overflow Vulnerabilities",
+    "LibreOffice protects against memory safety issues and buffer overflow vulnerabilities through a multi-layered security strategy that combines automated continuous testing, modern programming practices, aggressive static code analysis, and compiler-level",
+    false
+  ],
+  [
+    281,
+    "Static Code Analysis Tools for LibreOffice",
+    "Maintaining software stability across a multi-million-line codebase requires continuous, automated inspection. LibreOffice relies on a suite of static code analysis tools to catch bugs, memory leaks, security vulnerabilities, and code smell before code r",
+    false
+  ],
+  [
+    280,
+    "How to Add Automated Tests to LibreOffice Core",
+    "Contributing new automated test cases to the LibreOffice core repository ensures software stability, prevents regressions, and helps verify bug fixes. This guide provides a direct, step-by-step walkthrough on how to set up your environment, choose the ap",
+    false
+  ],
+  [
+    279,
+    "LibreOffice Documentation Team Style Guide",
+    "The LibreOffice Documentation Team follows a structured set of documentation standards and style rules to ensure consistency, clarity, and accuracy across all official user guides, help pages, and tutorials. Technical writers and contributors must adhere",
+    false
+  ],
+  [
+    278,
+    "How LibreOffice Uses Weblate for Localization",
+    "This article provides an overview of how the LibreOffice Translation Project utilizes the open-source platform Weblate to facilitate continuous, community-driven localization. It covers the platform's role in lowering technical barriers for volunteers, t",
+    false
+  ],
+  [
+    277,
+    "LibreOffice REST API Wrappers for Cloud Backends",
+    "This article explores the leading REST API wrappers designed to interface with LibreOffice document conversion engines in cloud environments. It covers open-source solutions, containerized microservices, and client-server architectures that solve the ope",
+    false
+  ],
+  [
+    276,
+    "LibreOffice in Docker for Document Processing",
+    "Running LibreOffice in headless mode inside isolated Docker containers allows microservice architectures to perform robust, automated document conversions (such as DOCX to PDF) at scale. This guide outlines how to build a lightweight LibreOffice containe",
+    false
+  ],
+  [
+    275,
+    "LibreOffice Linux Packages: AppImage, Flatpak, and Snap",
+    "LibreOffice provides universal Linux packages through AppImage, Flatpak, and Snap formats to ensure users can install the latest office suite independently of their distribution's native repository update cycles. This article covers how each format is ma",
+    false
+  ],
+  [
+    274,
+    "Deploy LibreOffice on macOS Fleets via MDM Profiles",
+    "Deploying LibreOffice across a fleet of macOS devices requires combining Mobile Device Management (MDM) deployment commands with custom Apple configuration profiles (.mobileconfig). This guide explains how to package LibreOffice for silent installation,",
+    false
+  ],
+  [
+    273,
+    "LibreOffice GPO ADMX Templates for Windows Domains",
+    "Centralized management of LibreOffice across enterprise Windows Active Directory environments is achieved through Group Policy using Administrative Template (ADMX and ADML) files. This guide details the available ADMX/ADML templates for LibreOffice, how",
+    false
+  ],
+  [
+    272,
+    "Deploy LibreOffice Enterprise Configuration Files",
+    "Deploying custom enterprise configuration files in LibreOffice allows system administrators to centrally manage, standardize, and lock user settings across an entire organization. By leveraging XML-based configuration files referencing the org.openoffice",
+    false
+  ],
+  [
+    271,
+    "High-DPI Scaling and Magnifier in LibreOffice",
+    "LibreOffice offers several built-in configuration tools and operating system integrations to improve visibility and usability on high-DPI (4K and above) displays. This guide outlines how to adjust internal interface scaling, modify icon sizes, use docume",
+    false
+  ],
+  [
+    270,
+    "LibreOffice High-Contrast Mode on Windows and Linux",
+    "LibreOffice provides built-in accessibility features that automatically integrate with high-contrast desktop themes on both Windows and Linux operating systems. By utilizing the underlying system APIs and its internal Visual Class Library (VCL), the offi",
+    false
+  ],
+  [
+    269,
+    "LibreOffice Accessibility Tools for Readability",
+    "This article provides an overview of the primary built-in features, extensions, and external validators used to identify readability and structural accessibility issues in LibreOffice documents. Ensuring documents are accessible involves verifying readin",
+    false
+  ],
+  [
+    268,
+    "How to Disable Hardware Acceleration in LibreOffice",
+    "Graphical glitches, screen flickering, sluggish performance, and visual artifacts in LibreOffice are frequently caused by incompatibilities between the software's graphics rendering engine (such as Skia or OpenGL) and your system's display drivers. Disab",
+    false
+  ],
+  [
+    267,
+    "LibreOffice Embedded Object Memory Settings",
+    "This guide explains how to manage and configure memory allocation settings for embedded objects, graphics, and OLE items in LibreOffice. While modern versions of LibreOffice automate most resource management, power users working with complex documents co",
+    false
+  ],
+  [
+    266,
+    "How to Change LibreOffice Auto-Recovery and Temp Paths",
+    "This guide explains how to customize the AutoRecovery save frequency and change the temporary directory paths in LibreOffice. Adjusting these settings helps protect your work against unexpected crashes by saving recovery information more often and allows",
+    false
+  ],
+  [
+    265,
+    "TSA Servers for LibreOffice Digital Signatures",
+    "LibreOffice enables users to digitally sign documents and embed verifiable timestamps using RFC 3161-compliant Time Stamp Authority (TSA) servers. Adding a timestamp ensures non-repudiation by mathematically proving that a document was signed at a specif",
+    false
+  ],
+  [
+    264,
+    "Configure LibreOffice Certificate Stores for Signing",
+    "This guide explains how to configure digital certificate stores in LibreOffice across different operating systems to enable cryptographic document signing. You will learn how LibreOffice interacts with system-level and third-party certificate databases,",
+    false
+  ],
+  [
+    263,
+    "LibreOffice File Encryption Algorithms Explained",
+    "LibreOffice employs industry-standard cryptographic protocols to protect sensitive documents from unauthorized access. This article details the primary encryption algorithms, hashing methods, and key derivation standards utilized by LibreOffice, focusing",
+    false
+  ],
+  [
+    262,
+    "How to Export PDF/X Standards in LibreOffice",
+    "Preparing a document for commercial printing requires strict adherence to standardized formats to ensure consistent colors, embedded fonts, and proper layout rendering. LibreOffice provides built-in support for exporting documents using ISO-standardized",
+    false
+  ],
+  [
+    261,
+    "Convert to PDF/A via LibreOffice Command Line",
+    "This guide explains how to convert office documents to ISO-compliant PDF/A archival formats using the LibreOffice command-line interface. It covers the required headless parameters, the JSON-based filter options for LibreOffice, and the exact profile val",
+    false
+  ],
+  [
+    260,
+    "Customize Spacing and Script Heights in LibreOffice Math",
+    "This article provides a direct guide on adjusting operator spacing and modifying the heights and positioning of subscripts and superscripts in LibreOffice Math. By utilizing the built-in Spacing formatting menu and inline markup commands, you can achieve",
+    false
+  ],
+  [
+    259,
+    "Export LibreOffice Math Equations as MathML Code",
+    "This guide covers the necessary settings and procedures to export formulas created in LibreOffice Math as standard MathML code. Whether you need to save standalone equation files, export a full LibreOffice Writer document containing formulas to the web,",
+    false
+  ],
+  [
+    258,
+    "Embed PDFs and Document Links in LibreOffice Base",
+    "LibreOffice Base allows users to manage and access external documents, such as PDFs, directly from database forms. Instead of storing large binary files within the database itself—which causes file bloat and performance issues—the optimal method is t",
+    false
+  ],
+  [
+    257,
+    "Filter Child Records with Subforms in LibreOffice Base",
+    "Designing subforms in LibreOffice Base allows you to establish master-detail relationships, enabling the interface to dynamically display and filter child records whenever a corresponding parent record is selected. This tutorial outlines the exact steps",
+    false
+  ],
+  [
+    256,
+    "How to Create Parameter Queries in LibreOffice Base",
+    "This article explains how to create and use parameterized queries in LibreOffice Base to prompt users for input values dynamically at runtime. You will learn the syntax required to trigger parameter dialogs, how to set them up using both the graphical Qu",
+    false
+  ],
+  [
+    255,
+    "How to Create Views in LibreOffice Base",
+    "Relational database views act as saved, virtual tables that streamline complex data retrieval by packaging intricate multi-table joins, calculations, and filters into a single reusable object. This guide explains how to create and manage views in LibreOf",
+    false
+  ],
+  [
+    254,
+    "Firebird SQL Dialect in LibreOffice Base",
+    "This article provides an overview of the SQL dialect used by the embedded Firebird database engine in LibreOffice Base. It covers the specific dialect version, its adherence to standard SQL, key syntax characteristics, and how to properly execute native",
+    false
+  ],
+  [
+    253,
+    "How to Export Transparent PNG in LibreOffice Draw",
+    "Exporting vector artwork to a transparent PNG in LibreOffice Draw allows you to save graphics, logos, and icons without an unwanted white background. This guide provides a direct, step-by-step process to configure your export settings in LibreOffice Draw",
+    false
+  ],
+  [
+    252,
+    "Isometric Drawing Tools in LibreOffice Draw",
+    "While LibreOffice Draw is primarily a general-purpose 2D vector graphics editor rather than a dedicated CAD suite, it offers several built-in features and workflows for technical illustration. Although it lacks a dedicated one-click isometric drafting en",
+    false
+  ],
+  [
+    251,
+    "Convert 2D Shapes to 3D in LibreOffice Draw",
+    "This guide explains how to transform standard 2D vector shapes into 3D extrusion objects in LibreOffice Draw. By converting flat paths, basic shapes, and polygons into three-dimensional objects, you can add depth, adjust perspective, configure lighting,",
+    false
+  ],
+  [
+    250,
+    "How to Replace Colors in LibreOffice Draw Images",
+    "LibreOffice Draw features a built-in Color Replacer tool designed to swap specific colors within embedded bitmap and raster images. This feature allows users to select up to four source colors simultaneously using an eyedropper tool and replace them with",
+    false
+  ],
+  [
+    249,
+    "How to Create Custom Slide Shows in LibreOffice Impress",
+    "Custom slide shows in LibreOffice Impress allow you to create tailored, mini-presentations from a single master presentation without duplicating slides or creating multiple files. This guide provides a straightforward walkthrough on how to set up, organi",
+    false
+  ],
+  [
+    248,
+    "Shape Morphing and Motion Paths in LibreOffice Impress",
+    "LibreOffice Impress provides native tools to animate vector graphics along custom motion paths and morph shapes using intermediate transformation techniques. This guide covers the specific vector animation effects available in Impress, how to configure c",
+    false
+  ],
+  [
+    247,
+    "Sync Audio Narration with Slides in LibreOffice Impress",
+    "Synchronizing narration audio tracks with slide timings in LibreOffice Impress allows you to create automated, professional presentations with perfectly timed voiceovers. This guide explains how to prepare your audio files, apply narration to individual",
+    false
+  ],
+  [
+    246,
+    "LibreOffice Impress Slide Transition Settings",
+    "LibreOffice Impress provides robust controls for customizing slide transitions, allowing you to fine-tune both the movement direction and pacing of your presentation effects. By adjusting transition speed, duration, and directional properties in the Side",
+    false
+  ],
+  [
+    245,
+    "How to Fit a Spreadsheet on One Page in LibreOffice Calc",
+    "Printing a large spreadsheet often results in data being split awkwardly across multiple pages. LibreOffice Calc provides built-in page scaling features that automatically shrink your rows and columns so an entire sheet fits onto a single printed page. B",
+    false
+  ],
+  [
+    244,
+    "How to Print Selected Ranges in LibreOffice Calc",
+    "This guide explains how to define, customize, and manage print ranges in LibreOffice Calc to print only designated portions of a spreadsheet. By utilizing print area definitions, users can isolate specific cell blocks, combine multiple non-adjacent range",
+    false
+  ],
+  [
+    243,
+    "How to Hide and Unhide Sheets in LibreOffice Calc",
+    "Managing multiple sheets in LibreOffice Calc can quickly clutter your workspace, but you can easily hide sheets containing background calculations or sensitive data without deleting them. This guide provides quick, step-by-step instructions on how to hid",
+    false
+  ],
+  [
+    242,
+    "Edit Multiple Sheets in LibreOffice Calc",
+    "Grouping sheets in LibreOffice Calc is an efficient way to apply identical edits, data entries, and formatting across multiple tabs at the same time. This guide covers how to select contiguous and non-contiguous sheets to form a group, what types of modi",
+    false
+  ],
+  [
+    241,
+    "Freeze Rows and Columns in LibreOffice Calc",
+    "Freezing rows and columns in LibreOffice Calc allows you to lock header information in place so it remains visible as you scroll through large datasets. This guide covers how to freeze the top row, the first column, or a combination of custom rows and co",
+    false
+  ],
+  [
+    240,
+    "Convert Text to Date in LibreOffice Calc",
+    "LibreOffice Calc stores dates internally as serial numbers representing the number of days elapsed since an epoch date (by default, December 30, 1899). When dates are imported or entered as text strings, they cannot be used directly in arithmetic calcula",
+    false
+  ],
+  [
+    239,
+    "Extract Substrings in LibreOffice Calc with LEFT, RIGHT, MID",
+    "LibreOffice Calc provides powerful text functions to manipulate and extract specific segments of text from cells. This guide explains how to use the LEFT, RIGHT, and MID functions to extract substrings from the beginning, end, or middle of any text strin",
+    false
+  ],
+  [
+    238,
+    "How to Concatenate Text in LibreOffice Calc",
+    "Combining text from multiple cells is a fundamental spreadsheet task that can be accomplished in several ways. This article provides a clear overview of the text concatenation methods available in LibreOffice Calc, including the ampersand (&) operator, t",
+    false
+  ],
+  [
+    237,
+    "How to Use IFERROR and ISERROR in LibreOffice Calc",
+    "Handling formula errors is essential for creating clean, professional spreadsheets in LibreOffice Calc. This guide covers how to use the IFERROR and ISERROR functions to detect and manage errors like #DIV/0!, #N/A, and #VALUE!. You will learn the syntax,",
+    false
+  ],
+  [
+    236,
+    "Handling Formula Errors in LibreOffice Calc",
+    "LibreOffice Calc provides robust error-handling functions that allow users to intercept and manage common formula calculation alerts. Instead of displaying disruptive codes such as #DIV/0!, #VALUE!, or #N/A, Calc enables you to capture these occurrences",
+    false
+  ],
+  [
+    235,
+    "Create Dual-Axis Charts in LibreOffice Calc",
+    "A dual-axis combination chart in LibreOffice Calc allows you to plot two distinct data series with different scales or measurement units on a single chart, such as comparing total sales figures against profit margins. This guide provides a direct, step-b",
+    false
+  ],
+  [
+    234,
+    "Exact vs Approximate Lookup in LibreOffice Calc",
+    "In LibreOffice Calc, retrieving data from spreadsheets relies on lookup functions configured for either exact or approximate matches. Exact matching searches for an identical value and returns an error if no match is found, whereas approximate matching l",
+    false
+  ],
+  [
+    233,
+    "Using AGGREGATE to Ignore Hidden Rows in LibreOffice Calc",
+    "The AGGREGATE function in LibreOffice Calc allows you to perform various mathematical and statistical calculations while ignoring hidden rows, error values, or nested subtotal functions. This guide explains how to construct an AGGREGATE formula specifica",
+    false
+  ],
+  [
+    232,
+    "How to Calculate Weighted Average in LibreOffice Calc",
+    "Calculating a weighted average in LibreOffice Calc is essential when different data points contribute unequally to the final result, such as in graded coursework, investment portfolios, or inventory costs. This guide outlines the mathematical functions a",
+    false
+  ],
+  [
+    231,
+    "How to Split a LibreOffice Document into Chapters",
+    "Splitting a large LibreOffice Writer document into individual chapter files simplifies the management, editing, and formatting of extensive projects such as books and lengthy reports. This guide provides a straightforward method to automatically break a",
+    false
+  ],
+  [
+    230,
+    "Book Gutter Margin Settings in LibreOffice Writer",
+    "Configuring gutter margins in LibreOffice Writer is essential for preparing book layouts for professional printing and binding. A gutter adds extra space to the binding edge of a page to ensure text is not obscured after the book is bound. This guide out",
+    false
+  ],
+  [
+    229,
+    "How to Set Mirrored Margins in LibreOffice Writer",
+    "Setting up mirrored margins in LibreOffice Writer is essential when formatting documents intended for double-sided printing and book binding. Unlike standard margins with fixed left and right widths, mirrored margins dynamically adjust so that the \"inner",
+    false
+  ],
+  [
+    228,
+    "How to Generate Mass Invoices in LibreOffice Writer",
+    "Generating mass invoices in LibreOffice Writer is accomplished by integrating external database records into a standardized invoice template using Mail Merge and database field insertion techniques. By connecting a data source—such as a LibreOffice Cal",
+    false
+  ],
+  [
+    227,
+    "How to Insert DDE Links in LibreOffice Writer",
+    "Dynamic Data Exchange (DDE) allows LibreOffice Writer to display and automatically update data pulled directly from external sources, such as a LibreOffice Calc spreadsheet. This guide provides a straightforward walkthrough on how to insert and manage DD",
+    false
+  ],
+  [
+    226,
+    "LibreOffice Writer Variables and Statistics Fields",
+    "LibreOffice Writer allows users to automate dynamic content and track document metrics using built-in field commands. This guide details the user-defined variables and document statistics fields available in LibreOffice Writer, explains their functions,",
+    false
+  ],
+  [
+    225,
+    "Create Conditional Text in LibreOffice Writer",
+    "LibreOffice Writer allows you to dynamically display different text strings or entire paragraphs based on predefined variable values. This feature is useful for creating automated document templates, personalized letters, and contracts that adapt based o",
+    false
+  ],
+  [
+    224,
+    "Envelope Printing Orientations in LibreOffice Writer",
+    "LibreOffice Writer offers dedicated printer configuration settings to ensure envelopes feed and print correctly according to your printer's specifications. Accessed through the Envelope creation tool, these orientation options allow users to align the en",
+    false
+  ],
+  [
+    223,
+    "Manage Section Breaks and Headers in LibreOffice Writer",
+    "Managing distinct sections and linked headers in LibreOffice Writer relies on utilizing Page Styles rather than traditional section breaks. This guide explains how to insert manual page breaks with assigned styles, configure headers so they remain indepe",
+    false
+  ],
+  [
+    222,
+    "Text Boundaries and Formatting Marks in LibreOffice Writer",
+    "LibreOffice Writer provides various visual layout aids, including text boundaries and formatting marks, to help users structure documents precisely and troubleshoot spacing or alignment issues. These visual indicators appear on the screen during editing",
+    false
+  ],
+  [
+    221,
+    "How to Add Drop Caps in LibreOffice Writer",
+    "Drop caps add a polished, professional look to the beginning of book chapters and articles by enlarging the first letter of an opening paragraph. This guide walks you through the exact steps to enable and customize drop caps in LibreOffice Writer, either",
+    false
+  ],
+  [
+    220,
+    "Restart Numbering Options in LibreOffice Writer",
+    "Managing list sequences in LibreOffice Writer allows you to control document flow by restarting numbered lists, choosing custom starting values, or reconnecting interrupted sequences. This guide covers the various built-in options and methods available f",
+    false
+  ],
+  [
+    219,
+    "Create Nested Outlines in LibreOffice Writer",
+    "Creating nested bulleted and numbered outlines in LibreOffice Writer allows you to organize complex documents with clear hierarchical structures. This guide walks you through the step-by-step process of creating, nesting, and customizing multi-level outl",
+    false
+  ],
+  [
+    218,
+    "Bulk Accept or Reject Changes in LibreOffice Writer",
+    "Managing collaborative revisions in LibreOffice Writer does not require reviewing every edit individually. LibreOffice includes built-in tools to accept or reject tracked changes in bulk, which can save significant time on large documents. Users can exec",
+    false
+  ],
+  [
+    217,
+    "Customize Comment Colors in LibreOffice Writer",
+    "Collaborative editing in LibreOffice Writer relies on comments to track feedback, suggestions, and revisions among different reviewers. While Writer automatically assigns distinct colors to different authors and stamps each comment with the creation date",
+    false
+  ],
+  [
+    216,
+    "Display Reviewer Comments in LibreOffice Writer",
+    "LibreOffice Writer offers several markup and view options to display reviewer comments and tracked modifications during document collaboration. Reviewers' notes and tracked edits can be viewed in the margin, within dedicated toolbars, or in an organized",
+    false
+  ],
+  [
+    215,
+    "Pivot Charts: LibreOffice Calc vs Other Office Suites",
+    "Pivot charts are essential data analysis tools that visualize summarized data generated by pivot tables. While Microsoft Excel pioneered integrated pivot charting and remains the industry standard, LibreOffice Calc and Google Sheets offer alternative app",
+    false
+  ],
+  [
+    214,
+    "LibreOffice Calc vs Excel Chart Rendering",
+    "While Microsoft Excel and LibreOffice Calc both provide comprehensive data visualization suites, their underlying graphics engines produce distinct visual results. Key rendering differences include default design aesthetics, text anti-aliasing, handling",
+    false
+  ],
+  [
+    213,
+    "Opening PowerPoint SmartArt in LibreOffice Impress",
+    "When Microsoft PowerPoint files containing SmartArt graphics are opened in LibreOffice Impress, the dynamic SmartArt diagrams are automatically converted into native, grouped shapes. While LibreOffice Impress preserves most of the visual layout, text, an",
+    false
+  ],
+  [
+    212,
+    "LibreOffice Writer vs Word Drawing Canvas Compatibility",
+    "This article examines the drawing canvas compatibility between LibreOffice Writer and Microsoft Word, exploring how each application processes grouped vector graphics, text containers, and complex shape layouts. While interoperability between the two off",
+    false
+  ],
+  [
+    211,
+    "How LibreOffice Interprets Excel VBA Macros",
+    "LibreOffice Calc includes a built-in compatibility mode that allows users to run Microsoft Excel Visual Basic for Applications (VBA) macros without rewriting the code in LibreOffice Basic. By leveraging an emulation layer and runtime directive, LibreOffi",
+    false
+  ],
+  [
+    210,
+    "Tools to Convert VBA Macros to LibreOffice Basic",
+    "Migrating Microsoft Office documents to LibreOffice often requires translating Visual Basic for Applications (VBA) code into LibreOffice Basic. While LibreOffice features a built-in compatibility layer that allows some VBA macros to execute directly, com",
+    false
+  ],
+  [
+    209,
+    "LibreOffice Password Protected DOCX and XLSX Files",
+    "LibreOffice offers robust, built-in compatibility for opening, editing, and saving password-protected Microsoft Office documents, including Word (.docx) and Excel (.xlsx) formats. This article explains how LibreOffice decrypts standard Office Open XML fi",
+    false
+  ],
+  [
+    208,
+    "LibreOffice OOXML Interoperability Improvements",
+    "LibreOffice has made substantial advancements in its compatibility with Microsoft Office Open XML (OOXML) formats, including DOCX, XLSX, and PPTX. Driven by regular development cycles from The Document Foundation and ecosystem partners, these improvement",
+    false
+  ],
+  [
+    207,
+    "Buy LibreOffice Commercial Enterprise Support",
+    "Organizations seeking enterprise-grade reliability, Service Level Agreements (SLAs), and tailored software fixes for LibreOffice can obtain commercial support contracts through certified ecosystem partners. Because The Document Foundation (TDF) is a non-",
+    false
+  ],
+  [
+    206,
+    "LibreOffice Documentation and User Guides",
+    "The LibreOffice community actively maintains an extensive ecosystem of free documentation and learning resources to support users, administrators, and developers. These resources range from comprehensive, downloadable user manuals for each individual com",
+    false
+  ],
+  [
+    205,
+    "How LibreOffice Participates in Google Summer of Code",
+    "LibreOffice actively participates in the Google Summer of Code (GSoC) program under the umbrella of The Document Foundation (TDF) to onboard new developers and advance its open-source office suite. Through structured mentorship, project idea curation, an",
+    false
+  ],
+  [
+    204,
+    "Code Review Tools Used in LibreOffice Development",
+    "LibreOffice relies on a robust suite of development tools to maintain code quality, automate testing, and manage contributions from hundreds of global developers. At the heart of this workflow is Gerrit Code Review, an open-source, web-based tool tightly",
+    false
+  ],
+  [
+    203,
+    "How to Join LibreOffice Bug Hunting Days",
+    "LibreOffice Bug Hunting Days are community-driven testing events where Quality Assurance (QA) engineers, developers, and volunteers collaborate to test pre-release software versions, uncover regressions, and verify bug fixes before major releases. This g",
+    false
+  ],
+  [
+    202,
+    "LibreOffice Bugzilla Bug Reporting Protocols",
+    "This article provides a comprehensive overview of the bug reporting protocols established on the LibreOffice Bugzilla platform. It outlines the standard procedures required for submitting high-quality defect reports, including pre-submission checks, mand",
+    false
+  ],
+  [
+    201,
+    "How LibreOffice Uses Git Submodules and Tarballs",
+    "The LibreOffice build system relies on a hybrid dependency management strategy to handle its massive codebase and hundreds of external libraries. It uses Git submodules for closely tied, modular assets like translations, dictionaries, and help files, whi",
+    false
+  ],
+  [
+    200,
+    "Python UNO Components to Control LibreOffice",
+    "Controlling LibreOffice externally using standalone Python scripts relies on the Python-UNO (PyUNO) bridge, a specialized interface enabling direct communication with the LibreOffice Universal Network Objects (UNO) API. To establish this control, standal",
+    false
+  ],
+  [
+    199,
+    "How to Fix LibreOffice JRE Errors",
+    "LibreOffice relies on the Java Runtime Environment (JRE) to execute specific functions, including database operations in Base, macro execution, wizards, and accessibility features. When LibreOffice cannot locate or communicate with a functional Java inst",
+    false
+  ],
+  [
+    198,
+    "LibreOffice Java JRE Settings and Requirements",
+    "LibreOffice utilizes a Java Runtime Environment (JRE) to execute several advanced functions, including database tools, specific wizards, and custom scripting frameworks. This guide outlines which features depend on Java, the configuration settings requir",
+    false
+  ],
+  [
+    197,
+    "Build C++ Integrations with LibreOffice SDK",
+    "This guide outlines how developers can leverage the LibreOffice Software Development Kit (SDK) to create high-performance C++ integrations. By utilizing the Universal Network Objects (UNO) component model, developers can automate document generation, con",
+    false
+  ],
+  [
+    196,
+    "Compatible LibreOffice Dictionary & Hyphenation Files",
+    "LibreOffice relies on open-source linguistic backends to manage spell checking, hyphenation, and thesaurus lookups. To expand or customize language support, users and developers can integrate specific dictionary formats and hyphenation pattern files. Thi",
+    false
+  ],
+  [
+    195,
+    "How LibreOffice Renders Arabic, Devanagari, and Thai",
+    "LibreOffice renders complex scripts such as Devanagari, Arabic, and Thai through a dedicated Complex Text Layout (CTL) subsystem powered by open-source text-shaping engines and typography standards. This article breaks down the underlying technical archi",
+    false
+  ],
+  [
+    194,
+    "OpenType Typography Support in LibreOffice",
+    "LibreOffice provides extensive support for advanced OpenType typographic features, including standard and discretionary ligatures, true small capitals, contextual alternates, fractions, and numeric styles. Powered by the HarfBuzz text-shaping engine, Lib",
+    false
+  ],
+  [
+    193,
+    "Install Fonts in LibreOffice on Any OS",
+    "Installing OpenType (OTF) and TrueType (TTF) fonts for use in LibreOffice requires adding the font files directly to your operating system. Because LibreOffice retrieves its typography list from your system's font registry, installing a font on Windows,",
+    false
+  ],
+  [
+    192,
+    "Map Missing Fonts in LibreOffice with Replacement Tables",
+    "LibreOffice provides a built-in Font Replacement Table feature that enables users to automatically substitute missing, proprietary, or unavailable fonts with installed alternatives without altering the original document formatting. This article explains",
+    false
+  ],
+  [
+    191,
+    "How to Align Multi-Line Equations in LibreOffice Math",
+    "Creating multi-line aligned equations in LibreOffice Math is essential for presenting complex mathematical proofs, derivations, and step-by-step calculations clearly. This guide explains the primary methods for formatting multi-line equations, including",
+    false
+  ],
+  [
+    190,
+    "Matrix Bracket Styles in LibreOffice Math",
+    "LibreOffice Math provides several scalable delimiter styles to enclose matrices and tabular math data. By combining the matrix keyword with the dynamic resizing commands left and right, you can format matrices with round parentheses, square brackets, cur",
+    false
+  ],
+  [
+    189,
+    "Create Mailing Labels with LibreOffice Base",
+    "Using LibreOffice Base as an address book data source allows you to streamline the process of creating and printing customized mailing labels in LibreOffice Writer. By registering a Base database containing your contact information, you can map fields su",
+    false
+  ],
+  [
+    188,
+    "LibreOffice Base Report Builder Features",
+    "LibreOffice Base includes a comprehensive, built-in Report Builder that was originally an external extension but is now fully integrated into the standard installation. This article details the core features available by default in the Base Report Builde",
+    false
+  ],
+  [
+    187,
+    "Bind Image Controls to Binary Fields in LibreOffice Base",
+    "This guide explains how to store and display images directly within a LibreOffice Base database by binding an Image Control to a binary field. You will learn how to configure your database table with the appropriate binary data type, insert an Image Cont",
+    false
+  ],
+  [
+    186,
+    "Combo Box and List Box in LibreOffice Base",
+    "LibreOffice Base offers two primary list-selection controls for data entry forms: the Combo Box and the List Box. While both controls present users with a list of selectable items to streamline data input and reduce errors, they serve fundamentally diffe",
+    false
+  ],
+  [
+    185,
+    "Create Master-Detail Forms in LibreOffice Base",
+    "Master-detail forms—often called form-subform relationships—allow you to view and manage data from two related tables simultaneously, such as viewing a customer profile alongside all of their associated orders. This guide provides a straightforward,",
+    false
+  ],
+  [
+    184,
+    "Export Diagrams to Vector EPS in LibreOffice Draw",
+    "Exporting technical diagrams from LibreOffice Draw to Encapsulated PostScript (EPS) format allows you to retain crisp vector graphics for academic papers, LaTeX documents, and high-resolution publications. LibreOffice Draw includes a native export engine",
+    false
+  ],
+  [
+    183,
+    "Color Gradient Creation Tools in LibreOffice Draw",
+    "LibreOffice Draw offers a comprehensive suite of built-in gradient creation and editing tools that allow users to enhance vector graphics, shapes, and page backgrounds with smooth color transitions. This guide details the integrated gradient features ava",
+    false
+  ],
+  [
+    182,
+    "Create 3D Rotation Effects in LibreOffice Draw",
+    "Transforming flat 2D shapes into dynamic, three-dimensional graphics is a straightforward process in LibreOffice Draw. This guide explains how to convert standard vector shapes into 3D objects, apply custom X, Y, and Z axis rotations, adjust perspective,",
+    false
+  ],
+  [
+    181,
+    "How to Use Grid and Snapping in LibreOffice Draw",
+    "LibreOffice Draw includes several grid and snapping tools designed to help you align, position, and organize objects precisely on the canvas. This guide covers the available alignment options, including the visible grid, snap lines, object-to-object snap",
+    false
+  ],
+  [
+    180,
+    "Bezier Curve Editing in LibreOffice Draw",
+    "LibreOffice Draw provides a comprehensive vector editing environment that enables users to create and modify custom shapes using Bezier curves and point manipulation. By utilizing the dedicated Points toolbar, users can alter existing paths, convert stan",
+    false
+  ],
+  [
+    179,
+    "How to Print Notes and Handouts in LibreOffice Impress",
+    "LibreOffice Impress allows you to print presentations in dedicated formats tailored for different presentation needs, including speaker notes for your personal reference and multi-slide handouts for your audience. Configuring these formats is straightfor",
+    false
+  ],
+  [
+    178,
+    "Slide Layout Presets in LibreOffice Impress",
+    "LibreOffice Impress provides a collection of built-in slide layout presets designed to streamline the presentation creation process. These predefined arrangements automatically format slide titles, text blocks, and multimedia placeholders, allowing users",
+    false
+  ],
+  [
+    177,
+    "How to Animate Bullet Points in LibreOffice Impress",
+    "This guide demonstrates how to create animated bullet points and object reveals in LibreOffice Impress to enhance your presentations. You will learn the exact steps to reveal list items individually on click, apply entrance animations to standalone objec",
+    false
+  ],
+  [
+    176,
+    "Export High-Res PNG Slides in LibreOffice Impress",
+    "Exporting high-resolution PNG images from LibreOffice Impress requires adjusting the export dialog settings to increase image dimensions and pixel density. By default, LibreOffice exports slides at standard screen resolution, but you can manually increas",
+    false
+  ],
+  [
+    175,
+    "How to Embed Fonts in LibreOffice Impress",
+    "Embedding fonts in LibreOffice Impress ensures that your slides retain their intended typography, formatting, and design across different computers, even if the host machine does not have your custom fonts installed. This step-by-step guide explains how",
+    false
+  ],
+  [
+    174,
+    "LibreOffice Impress Supported Video and Audio Codecs",
+    "LibreOffice Impress allows users to embed and play multimedia directly within slide presentations. Rather than relying on a standalone internal codec library, Impress natively leverages the underlying operating system’s multimedia framework to decode a",
+    false
+  ],
+  [
+    173,
+    "Custom Delimiters and Encoding in LibreOffice Calc CSV",
+    "Importing CSV files with non-standard separators or distinct character sets into LibreOffice Calc often results in misaligned columns or corrupted characters. This guide demonstrates how to use the built-in Text Import dialog to adjust character encoding",
+    false
+  ],
+  [
+    172,
+    "LibreOffice Calc CSV Export Options Explained",
+    "LibreOffice Calc provides powerful configuration tools to convert spreadsheet sheets into precisely structured Comma-Separated Values (CSV) files. When saving a spreadsheet as a CSV, Calc allows users to define character encoding, choose custom delimiter",
+    false
+  ],
+  [
+    171,
+    "LibreOffice Calc Scenarios for Financial Modeling",
+    "LibreOffice Calc provides built-in scenario management tools that allow financial analysts to create, store, and switch between different sets of input variables on the same worksheet. By using the Scenarios feature alongside tools like Multiple Operatio",
+    false
+  ],
+  [
+    170,
+    "Trace Precedents and Dependents in LibreOffice Calc",
+    "Managing complex formulas in LibreOffice Calc requires auditing tools to verify data accuracy and locate calculation errors. The built-in Detective feature provides visual arrows that map out cell relationships, allowing you to see which cells supply dat",
+    false
+  ],
+  [
+    169,
+    "Protect Specific Cell Ranges in LibreOffice Calc",
+    "Protecting specific cell ranges in LibreOffice Calc allows you to lock sensitive formulas and headers while keeping data entry areas open for editing. By default, every cell in a Calc worksheet is marked as protected, but this protection only activates w",
+    false
+  ],
+  [
+    168,
+    "Toggle Formula and Value View in LibreOffice Calc",
+    "This guide explains how to quickly toggle between formula view and calculated value view in LibreOffice Calc using keyboard shortcuts and menu options. Switching to formula view allows you to inspect, audit, and troubleshoot the underlying equations acro",
+    false
+  ],
+  [
+    167,
+    "Create Dynamic Dropdown Lists in LibreOffice Calc",
+    "Dynamic dropdown lists in LibreOffice Calc allow the options in a secondary dropdown menu to automatically change based on the selection made in a primary dropdown menu. This tutorial provides a straightforward, step-by-step guide to setting up dependent",
+    false
+  ],
+  [
+    166,
+    "Financial Functions in LibreOffice Calc",
+    "LibreOffice Calc includes a comprehensive suite of built-in financial functions designed for cash flow analysis, investment evaluation, loan amortization, and asset depreciation. This guide outlines the most commonly used financial formulas available in",
+    false
+  ],
+  [
+    165,
+    "Manage Circular References in LibreOffice Calc",
+    "This guide explains how to manage circular references and configure iterative calculations in LibreOffice Calc. While circular references typically produce formula errors by default, enabling iterative calculations allows Calc to repeatedly recalculate f",
+    false
+  ],
+  [
+    164,
+    "Customize LibreOffice Calc Precision Settings",
+    "LibreOffice Calc allows users to fine-tune how formulas, numbers, and circular references are evaluated within spreadsheets. This guide provides an overview of the calculation precision settings available in LibreOffice Calc, explaining how each option f",
+    false
+  ],
+  [
+    163,
+    "How to Calculate Sums in LibreOffice Writer Tables",
+    "LibreOffice Writer includes built-in calculation capabilities that allow you to compute mathematical sums directly within your text tables without needing to switch to LibreOffice Calc. This guide explains how to use the Formula bar, cell coordinates, an",
+    false
+  ],
+  [
+    162,
+    "How to Sort Tables in LibreOffice Writer",
+    "LibreOffice Writer provides a built-in sorting tool that allows you to organize table data alphabetically or numerically in ascending or descending order. This guide walks you through the step-by-step process of sorting single or multiple columns in a ta",
+    false
+  ],
+  [
+    161,
+    "How to Split and Merge Tables in LibreOffice Writer",
+    "LibreOffice Writer provides built-in tools that allow users to manage document layouts by splitting large tables into separate sections, combining adjacent tables into a single entity, and modifying individual cells. This guide outlines the specific tool",
+    false
+  ],
+  [
+    160,
+    "How to Collapse Sections in LibreOffice Writer",
+    "LibreOffice Writer includes an outline folding feature that allows you to collapse and expand document sections beneath headings for easier navigation and editing. This guide explains how to enable outline folding in your application settings and how to",
+    false
+  ],
+  [
+    159,
+    "Watermark Options for All Pages in LibreOffice Writer",
+    "LibreOffice Writer provides several methods to apply text and image watermarks across every page of a document. Users can choose between the native text watermark tool for quick text overlays, page background settings for full-page images or graphics, an",
+    false
+  ],
+  [
+    158,
+    "How to Mix Page Orientations in LibreOffice Writer",
+    "Managing both portrait and landscape orientations within a single LibreOffice Writer document is achieved by combining Page Styles with Manual Breaks. Rather than applying an orientation setting to the entire document, Writer applies formatting through d",
+    false
+  ],
+  [
+    157,
+    "Line Numbering for Legal Documents in LibreOffice",
+    "LibreOffice Writer includes robust line numbering tools designed to meet the strict formatting standards required for legal briefs, court pleadings, and contracts. This guide details the built-in line numbering capabilities in LibreOffice Writer, explain",
+    false
+  ],
+  [
+    156,
+    "How to Configure AutoCorrect in LibreOffice Writer",
+    "LibreOffice Writer includes powerful AutoCorrect and text replacement tools that automatically fix common typos, expand shorthand abbreviations into full phrases, and apply dynamic formatting. This guide provides a straightforward walkthrough on how to a",
+    false
+  ],
+  [
+    155,
+    "How to Redact Sensitive Information in LibreOffice",
+    "LibreOffice includes a built-in redaction feature designed to permanently obscure sensitive, confidential, or personally identifiable information (PII) from documents. This guide covers how the Redaction tool works, the available masking options, and how",
+    false
+  ],
+  [
+    154,
+    "Compare Two Documents Side by Side in LibreOffice",
+    "Comparing different versions of a text is essential for tracking revisions, proofreading, and editing effectively. This guide explains how to use the built-in comparison feature in LibreOffice Writer to automatically highlight differences between two fil",
+    false
+  ],
+  [
+    153,
+    "Connect LibreOffice to WebDAV and Nextcloud",
+    "LibreOffice allows users to open, edit, and save documents directly to cloud and remote storage servers without relying on local desktop synchronization clients. This article explains the available WebDAV and Nextcloud connection types inside LibreOffice",
+    false
+  ],
+  [
+    152,
+    "Connect LibreOffice to Google Drive Remote Files",
+    "LibreOffice includes a built-in Remote Files feature that allows users to access, edit, and save documents directly to cloud storage providers like Google Drive without needing third-party sync clients. By establishing a direct connection between the off",
+    false
+  ],
+  [
+    151,
+    "Connect Cloud Storage to LibreOffice",
+    "LibreOffice allows users to open, edit, and save documents directly to remote cloud storage systems without needing local synchronization folders. Through its built-in remote file management feature, LibreOffice connects directly to popular cloud platfor",
+    false
+  ],
+  [
+    150,
+    "Deploy LibreOffice in School Computer Labs",
+    "Deploying LibreOffice across educational institutions provides a cost-effective, open-source office suite for students and faculty while eliminating recurring licensing fees. This guide outlines the most efficient strategies for mass deployment across co",
+    false
+  ],
+  [
+    149,
+    "Best Practices for LibreOffice Document Migration",
+    "Migrating corporate document repositories to LibreOffice allows organizations to reduce licensing overhead, avoid vendor lock-in, and adopt the standardized OpenDocument Format (ODF). This guide outlines the essential best practices for executing a seaml",
+    false
+  ],
+  [
+    148,
+    "Enable System File Dialogs in LibreOffice",
+    "LibreOffice includes built-in file picker dialogs by default, but many users prefer their operating system's native file management windows for better integration, bookmarks, and familiarity. This guide explains how to configure LibreOffice to use standa",
+    false
+  ],
+  [
+    147,
+    "Benchmark LibreOffice Loading and Rendering Speed",
+    "Measuring LibreOffice document loading and rendering performance is essential for optimizing system configurations, diagnosing slow file interactions, and evaluating hardware capabilities. This article details the primary automated benchmarking suites, c",
+    false
+  ],
+  [
+    146,
+    "How LibreOffice Manages User Privacy and Telemetry",
+    "This article provides an overview of how LibreOffice handles user privacy and telemetry data collection. Unlike many proprietary office suites, LibreOffice operates on a strict privacy-first model built on open-source principles. It avoids background tra",
+    false
+  ],
+  [
+    145,
+    "Diagnose LibreOffice Extension Issues in Safe Mode",
+    "LibreOffice Safe Mode is a built-in troubleshooting environment that allows users to launch the application with a clean configuration, bypassing hardware acceleration, customizations, and third-party add-ons. This guide details the startup methods and s",
+    false
+  ],
+  [
+    144,
+    "How to Reset LibreOffice User Profile",
+    "Resetting your LibreOffice user profile is the most effective way to resolve application corruption, unexplained crashes, missing interface elements, and performance glitches. The user profile stores personal settings, extensions, custom dictionaries, an",
+    false
+  ],
+  [
+    143,
+    "LibreOffice User Interface Options Explained",
+    "LibreOffice offers multiple user interface layouts to accommodate different workflow preferences, screen sizes, and familiarity with other office suites. While the software defaults to a classic menu-and-toolbar layout, users can easily choose from sever",
+    false
+  ],
+  [
+    142,
+    "Multi-Threaded Calculation in LibreOffice Calc",
+    "LibreOffice Calc enhances performance on large, complex spreadsheets by distributing formula calculations across multiple CPU cores through multi-threading. By leveraging parallel processing frameworks, dependency graph analysis, formula grouping, and op",
+    false
+  ],
+  [
+    141,
+    "Print LibreOffice Documents via Command Line to a Printer",
+    "This guide explains how to print LibreOffice documents silently to a specific printer using command-line arguments. By running LibreOffice in headless mode with targeted print parameters, you can automate batch printing jobs and integrate document printi",
+    false
+  ],
+  [
+    140,
+    "Open MS Office Files in Read-Only Mode in LibreOffice",
+    "Configuring LibreOffice to open Microsoft Office files (such as DOCX, XLSX, and PPTX) in read-only mode by default helps prevent accidental modifications and maintains document integrity. This guide explains how to set up read-only access globally throug",
+    false
+  ],
+  [
+    139,
+    "Changing Font Size in LibreOffice Math Formulas",
+    "LibreOffice Math provides dedicated commands to adjust the font size of distinct sections, terms, or individual characters within a single formula. By applying the size command alongside specific numerical values or arithmetic operators, you can scale se",
+    false
+  ],
+  [
+    138,
+    "Greek Symbols and Special Operators in LibreOffice Math",
+    "LibreOffice Math provides a flexible formula editor that allows you to insert Greek letters and complex mathematical operators using both direct text commands and graphical user interface tools. This guide explains how to quickly type Greek symbols using",
+    false
+  ],
+  [
+    137,
+    "Export LibreOffice Base Queries to Spreadsheets",
+    "Exporting query results from LibreOffice Base into spreadsheets can be accomplished using several built-in features, native integration tools, and automation scripts. Because LibreOffice Base is tightly integrated with the rest of the LibreOffice suite,",
+    false
+  ],
+  [
+    136,
+    "Keys and Referential Integrity in LibreOffice Base",
+    "LibreOffice Base manages relational data by utilizing primary keys, foreign keys, and referential integrity rules to structure tables and preserve data consistency. By leveraging its integrated database engines—primarily Firebird or embedded HSQLDB—B",
+    false
+  ],
+  [
+    135,
+    "Validate LibreOffice Base Forms Using Macro Events",
+    "Automating data validation in LibreOffice Base ensures that entered data adheres to specific constraints before it is written to the underlying database. By binding Basic or Python macros to specific form and control events, you can intercept user action",
+    false
+  ],
+  [
+    134,
+    "SQL Subqueries in LibreOffice Base Query Designer",
+    "LibreOffice Base allows you to perform advanced data analysis by nesting SQL SELECT statements inside a main query, commonly known as subqueries. This guide covers how to write, structure, and execute custom SQL subqueries within the LibreOffice Base Que",
+    false
+  ],
+  [
+    133,
+    "Configure ODBC and JDBC in LibreOffice Base",
+    "LibreOffice Base allows users to connect to external relational database management systems (RDBMS) using Open Database Connectivity (ODBC) and Java Database Connectivity (JDBC). This guide details the essential driver requirements, system prerequisites,",
+    false
+  ],
+  [
+    132,
+    "Design Brochures and Flyers in LibreOffice Draw",
+    "Designing promotional brochures and multi-page flyers in LibreOffice Draw provides a flexible, vector-based workspace without the complexity of dedicated desktop publishing software. This guide covers how to set up customized page layouts, implement guid",
+    false
+  ],
+  [
+    131,
+    "LibreOffice Draw Connectors and Glue Points Guide",
+    "LibreOffice Draw provides specialized connector tools and magnetic glue points designed to create dynamic flowcharts, network maps, and technical diagrams. Connectors automatically attach to designated connection points on objects, ensuring lines remain",
+    false
+  ],
+  [
+    130,
+    "Combine, Merge, and Intersect Shapes in LibreOffice Draw",
+    "LibreOffice Draw provides built-in vector operations that allow you to construct complex custom graphics by combining, merging, subtracting, and intersecting basic 2D shapes. This guide explains how to access these shape operations, how each tool modifie",
+    false
+  ],
+  [
+    129,
+    "How to Use Dimension Lines in LibreOffice Draw",
+    "LibreOffice Draw provides built-in dimensioning tools and scaling capabilities suitable for creating 2D architectural plans, elevations, and technical layouts. This guide covers how to configure the drawing scale, place and snap dimension lines to object",
+    false
+  ],
+  [
+    128,
+    "Vector Formats Supported in LibreOffice Draw",
+    "LibreOffice Draw is a versatile open-source vector graphics editor capable of opening, importing, and modifying a wide variety of vector file types. While Scalable Vector Graphics (SVG) is the most common format used within the software, Draw also provid",
+    false
+  ],
+  [
+    127,
+    "How to Create Kiosk Presentations in LibreOffice Impress",
+    "This guide outlines how to build an interactive kiosk presentation using LibreOffice Impress. By disabling default mouse-click slide transitions, configuring automated loop settings, and creating custom interactive navigation buttons, you can transform a",
+    false
+  ],
+  [
+    126,
+    "Timed Slide Rehearsal Tools in LibreOffice Impress",
+    "LibreOffice Impress provides dedicated built-in tools to help presenters practice their delivery, track pacing, and automate slide transitions. This guide covers how to access and utilize the Rehearse Timings feature, configure automatic slide durations",
+    false
+  ],
+  [
+    125,
+    "Record and Broadcast LibreOffice Impress Presentations",
+    "LibreOffice Impress is a powerful open-source presentation tool, but broadcasting and recording dynamic presentations requires combining its native presentation features with dedicated screen recording and streaming tools. This guide explains how to prep",
+    false
+  ],
+  [
+    124,
+    "XML Source Mapping Tools for LibreOffice Calc",
+    "LibreOffice Calc provides multiple methods for importing and mapping external XML data directly into spreadsheets, ranging from native graphical user interface tools to advanced transformation engines. This article covers the primary built-in tools—suc",
+    false
+  ],
+  [
+    123,
+    "Use Advanced Filter in LibreOffice Calc",
+    "LibreOffice Calc provides the Advanced Filter tool to help you query and filter large datasets or database records based on complex, multi-column criteria. This guide outlines how to configure a criteria range, apply the Advanced Filter dialog, and outpu",
+    false
+  ],
+  [
+    122,
+    "LibreOffice Calc Sparklines for Compact Visualization",
+    "Sparklines in LibreOffice Calc provide lightweight, mini-charts embedded directly within individual spreadsheet cells to illustrate visual trends and patterns alongside tabular data. Introduced natively in LibreOffice 7.4, this feature enables users to c",
+    false
+  ],
+  [
+    121,
+    "Manage Named Ranges and Formulas in LibreOffice Calc",
+    "Managing named cell ranges and referencing formulas across workbooks in LibreOffice Calc improves spreadsheet organization, simplifies complex calculations, and enhances collaborative data tracking. This guide covers how to define and modify named ranges",
+    false
+  ],
+  [
+    120,
+    "Absolute vs Relative References in LibreOffice Calc",
+    "In LibreOffice Calc, understanding how cell references behave is essential for building accurate and dynamic spreadsheets. This article explains the fundamental differences between relative and absolute cell references, how the dollar sign ($) modifier l",
+    false
+  ],
+  [
+    119,
+    "VLOOKUP, HLOOKUP, and XLOOKUP in LibreOffice Calc",
+    "LibreOffice Calc provides powerful lookup capabilities for searching and retrieving data across spreadsheets, fully supporting traditional functions like VLOOKUP and HLOOKUP alongside modern solutions for XLOOKUP. This article explains how each of these",
+    false
+  ],
+  [
+    118,
+    "Statistical Analysis and Regression in LibreOffice Calc",
+    "LibreOffice Calc provides a robust suite of built-in features for descriptive statistics, hypothesis testing, and regression modeling. Users can perform advanced statistical workflows using the dedicated Data Statistics GUI tool, native spreadsheet funct",
+    false
+  ],
+  [
+    117,
+    "Consolidate Data Across Worksheets in LibreOffice Calc",
+    "Consolidating data across multiple worksheets in LibreOffice Calc allows you to combine, summarize, and analyze information from different sheets into a single master sheet. This guide provides a straightforward, step-by-step walkthrough of the two most",
+    false
+  ],
+  [
+    116,
+    "How to Use Text to Columns in LibreOffice Calc",
+    "LibreOffice Calc provides a built-in \"Text to Columns\" tool designed to split delimited or fixed-width text from a single column into multiple distinct columns. This guide explains how to access the Text to Columns feature, configure delimiter settings,",
+    false
+  ],
+  [
+    115,
+    "Create Fillable PDF Forms in LibreOffice Writer",
+    "Creating interactive, fillable PDF documents allows users to enter information digitally without altering the underlying layout. This guide provides a straightforward walkthrough on how to use the built-in form controls in LibreOffice Writer to design cu",
+    false
+  ],
+  [
+    114,
+    "LibreOffice Writer Concordance File Indexing Guide",
+    "Creating an alphabetical index manually in a large document can be tedious and prone to errors. LibreOffice Writer solves this by supporting concordance files (.sdi), which are structured plain-text files that automate the search and indexing process acr",
+    false
+  ],
+  [
+    113,
+    "Cross-Reference Figures and Tables in LibreOffice",
+    "This guide explains how to create automated, dynamic cross-references to figures and tables in LibreOffice Writer. By linking your in-text citations directly to your captions, figure and table numbers will automatically update whenever items are added, r",
+    false
+  ],
+  [
+    112,
+    "Frame Styles for Images and Text in LibreOffice Writer",
+    "LibreOffice Writer uses dedicated Frame Styles to control the formatting, positioning, borders, and text-wrapping behavior of floating objects such as images, text boxes, and OLE objects. Instead of manually configuring individual properties for every fl",
+    false
+  ],
+  [
+    111,
+    "Character vs Paragraph Styles in LibreOffice Writer",
+    "In LibreOffice Writer, styles are essential tools used to format text consistently and efficiently throughout a document. While both character and paragraph styles alter the appearance of your content, they differ fundamentally in their scope, hierarchy,",
+    false
+  ],
+  [
+    110,
+    "LibreOffice Writer Styles and Formatting Hierarchy",
+    "Mastering styles and formatting hierarchy in LibreOffice Writer is essential for creating structured, professional, and easily maintainable documents. This guide outlines the six core style categories, explains the strict hierarchy of formatting preceden",
+    false
+  ],
+  [
+    109,
+    "How to Use LibreOffice Writer Navigator in Long Documents",
+    "The LibreOffice Writer Navigator panel is a powerful management tool designed to streamline navigation, organization, and editing in extensive documents. By providing an interactive, structured overview of all document elements—including headings, imag",
+    false
+  ],
+  [
+    108,
+    "Drawing and Shape Tools in LibreOffice Writer",
+    "LibreOffice Writer includes a built-in suite of vector drawing and shape tools that allow users to create illustrations, flowcharts, callouts, and diagrams directly inside text documents. Accessible primarily through the Drawing toolbar, these integrated",
+    false
+  ],
+  [
+    107,
+    "Create Custom Envelopes and Labels in LibreOffice",
+    "LibreOffice Writer provides dedicated built-in tools for generating custom envelopes and mailing labels, allowing you to design individual mail pieces or automate bulk mailings using connected databases. This guide explains how to configure custom dimens",
+    false
+  ],
+  [
+    106,
+    "How to Print a Booklet in LibreOffice Writer",
+    "LibreOffice Writer includes built-in brochure printing features that automatically arrange, scale, and reorder document pages so they can be folded into a standard saddle-stitched booklet. This guide outlines the essential print settings available in Wri",
+    false
+  ],
+  [
+    105,
+    "How LibreOffice Prints via OS Spoolers and Drivers",
+    "This article provides an overview of how LibreOffice bridges the gap between its internal document engine and physical printers. It explains how LibreOffice uses its Visual Class Library (VCL) abstraction layer to communicate with operating system print",
+    false
+  ],
+  [
+    104,
+    "LibreOffice Basic IDE Debugging Tools",
+    "This article provides a concise overview of the debugging tools built into the LibreOffice Basic Integrated Development Environment (IDE). It outlines essential features such as breakpoints, step-by-step code execution, variable inspection, the Watch win",
+    false
+  ],
+  [
+    103,
+    "How to Digitally Sign a LibreOffice Macro",
+    "Digitally signing a macro script in LibreOffice ensures macro integrity, verifies the author's identity, and allows scripts to run smoothly under strict macro security policies. This guide outlines the exact steps required to apply a digital signature to",
+    false
+  ],
+  [
+    102,
+    "How to Remove Metadata from LibreOffice Files",
+    "LibreOffice documents often store hidden metadata, including author names, editing time, revision history, operating system details, and printer information. Sanitizing this data is essential for preserving privacy and preventing sensitive information le",
+    false
+  ],
+  [
+    101,
+    "Install LibreOffice Language Packs and Offline Help",
+    "This guide provides step-by-step instructions for downloading, installing, and configuring additional user interface languages and offline help documentation in LibreOffice. Whether you are using Windows, macOS, or Linux, adding these components allows y",
+    false
+  ],
+  [
+    100,
+    "LibreOffice Backup Settings to Prevent Data Loss",
+    "Configuring the built-in backup and recovery features in LibreOffice is an essential step to protect your documents against sudden system crashes, power outages, and accidental file overwrites. By enabling AutoRecovery and timed backup copies within the",
+    false
+  ],
+  [
+    99,
+    "Enable Dark Mode and Experimental Features in LibreOffice",
+    "Modern versions of LibreOffice include native support for dark themes and early access to experimental tools. This guide provides a straightforward, step-by-step walkthrough to activate dark mode for reduced eye strain and unlock experimental features to",
+    false
+  ],
+  [
+    98,
+    "Graphics Acceleration in LibreOffice: Skia and OpenGL",
+    "LibreOffice relies on dedicated graphics rendering backends to accelerate visual performance, improve rendering fidelity, and offload processing from the CPU to the GPU. While earlier versions of the office suite depended on OpenGL for hardware accelerat",
+    false
+  ],
+  [
+    97,
+    "Adjust LibreOffice Memory Cache for Better Speed",
+    "Adjusting the memory cache settings in LibreOffice can significantly improve rendering performance, reduce latency, and prevent stutters when scrolling through large documents or handling image-heavy files. While recent versions of LibreOffice manage som",
+    false
+  ],
+  [
+    96,
+    "Recover Autosaved Documents After LibreOffice Crash",
+    "A sudden crash in LibreOffice can disrupt your workflow, but the software includes built-in recovery tools and backup directories to help you retrieve your unsaved work. This guide outlines the exact steps to recover your files using the automatic Docume",
+    false
+  ],
+  [
+    95,
+    "LibreOffice XML File Architecture Under the Hood",
+    "LibreOffice manages its documents by utilizing structured XML packaged inside compressed archives, predominantly following the OpenDocument Format (ODF) standard alongside Microsoft's Office Open XML (OOXML). Under the hood, the application does not trea",
+    false
+  ],
+  [
+    94,
+    "How to Export LibreOffice Documents to EPUB",
+    "Converting LibreOffice Writer documents to the EPUB format allows authors and publishers to create standardized e-books readable on smartphones, tablets, and dedicated e-readers. LibreOffice provides a built-in native export filter, supports dedicated ex",
+    false
+  ],
+  [
+    93,
+    "How to Add Math Formulas to LibreOffice Impress",
+    "Integrating mathematical equations into LibreOffice Impress allows presenters to display clean, scalable, and accurately formatted formulas alongside presentation content. This guide explains how to create native LibreOffice Math formula objects directly",
+    false
+  ],
+  [
+    92,
+    "LibreOffice Math Formula Syntax Rules",
+    "LibreOffice Math uses a dedicated markup language to convert plain-text commands into formatted mathematical expressions. Writing formulas in LibreOffice Math relies on a specific set of syntax rules covering token separation, grouping, operators, bracke",
+    false
+  ],
+  [
+    91,
+    "Migrate HSQLDB to Firebird in LibreOffice Base",
+    "This guide provides a straightforward walkthrough for migrating legacy embedded HSQLDB databases to the Firebird engine within LibreOffice Base. As LibreOffice transitioned its default embedded relational database management system to Firebird, convertin",
+    false
+  ],
+  [
+    90,
+    "Firebird in LibreOffice Base: Key Advantages",
+    "LibreOffice Base features the Firebird database engine as its modern default embedded backend, replacing the legacy HSQLDB system. This article explores the primary advantages of utilizing Firebird within LibreOffice Base, highlighting improvements in pe",
+    false
+  ],
+  [
+    89,
+    "How to Create Summary Reports in LibreOffice Base",
+    "Generating printable summary reports in LibreOffice Base allows you to aggregate, group, and calculate data from your database tables into a clean, document-ready format. This guide walks you through using the built-in Report Builder and Report Wizard to",
+    false
+  ],
+  [
+    88,
+    "Create Data Entry Forms in LibreOffice Base",
+    "LibreOffice Base provides robust tools for creating interactive data entry forms that simplify how users input, view, and modify database records. This guide covers the essential steps required to build and customize a functional data entry form, from us",
+    false
+  ],
+  [
+    87,
+    "SQL Queries and Relational Tables in LibreOffice Base",
+    "LibreOffice Base serves as a front-end interface for database management, enabling users to build relational database structures and execute SQL queries. It natively supports database design principles, such as primary and foreign key constraints, table",
+    false
+  ],
+  [
+    86,
+    "LibreOffice Draw Image Filters and Raster Tools",
+    "LibreOffice Draw is primarily designed as a vector graphics editor, but it includes a versatile set of built-in image filtering and raster manipulation tools for editing bitmap graphics. Users can apply dynamic visual filters, adjust color balances, crop",
+    false
+  ],
+  [
+    85,
+    "Create Flowcharts and Network Diagrams in LibreOffice Draw",
+    "LibreOffice Draw is a powerful, open-source vector graphics editor capable of designing structured flowcharts and professional network topology diagrams. By utilizing its built-in shape palettes, intelligent connector tools, and customizable asset librar",
+    false
+  ],
+  [
+    84,
+    "3D Object Rendering in LibreOffice Draw",
+    "LibreOffice Draw provides a built-in set of 3D rendering capabilities that allow users to create, manipulate, and render three-dimensional geometry directly within a 2D vector workspace. These features include basic 3D primitive creation, 2D-to-3D extrus",
+    false
+  ],
+  [
+    82,
+    "LibreOffice Impress Presenter Console Features",
+    "LibreOffice Impress includes a built-in Presenter Console that enhances control during slide shows when using multiple displays. This tool provides a dedicated control interface on the presenter's screen while the audience sees only the full-screen prese",
+    false
+  ],
+  [
+    81,
+    "Link Spreadsheets and External Data in LibreOffice Calc",
+    "LibreOffice Calc allows users to connect multiple spreadsheets and dynamically import external information to keep data synchronized without manual copying. This guide explains how to reference cells from external workbooks, insert entire linked sheets,",
+    false
+  ],
+  [
+    80,
+    "Data Validation Rules in LibreOffice Calc",
+    "Data validation in LibreOffice Calc allows you to control the type and format of data entered into specific cells, ensuring data consistency and preventing user entry errors. By defining validation criteria, you can restrict inputs to certain numeric ran",
+    false
+  ],
+  [
+    79,
+    "Create Custom Functions in LibreOffice Calc",
+    "LibreOffice Calc allows users to extend its built-in calculation capabilities by building custom User-Defined Functions (UDFs). Using either LibreOffice Basic or Python, you can automate complex calculations, manipulate strings, and create reusable formu",
+    false
+  ],
+  [
+    78,
+    "LibreOffice Calc Dates, Times, and Leap Years Explained",
+    "LibreOffice Calc manages dates, times, and leap years through an underlying numeric serialization system combined with dynamic, locale-specific formatting rules. This guide explains how Calc internally stores temporal data as serial numbers, how it compu",
+    false
+  ],
+  [
+    77,
+    "Array Formulas and Matrix Operations in LibreOffice Calc",
+    "LibreOffice Calc provides robust built-in support for array formulas and matrix mathematics, allowing users to perform complex, multi-cell calculations simultaneously. This guide details how array formulas function in Calc, the standard methods for execu",
+    false
+  ],
+  [
+    76,
+    "How to Use Goal Seek in LibreOffice Calc",
+    "LibreOffice Calc features a built-in \"Goal Seek\" tool designed for what-if analysis, allowing you to determine the exact input value needed to achieve a specific target result in a formula. This step-by-step guide explains how to set up your spreadsheet,",
+    false
+  ],
+  [
+    75,
+    "Solve Linear Equations in LibreOffice Calc Solver",
+    "The LibreOffice Calc Solver is a powerful optimization tool designed to solve complex mathematical models, including systems of simultaneous linear equations and linear programming problems. By defining target variables, adjustable parameter cells, and m",
+    false
+  ],
+  [
+    74,
+    "How to Insert and Format Formulas in LibreOffice Writer",
+    "LibreOffice Writer includes a dedicated equation editor called LibreOffice Math that allows users to create, insert, and format mathematical formulas within text documents. This guide explains how to open the equation editor, construct formulas using vis",
+    false
+  ],
+  [
+    73,
+    "Hyphenation and Line Breaks in LibreOffice Writer",
+    "LibreOffice Writer provides several built-in tools to control how text flows across lines and pages. By configuring automatic hyphenation, inserting manual breaks and formatting marks, and adjusting paragraph text flow settings, you can eliminate awkward",
+    false
+  ],
+  [
+    72,
+    "How to Create a Newspaper Layout in LibreOffice",
+    "Creating a professional multi-column newspaper layout in LibreOffice Writer involves structuring your page with sections, formatting column widths, and incorporating standard journalistic styling elements like banner headlines and drop caps. By separatin",
+    false
+  ],
+  [
+    71,
+    "LibreOffice Writer Header Footer and Page Numbering Guide",
+    "LibreOffice Writer provides extensive customization tools for document headers, footers, and page numbers, allowing users to create professional layouts tailored to books, academic papers, and business reports. By utilizing page styles, dynamic fields, a",
+    false
+  ],
+  [
+    70,
+    "How to Link Zotero and Mendeley to LibreOffice Writer",
+    "Connecting a reference manager like Zotero or Mendeley to LibreOffice Writer allows you to insert in-text citations and automatically generate bibliographies directly within your documents. This guide outlines the straightforward steps required to instal",
+    false
+  ],
+  [
+    69,
+    "LibreOffice Writer Bibliography and Citation Tools",
+    "LibreOffice Writer provides a robust set of native features alongside third-party plugin integrations to help users create, manage, and format citations and bibliographies. Whether you are drafting a simple essay or a complex academic thesis, you can cho",
+    false
+  ],
+  [
+    68,
+    "How LibreOffice Manages Color Palettes and Spaces",
+    "LibreOffice provides a flexible system for managing colors across its entire office suite, allowing users to choose from standard presets, build custom palettes, and configure colors for both digital display and print output. This article details how Lib",
+    false
+  ],
+  [
+    67,
+    "Why LibreOffice Forked from OpenOffice in 2010",
+    "In September 2010, key community members of the OpenOffice.org project announced a fork to create LibreOffice, a decision driven primarily by deep concerns over the future of the software following Oracle Corporation’s acquisition of Sun Microsystems.",
+    false
+  ],
+  [
+    66,
+    "LibreOffice vs OpenOffice: Development Velocity",
+    "This article compares the development velocity of LibreOffice and Apache OpenOffice by analyzing commit frequency, release schedules, feature implementation, and developer community activity. While both office suites share a common heritage in the origin",
+    false
+  ],
+  [
+    65,
+    "LibreOffice MSI Properties for Silent Deployment",
+    "This guide provides a comprehensive overview of the Microsoft Windows Installer (MSI) properties and command-line switches used for silently deploying LibreOffice across enterprise environments. System administrators can leverage these standard and vendo",
+    false
+  ],
+  [
+    64,
+    "Deploying LibreOffice via Group Policy (GPO)",
+    "LibreOffice can be reliably deployed, updated, and configured across Windows-based enterprise networks using Active Directory Group Policy Objects (GPO). By utilizing official Microsoft Installer (MSI) packages alongside dedicated Administrative Template",
+    false
+  ],
+  [
+    63,
+    "How Collabora Online Relates to LibreOffice Core",
+    "Collabora Online is an enterprise-grade, cloud-based office suite built directly on top of the LibreOffice core engine. This article explains the technical and structural relationship between the two projects, detailing how Collabora Online utilizes Libr",
+    false
+  ],
+  [
+    62,
+    "What Is LibreOffice Online and Cloud Storage?",
+    "LibreOffice Online is a powerful, open-source office suite that brings the capabilities of desktop LibreOffice to web browsers for collaborative editing. Unlike traditional desktop software, it operates as a server-side service designed to integrate dire",
+    false
+  ],
+  [
+    61,
+    "LibreOffice Advisory Board: Structure and Funding",
+    "The Advisory Board of LibreOffice, operating under The Document Foundation (TDF), serves as a strategic consulting body that connects external commercial, governmental, and non-profit entities with the project's leadership. This article explains how the",
+    false
+  ],
+  [
+    60,
+    "The Document Foundation Role in LibreOffice Governance",
+    "The Document Foundation (TDF) acts as the independent, non-profit steward of LibreOffice, ensuring the office suite remains free, open-source, and community-driven. Through a vendor-neutral governance model, TDF manages the legal, financial, and organiza",
+    false
+  ],
+  [
+    59,
+    "How to Translate and Localize LibreOffice",
+    "LibreOffice is used by millions worldwide, and its availability in over a hundred languages is made possible through dedicated volunteer contributors. This article outlines the step-by-step process for getting involved in the LibreOffice localization (l1",
+    false
+  ],
+  [
+    58,
+    "LibreOffice CI and Automated Testing Systems",
+    "LibreOffice relies on a robust, multi-layered continuous integration (CI) and automated testing infrastructure to maintain code quality, ensure cross-platform compatibility, and prevent regressions across millions of lines of code. By combining standard",
+    false
+  ],
+  [
+    57,
+    "Compile LibreOffice from Source on Ubuntu",
+    "This guide provides a straightforward, step-by-step walkthrough for compiling LibreOffice from its source code on an Ubuntu system. You will learn how to prepare your system, install the necessary dependencies, clone the official Git repository, configur",
+    false
+  ],
+  [
+    56,
+    "What Is LibreOffice UNO Architecture?",
+    "Universal Network Objects (UNO) is the underlying component model and interoperability architecture that powers the LibreOffice office suite. This article explores how UNO functions, detailing its core components, language-independent interface definitio",
+    false
+  ],
+  [
+    55,
+    "Manipulating LibreOffice Documents with Python",
+    "Using Python to manipulate LibreOffice documents enables automated document generation, batch processing, data extraction, and formatting across LibreOffice Writer, Calc, and Impress. This automation is powered by the Python-UNO (PyUNO) bridge, a library",
+    false
+  ],
+  [
+    54,
+    "LibreOffice Basic and the UNO API Explained",
+    "LibreOffice Basic is the default macro scripting language embedded within the LibreOffice productivity suite, designed to automate workflows and extend document functionality. To manipulate document elements like spreadsheets, text documents, and present",
+    false
+  ],
+  [
+    53,
+    "Automate Tasks with LibreOffice Macro Recorder",
+    "The LibreOffice macro recorder allows users to automate repetitive actions—such as formatting tables, inserting boilerplate text, and cleaning data—by recording user interactions and replaying them on demand. This guide explains how to enable the bui",
+    false
+  ],
+  [
+    52,
+    "How to Create Custom Templates in LibreOffice",
+    "Creating custom document templates in LibreOffice allows you to save predefined layouts, fonts, styles, and boilerplate content for future use, eliminating the need to reformat new documents repeatedly. This guide outlines the exact steps to design, save",
+    false
+  ],
+  [
+    51,
+    "How LibreOffice Handles BiDi and RTL Text Rendering",
+    "LibreOffice provides full native support for bidirectional (BiDi) and right-to-left (RTL) scripts such as Arabic, Hebrew, Urdu, and Persian. By leveraging modern text-shaping engines, standard Unicode algorithms, and dedicated Complex Text Layout (CTL) s",
+    false
+  ],
+  [
+    50,
+    "LibreOffice Spell and Grammar Checking Engines",
+    "LibreOffice relies on a modular architecture of open-source linguistic engines to provide text proofing across hundreds of languages. The primary engines handling proofing tasks include Hunspell for spell checking, Lightproof and LanguageTool for grammar",
+    false
+  ],
+  [
+    49,
+    "Change Default Language and Locale in LibreOffice",
+    "This guide explains how to configure the default language, user interface language, and locale settings across all LibreOffice applications. Adjusting these settings ensures that spell checking, date formats, measurement units, and currency defaults auto",
+    false
+  ],
+  [
+    48,
+    "Font Management and Embedding in LibreOffice",
+    "LibreOffice provides built-in tools for managing typography, ensuring document portability, and handling missing typefaces across different operating systems. This guide covers the primary font features available in the suite, including direct document f",
+    false
+  ],
+  [
+    47,
+    "Write LaTeX Math Formulas in LibreOffice",
+    "Creating mathematical equations in LibreOffice can be achieved either by using its built-in Math syntax, which closely resembles LaTeX, or by installing the TexMaths extension to compile true LaTeX code directly into your documents. This guide outlines h",
+    false
+  ],
+  [
+    46,
+    "LibreOffice Base Built-In Forms and Reporting Tools",
+    "LibreOffice Base provides a comprehensive set of built-in forms and reporting tools designed to manage data entry, user interaction, and data analysis. These tools include automated wizards for rapid development, visual design environments for custom int",
+    false
+  ],
+  [
+    45,
+    "LibreOffice Draw Layers and Technical Diagramming",
+    "LibreOffice Draw is a versatile, open-source vector graphics editor capable of producing precise technical diagrams and managing complex layouts through its native layer system. This article explores how LibreOffice Draw utilizes default and custom layer",
+    false
+  ],
+  [
+    44,
+    "Export LibreOffice Impress to HTML and SVG",
+    "LibreOffice Impress provides built-in support for exporting presentations directly into both HTML and SVG formats without requiring external plugins or third-party tools. This guide details how to export your slide decks into web-ready HTML documents and",
+    false
+  ],
+  [
+    43,
+    "Master Slides and Templates in LibreOffice Impress",
+    "LibreOffice Impress manages presentation design consistency and reusability through two core features: Master Slides and Presentation Templates. Master slides define the universal layout, background, fonts, and object positioning for slides within a sing",
+    false
+  ],
+  [
+    42,
+    "LibreOffice Calc Chart Types and Visualizations",
+    "LibreOffice Calc offers a versatile suite of data visualization tools, ranging from traditional statistical charts to dynamic in-cell indicators. Users can transform raw spreadsheet data into visual representations using the built-in Chart Wizard, custom",
+    false
+  ],
+  [
+    41,
+    "How to Use Conditional Formatting in LibreOffice Calc",
+    "Conditional formatting in LibreOffice Calc allows you to dynamically change the appearance of cells based on specific criteria, such as values, text, or custom formulas. This guide provides a step-by-step walkthrough on how to set up conditional rules, a",
+    false
+  ],
+  [
+    40,
+    "LibreOffice Calc Shortcuts for Faster Navigation",
+    "Mastering keyboard shortcuts in LibreOffice Calc eliminates the need to constantly switch between your keyboard and mouse, dramatically improving your data entry and analysis speed. This guide covers the essential shortcuts for jumping across large datas",
+    false
+  ],
+  [
+    39,
+    "Create Master Documents in LibreOffice Writer",
+    "Master documents in LibreOffice Writer allow users to manage long, complex projects—such as books, dissertations, and multi-chapter reports—by combining multiple individual files into a single structured container. This guide explains the core concep",
+    false
+  ],
+  [
+    38,
+    "LibreOffice Accessibility Tools and Screen Readers",
+    "LibreOffice includes a comprehensive suite of accessibility features and assistive technology integrations designed to ensure all users can create, edit, and read documents effectively. This guide covers the software's screen reader compatibility across",
+    false
+  ],
+  [
+    37,
+    "How to Password Protect LibreOffice Documents",
+    "LibreOffice provides built-in tools to secure sensitive data by applying strong AES encryption to your files. This guide explains how to password-protect and encrypt documents, spreadsheets, and presentations in LibreOffice Writer, Calc, and Impress, inc",
+    false
+  ],
+  [
+    36,
+    "How LibreOffice Protects Users from Malicious Macros",
+    "LibreOffice employs a robust, multi-layered security architecture designed to prevent malicious macros from executing harmful code on a user's system. This security model relies on configurable security levels, digital signatures, trusted source designat",
+    false
+  ],
+  [
+    35,
+    "LibreOffice Release Cycle: Fresh vs Still Explained",
+    "LibreOffice operates on a structured, time-based release cycle that maintains two active streams simultaneously: the Fresh branch and the Still branch. The Fresh stream offers the newest features and technology improvements tailored for power users and e",
+    false
+  ],
+  [
+    34,
+    "LibreOffice Community vs Enterprise: Key Differences",
+    "LibreOffice offers two distinct pathways for its free, open-source office suite: LibreOffice Community and LibreOffice Enterprise. While both versions share the same underlying codebase and core productivity applications—such as Writer, Calc, and Impre",
+    false
+  ],
+  [
+    33,
+    "How to Install Extensions and Dictionaries in LibreOffice",
+    "LibreOffice supports a wide range of third-party add-ons to boost productivity, customize formatting, and expand language support. This guide provides a straightforward, step-by-step walkthrough on how to download and install both third-party extensions",
+    false
+  ],
+  [
+    32,
+    "LibreOffice Extensions: Add New Capabilities",
+    "LibreOffice features a robust extension ecosystem that allows users to expand the functionality of its core applications, including Writer, Calc, Impress, and Draw. This ecosystem encompasses an official online repository, a built-in Extension Manager, a",
+    false
+  ],
+  [
+    31,
+    "Bulk Convert Documents Using LibreOffice CLI",
+    "Converting document formats in bulk is a common requirement for automated workflows, digital archiving, and administrative management. LibreOffice offers a headless command-line interface (CLI) that enables batch conversions of various document formats",
+    false
+  ],
+  [
+    30,
+    "How to Run LibreOffice Headless via Command Line",
+    "Running LibreOffice in headless mode allows you to execute office suite operations—such as converting documents, batch processing files, and printing—directly from the terminal or automated scripts without launching the graphical user interface (GUI)",
+    false
+  ],
+  [
+    29,
+    "Hardware Requirements to Run LibreOffice",
+    "LibreOffice is a lightweight, open-source office productivity suite compatible with Windows, macOS, and Linux operating systems. While it can run on older or resource-constrained hardware, achieving smooth performance—especially when working with large",
+    false
+  ],
+  [
+    28,
+    "LibreOffice OpenDocument Format ODF Support",
+    "LibreOffice offers the most comprehensive and native support for the OpenDocument Format (ODF) specifications available in modern office software. As an open-source office suite governed by The Document Foundation, LibreOffice utilizes ODF as its default",
+    false
+  ],
+  [
+    27,
+    "What File Format Does LibreOffice Use?",
+    "LibreOffice uses the OpenDocument Format (ODF) as its default standard for saving all types of documents. ODF is an open, XML-based file format standard maintained by the Organization for the Advancement of Structured Information Standards (OASIS) and of",
+    false
+  ],
+  [
+    26,
+    "LibreOffice Track Changes and Collaboration Guide",
+    "LibreOffice Writer provides a robust, built-in system for tracking changes, adding comments, and managing collaborative document editing. This article outlines how to enable change tracking, manage visual edits, navigate comments, and merge or compare do",
+    false
+  ],
+  [
+    25,
+    "Digital Signature Features in LibreOffice",
+    "LibreOffice provides a comprehensive suite of digital signature features designed to ensure document authenticity, data integrity, and non-repudiation across its applications. This guide outlines the key capabilities available for signing standard OpenDo",
+    false
+  ],
+  [
+    24,
+    "How to Export LibreOffice Documents to PDF",
+    "Exporting documents directly to PDF format in LibreOffice is a straightforward process that does not require any third-party plugins or external software. Whether you are using Writer, Calc, or Impress, LibreOffice provides a quick one-click export butto",
+    false
+  ],
+  [
+    23,
+    "LibreOffice Math: How to Use Scientific Notation",
+    "LibreOffice Math is a dedicated equation editor designed to format and render complex mathematical and scientific expressions within the LibreOffice suite. This guide covers the core capabilities of LibreOffice Math and explains the exact syntax required",
+    false
+  ],
+  [
+    22,
+    "How to Connect LibreOffice Base to MySQL or PostgreSQL",
+    "LibreOffice Base functions effectively as a graphical frontend for external database management systems like MySQL and PostgreSQL. Connecting Base to an external server allows you to design forms, run queries, and generate reports using a familiar deskto",
+    false
+  ],
+  [
+    21,
+    "What Is LibreOffice Base and Supported Databases",
+    "LibreOffice Base is a fully featured, open-source desktop database management tool that allows users to create, configure, and manage databases through an intuitive graphical user interface. This article explains the core functionality of LibreOffice Bas",
+    false
+  ],
+  [
+    20,
+    "How to Edit PDF Documents with LibreOffice Draw",
+    "LibreOffice Draw is a powerful, free, open-source tool that lets you modify the content, layout, and structure of existing PDF documents without requiring dedicated, paid software. This step-by-step guide explains how to import a PDF into LibreOffice Dra",
+    false
+  ],
+  [
+    19,
+    "LibreOffice Draw for Vector Graphics Editing",
+    "LibreOffice Draw serves as a versatile, open-source vector graphics editor designed to handle technical diagrams, layout designs, and basic illustrations within the LibreOffice productivity suite. Unlike raster image editors that manipulate pixels, Draw",
+    false
+  ],
+  [
+    18,
+    "Animations and Slide Transitions in LibreOffice Impress",
+    "LibreOffice Impress provides a comprehensive set of visual effects to create engaging, dynamic presentations. Users can apply slide transitions to control how slides move from one to the next, as well as object animations to animate individual text boxes",
+    false
+  ],
+  [
+    17,
+    "How to Insert Multimedia in LibreOffice Impress",
+    "Adding multimedia elements such as images, audio, and video to a LibreOffice Impress presentation enhances visual engagement and dynamic delivery. This guide provides straightforward instructions on how to insert different media types into your slides us",
+    false
+  ],
+  [
+    16,
+    "What Is LibreOffice Impress and How to Use It",
+    "LibreOffice Impress is a free, open-source presentation tool included in the LibreOffice productivity suite, serving as a popular alternative to Microsoft PowerPoint. This article explains what LibreOffice Impress is, explores its core features, and prov",
+    false
+  ],
+  [
+    15,
+    "How to Create Pivot Tables in LibreOffice Calc",
+    "Pivot tables in LibreOffice Calc allow you to summarize, analyze, and explore large datasets interactively without altering your original data. This guide provides a direct, step-by-step walkthrough for preparing your dataset, generating a pivot table, o",
+    false
+  ],
+  [
+    14,
+    "LibreOffice Calc vs Microsoft Excel: Key Differences",
+    "LibreOffice Calc and Microsoft Excel are two of the most widely used spreadsheet programs today, but they cater to different user needs and budgets. While Excel is a commercial powerhouse known for advanced data processing and cloud collaboration, Calc i",
+    false
+  ],
+  [
+    13,
+    "How to Write Complex Formulas in LibreOffice Calc",
+    "LibreOffice Calc allows users to perform sophisticated mathematical, statistical, and engineering calculations by combining built-in functions, array operations, and nested logic. This guide covers how to construct complex formulas using standard arithme",
+    false
+  ],
+  [
+    12,
+    "What Is LibreOffice Calc and What Does It Do?",
+    "LibreOffice Calc is the free and open-source spreadsheet component of the LibreOffice productivity suite, serving as a direct, full-featured alternative to applications like Microsoft Excel and Google Sheets. This article explains the primary role of Cal",
+    false
+  ],
+  [
+    11,
+    "Mail Merge in LibreOffice Writer with a Database",
+    "Mail merge in LibreOffice Writer allows you to quickly create personalized documents, such as letters, labels, and emails, by automatically pulling recipient information from a connected database or spreadsheet. This guide provides a step-by-step walkthr",
+    false
+  ],
+  [
+    10,
+    "How to Create a Table of Contents in LibreOffice Writer",
+    "Creating an automated table of contents in LibreOffice Writer simplifies document navigation and ensures page numbers remain accurate throughout edits. This guide outlines the straightforward process of applying heading styles, inserting the table of con",
+    false
+  ],
+  [
+    9,
+    "LibreOffice Writer vs Microsoft Word Comparison",
+    "When choosing a primary word processor, the decision often comes down to LibreOffice Writer and Microsoft Word. This article breaks down how the two compare in core functionality, user interface design, file format compatibility, real-time collaboration,",
+    false
+  ],
+  [
+    8,
+    "LibreOffice Open Source License Guide",
+    "LibreOffice is primarily governed by the Mozilla Public License version 2.0 (MPL-2.0). This article explains the core principles of the MPL-2.0, detailing the rights, permissions, and obligations for individuals, organizations, and developers looking to",
+    false
+  ],
+  [
+    7,
+    "How to Customize UI and Toolbars in LibreOffice",
+    "LibreOffice provides a flexible workspace that allows users to tailor the visual environment and tool access to match their personal workflow. This guide covers how to switch between different user interface layouts—such as the modern tabbed ribbon or",
+    false
+  ],
+  [
+    6,
+    "Supported Languages for LibreOffice Macros",
+    "LibreOffice offers robust automation capabilities through its built-in macro engine, allowing users to automate repetitive tasks and extend application functionality. The office suite natively supports four primary scripting languages: LibreOffice Basic,",
+    false
+  ],
+  [
+    5,
+    "How to Install LibreOffice on Linux",
+    "This guide provides straightforward instructions for installing the LibreOffice productivity suite on various Linux distributions. Whether you use Debian, Ubuntu, Fedora, Arch Linux, or prefer universal package managers like Snap and Flatpak, this articl",
+    false
+  ],
+  [
+    4,
+    "Primary Applications in LibreOffice Suite",
+    "LibreOffice is a powerful, free, and open-source office productivity suite used by millions worldwide. This guide provides an overview of the six primary applications included in the standard LibreOffice installation: Writer, Calc, Impress, Draw, Base, a",
+    false
+  ],
+  [
+    3,
+    "LibreOffice Microsoft Office Compatibility Explained",
+    "LibreOffice maintains compatibility with Microsoft Office file formats through a combination of reverse engineering, dedicated import and export filters, font metric substitution, and continuous automated testing. Because Microsoft Office formats—both",
+    false
+  ],
+  [
+    2,
+    "Who Manages and Oversees LibreOffice?",
+    "LibreOffice is managed and overseen by The Document Foundation (TDF), an independent, non-profit organization based in Germany. This article outlines the role of The Document Foundation, its governance framework, and how it coordinates global community a",
+    false
+  ],
+  [
+    1,
+    "Origin and History of LibreOffice",
+    "The LibreOffice project emerged as an independent, community-driven fork of OpenOffice.org following corporate shifts that threatened the suite's open-source future. Tracing its lineage back to the 1980s software StarOffice, LibreOffice was formally esta",
+    false
+  ]
+]
